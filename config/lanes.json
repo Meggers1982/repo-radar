@@ -1,0 +1,406 @@
+{
+  "_comment": "The ten-lane interest map from 'GitHub Repo Discovery Strategy'. Edit this file, commit, and the next run picks it up. Date macros {d-N} expand to today minus N days, so queries never go stale.",
+  "settings": {
+    "results_per_query": 30,
+    "max_candidates_per_lane": 6,
+    "max_candidates_total": 24,
+    "min_score": 1.5,
+    "min_age_days": 14,
+    "velocity_cap": 4.0,
+    "_guard_note": "min_age_days keeps day-old repos out until they have a little history; velocity_cap stops one implausible star spike from owning every run.",
+    "guaranteed_per_lane": 2,
+    "_min_score_note": "Raised from 0.25 after the first live run let a cloud-certification study repo into lane 4 purely to satisfy the per-lane coverage guarantee. A guaranteed slot should stay empty rather than be filled with noise."
+  },
+  "velocity_query": {
+    "_comment": "Lane-agnostic. Young and already popular: catches repos that will reach a lane next month.",
+    "query": "stars:>500 created:>{d-60} archived:false",
+    "enabled": true
+  },
+  "crossovers": {
+    "_comment": "Multiplier when a repo matches both lanes. 1+9 is the rarest skill overlap; 1+10 is the most immediately practical.",
+    "1+9": 1.6,
+    "1+10": 1.4,
+    "8+9": 1.3,
+    "1+2": 1.3,
+    "8+10": 1.25
+  },
+  "global_excludes": {
+    "_comment": "Hard excludes, not soft penalties. These are the repos that pollute topic searches: interview prep, roadmaps, course lists, cheat sheets. Learned from the single-region penalty in research-digest-dashboard, where a soft score never actually kept junk out.",
+    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|\u5b66\u4e60\u8def\u7ebf|\u9762\u8bd5|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b)"
+  },
+  "lanes": [
+    {
+      "id": 1,
+      "key": "agents",
+      "name": "Agent harnesses and agent design",
+      "cadence": "weekly",
+      "weight": 1.3,
+      "star_weight": 1.0,
+      "freshness_floor": 0.15,
+      "queries": [
+        "topic:claude-code stars:>100 pushed:>{d-60} archived:false",
+        "topic:mcp stars:>200 pushed:>{d-30} archived:false",
+        "topic:ai-agents stars:>300 pushed:>{d-45} archived:false"
+      ],
+      "topics": [
+        "ai-agents",
+        "agentic-workflow",
+        "claude-code",
+        "mcp",
+        "agent-framework",
+        "multi-agent",
+        "llm-agent",
+        "agent",
+        "agentic-ai"
+      ],
+      "keywords": [
+        "agent harness",
+        "subagent",
+        "tool calling",
+        "mcp server",
+        "claude code skill",
+        "agent framework",
+        "agentic"
+      ],
+      "orgs": [
+        "anthropics",
+        "browser-use",
+        "NVIDIA",
+        "modal-labs"
+      ]
+    },
+    {
+      "id": 2,
+      "key": "content-seo",
+      "name": "Content and SEO tooling",
+      "cadence": "weekly",
+      "weight": 1.2,
+      "star_weight": 1.0,
+      "freshness_floor": 0.15,
+      "queries": [
+        "topic:seo topic:ai stars:>50 pushed:>{d-90} archived:false",
+        "\"keyword clustering\" in:readme stars:>50 pushed:>{d-90} archived:false",
+        "topic:seo stars:>300 pushed:>{d-60} archived:false"
+      ],
+      "topics": [
+        "seo",
+        "keyword-research",
+        "serp",
+        "content-generation",
+        "web-scraping",
+        "scraper"
+      ],
+      "keywords": [
+        "keyword",
+        "serp",
+        "search intent",
+        "content brief",
+        "internal linking",
+        "content audit"
+      ],
+      "orgs": [
+        "firecrawl"
+      ]
+    },
+    {
+      "id": 3,
+      "key": "digests",
+      "name": "Research and digest pipelines",
+      "cadence": "monthly",
+      "weight": 1.1,
+      "star_weight": 1.0,
+      "freshness_floor": 0.2,
+      "queries": [
+        "\"research digest\" in:readme stars:>100 pushed:>{d-120} archived:false",
+        "topic:news-aggregator stars:>200 pushed:>{d-120} archived:false",
+        "topic:research-assistant stars:>200 pushed:>{d-90} archived:false"
+      ],
+      "topics": [
+        "rss",
+        "news-aggregator",
+        "research-assistant",
+        "information-retrieval",
+        "newsletter",
+        "feed"
+      ],
+      "keywords": [
+        "digest",
+        "aggregator",
+        "relevance scoring",
+        "deduplicat",
+        "pubmed",
+        "arxiv"
+      ],
+      "orgs": []
+    },
+    {
+      "id": 4,
+      "key": "web",
+      "name": "Web builds: Next.js, Sanity, Vercel",
+      "cadence": "monthly",
+      "weight": 1.0,
+      "star_weight": 1.0,
+      "freshness_floor": 0.15,
+      "queries": [
+        "topic:sanity topic:nextjs stars:>50 pushed:>{d-120} archived:false",
+        "topic:nextjs topic:cms stars:>200 pushed:>{d-90} archived:false",
+        "topic:headless-cms stars:>300 pushed:>{d-90} archived:false"
+      ],
+      "topics": [
+        "nextjs",
+        "sanity",
+        "headless-cms",
+        "vercel",
+        "app-router",
+        "cms",
+        "react"
+      ],
+      "keywords": [
+        "sanity studio",
+        "portable text",
+        "next.js",
+        "app router",
+        "starter template"
+      ],
+      "orgs": [
+        "sanity-io",
+        "vercel"
+      ]
+    },
+    {
+      "id": 5,
+      "key": "automation",
+      "name": "Personal and business automation",
+      "cadence": "weekly",
+      "weight": 1.2,
+      "star_weight": 1.0,
+      "freshness_floor": 0.15,
+      "queries": [
+        "topic:automation topic:llm stars:>200 pushed:>{d-60} archived:false",
+        "topic:google-apps-script stars:>100 pushed:>{d-240} archived:false",
+        "topic:workflow-automation stars:>500 pushed:>{d-60} archived:false"
+      ],
+      "topics": [
+        "automation",
+        "google-apps-script",
+        "workflow-automation",
+        "self-hosted",
+        "cron",
+        "zapier"
+      ],
+      "keywords": [
+        "gmail",
+        "google drive",
+        "todoist",
+        "asana",
+        "scheduled",
+        "workflow automation"
+      ],
+      "orgs": []
+    },
+    {
+      "id": 6,
+      "key": "writing",
+      "name": "Writing, editing, and publishing workflow",
+      "cadence": "monthly",
+      "weight": 1.1,
+      "star_weight": 1.0,
+      "freshness_floor": 0.2,
+      "queries": [
+        "\"fact check\" in:readme topic:llm stars:>100 pushed:>{d-120} archived:false",
+        "topic:writing topic:ai stars:>100 pushed:>{d-120} archived:false",
+        "topic:markdown topic:docx stars:>50 pushed:>{d-240} archived:false"
+      ],
+      "topics": [
+        "writing",
+        "markdown",
+        "pandoc",
+        "fact-checking",
+        "editing",
+        "docx",
+        "citation"
+      ],
+      "keywords": [
+        "fact check",
+        "style guide",
+        "editorial",
+        "citation",
+        "docx",
+        "proofread",
+        "ai slop"
+      ],
+      "orgs": []
+    },
+    {
+      "id": 7,
+      "key": "local",
+      "name": "Local and place-based research",
+      "cadence": "monthly",
+      "weight": 1.0,
+      "star_weight": 1.0,
+      "freshness_floor": 0.25,
+      "queries": [
+        "topic:openstreetmap topic:python stars:>200 pushed:>{d-120} archived:false",
+        "topic:geospatial stars:>300 pushed:>{d-90} archived:false",
+        "\"place data\" in:readme stars:>100 pushed:>{d-180} archived:false"
+      ],
+      "topics": [
+        "geospatial",
+        "places-api",
+        "local-search",
+        "osm",
+        "openstreetmap",
+        "data-enrichment",
+        "geocoding"
+      ],
+      "keywords": [
+        "geocod",
+        "places api",
+        "point of interest",
+        "local search",
+        "deduplicat"
+      ],
+      "orgs": []
+    },
+    {
+      "id": 8,
+      "key": "journalism",
+      "name": "Journalism and reporting workflow",
+      "cadence": "monthly",
+      "weight": 1.25,
+      "star_weight": 1.0,
+      "freshness_floor": 0.4,
+      "queries": [
+        "topic:journalism stars:>100 pushed:>{d-300} archived:false",
+        "topic:journalism topic:ai pushed:>{d-300} archived:false",
+        "topic:osint stars:>200 pushed:>{d-120} archived:false",
+        "org:themarshallproject pushed:>{d-365}",
+        "org:MuckRock pushed:>{d-365}",
+        "org:freedomofpress pushed:>{d-180}"
+      ],
+      "topics": [
+        "journalism",
+        "news",
+        "foia",
+        "web-archiving",
+        "newsroom",
+        "media"
+      ],
+      "keywords": [
+        "newsroom",
+        "journalist",
+        "reporting",
+        "foia",
+        "public records",
+        "transcription",
+        "source protection",
+        "osint",
+        "investigation"
+      ],
+      "orgs": [
+        "themarshallproject",
+        "MuckRock",
+        "freedomofpress",
+        "palewire",
+        "propublica",
+        "datadesk"
+      ]
+    },
+    {
+      "id": 9,
+      "key": "data-journalism",
+      "name": "Data journalism: analysis, documents, visualization",
+      "cadence": "monthly",
+      "weight": 1.3,
+      "star_weight": 1.0,
+      "freshness_floor": 0.7,
+      "_freshness_note": "Floor is high on purpose. Data journalism tools are often finished rather than abandoned, so age is a weak negative signal here.",
+      "queries": [
+        "topic:data-journalism stars:>50 pushed:>{d-300} archived:false",
+        "\"data journalism\" in:readme stars:>100 pushed:>{d-300} archived:false",
+        "org:propublica pushed:>{d-240}",
+        "org:datadesk pushed:>{d-365} archived:false",
+        "topic:open-data stars:>500 pushed:>{d-120} archived:false"
+      ],
+      "topics": [
+        "data-journalism",
+        "data-visualization",
+        "open-data",
+        "civic-tech",
+        "dataviz",
+        "csv",
+        "sqlite"
+      ],
+      "keywords": [
+        "data journalism",
+        "datasette",
+        "openrefine",
+        "pdf table",
+        "document analysis",
+        "census",
+        "scrollytelling",
+        "public data"
+      ],
+      "orgs": [
+        "propublica",
+        "datadesk",
+        "alephdata",
+        "opensanctions",
+        "simonw",
+        "wireservice",
+        "jsvine",
+        "observablehq",
+        "infoculture"
+      ]
+    },
+    {
+      "id": 10,
+      "key": "video",
+      "name": "AI video and media production",
+      "cadence": "monthly",
+      "weight": 1.0,
+      "star_weight": 0.35,
+      "_star_weight_note": "Deflated on purpose. Star counts in this lane are inflated by a general audience chasing volume output, so raw popularity is close to meaningless as a quality signal.",
+      "freshness_floor": 0.15,
+      "queries": [
+        "topic:video topic:ai stars:>1000 pushed:>{d-90} archived:false",
+        "topic:video-editing stars:>500 pushed:>{d-120} archived:false",
+        "topic:text-to-speech stars:>2000 pushed:>{d-90} archived:false",
+        "topic:video-generation stars:>1000 pushed:>{d-90} archived:false"
+      ],
+      "topics": [
+        "video",
+        "video-editing",
+        "video-generation",
+        "video-production",
+        "ffmpeg",
+        "remotion",
+        "video-processing",
+        "subtitles"
+      ],
+      "keywords": [
+        "render video",
+        "programmatic video",
+        "subtitle",
+        "transcription",
+        "timestamps",
+        "diarization",
+        "motion graphics",
+        "text to speech",
+        "text-to-speech",
+        "speech recognition",
+        "voice clon"
+      ],
+      "orgs": [
+        "remotion-dev",
+        "browser-use",
+        "openai",
+        "m-bain"
+      ],
+      "excludes": {
+        "_comment": "Hard exclude, per the doc: fail anything whose pitch is volume output rather than control over your own material.",
+        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|\u77ed\u89c6\u9891|\u6279\u91cf|\u4e00\u952e\u751f\u6210|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
+      }
+    }
+  ]
+}

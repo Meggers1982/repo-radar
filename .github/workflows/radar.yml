@@ -1,0 +1,59 @@
+name: repo-radar
+
+on:
+  schedule:
+    # Weekly skim, Mondays 13:00 UTC (8am Central in summer, 7am in winter —
+    # GitHub cron is UTC and does not follow DST). Fast lanes only: 1, 2, 5.
+    - cron: "0 13 * * 1"
+    # Monthly install session, the 1st at 13:00 UTC. All ten lanes.
+    - cron: "0 13 1 * *"
+
+  workflow_dispatch:
+    inputs:
+      cadence:
+        description: "weekly (fast lanes) | monthly (all lanes) | all"
+        required: false
+        default: "weekly"
+        type: choice
+        options: [weekly, monthly, all]
+
+jobs:
+  radar:
+    name: Run lane queries
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Pick cadence
+        id: cadence
+        run: |
+          if [ -n "${{ inputs.cadence }}" ]; then
+            echo "value=${{ inputs.cadence }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 13 1 * *" ]; then
+            echo "value=monthly" >> "$GITHUB_OUTPUT"
+          else
+            echo "value=weekly" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run radar
+        env:
+          # The token Actions provides automatically. No secrets to configure,
+          # and nothing here can be blocked by an API balance.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/radar.py --cadence "${{ steps.cadence.outputs.value }}"
+
+      - name: Commit results
+        run: |
+          git config user.name  "repo-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add outputs/ ledger/ docs/
+          git diff --cached --quiet || git commit -m "radar: $(date -u +%Y-%m-%d) ${{ steps.cadence.outputs.value }}"
+          git push

@@ -1,0 +1,118 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>repo-radar</title>
+<style>
+  :root {
+    --bg:#fbfaf8; --panel:#fff; --ink:#1c1b19; --muted:#6b665e; --line:#e5e1da;
+    --accent:#8a5a2b; --chip:#f0ece4; --good:#3d6b45;
+  }
+  :root:not([data-theme=light]) { color-scheme: light dark; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme=light]) {
+    --bg:#161513; --panel:#1e1d1a; --ink:#eae7e1; --muted:#9c968b; --line:#312f2b;
+    --accent:#d7a06a; --chip:#2a2825; --good:#8fbf9a;
+  }}
+  :root[data-theme=dark] {
+    --bg:#161513; --panel:#1e1d1a; --ink:#eae7e1; --muted:#9c968b; --line:#312f2b;
+    --accent:#d7a06a; --chip:#2a2825; --good:#8fbf9a;
+  }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  header { padding:28px 24px 18px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:20px; letter-spacing:-.01em; }
+  .sub { color:var(--muted); font-size:13px; margin-top:5px; }
+  main { max-width:920px; margin:0 auto; padding:22px 24px 70px; }
+  .runs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
+  .runs button { font:inherit; font-size:13px; padding:6px 12px; border-radius:999px;
+    border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
+  .runs button[aria-pressed=true] { background:var(--accent); border-color:var(--accent); color:var(--bg); }
+  .lane { margin:26px 0 10px; font-size:12px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:7px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:15px 17px; margin-bottom:11px; }
+  .card h3 { margin:0 0 5px; font-size:15px; }
+  .card h3 a { color:var(--ink); text-decoration:none; }
+  .card h3 a:hover { color:var(--accent); text-decoration:underline; }
+  .desc { color:var(--ink); font-size:14px; margin:0 0 9px; }
+  .meta { color:var(--muted); font-size:12.5px; font-variant-numeric:tabular-nums; }
+  .chips { margin:8px 0 0; display:flex; gap:6px; flex-wrap:wrap; }
+  .chip { font-size:11px; padding:2.5px 8px; border-radius:999px; background:var(--chip); color:var(--muted); }
+  .chip.cross { background:var(--accent); color:var(--bg); font-weight:600; }
+  .chip.org { color:var(--good); }
+  .score { float:right; font-variant-numeric:tabular-nums; color:var(--muted); font-size:12.5px; }
+  .empty { color:var(--muted); padding:40px 0; }
+  footer { color:var(--muted); font-size:12.5px; border-top:1px solid var(--line);
+    padding:16px 24px; max-width:920px; margin:0 auto; }
+</style>
+
+<header>
+  <h1>repo-radar</h1>
+  <div class="sub" id="sub">Loading…</div>
+</header>
+
+<main>
+  <div class="runs" id="runs"></div>
+  <div id="body"><p class="empty">Loading…</p></div>
+</main>
+
+<footer>
+  Gate 1: one lane or two · commit inside 90 days (lane 9 exempt) · a license ·
+  a README that shows output · a named maintainer · answered issues · no paywall
+  before evaluation. Two failures, close the tab. Star everything you screen.
+</footer>
+
+<script>
+const runsEl = document.getElementById('runs');
+const bodyEl = document.getElementById('body');
+const subEl  = document.getElementById('sub');
+let data = null;
+
+fetch('data/index.json').then(r => r.json()).then(d => {
+  data = d;
+  if (!d.runs || !d.runs.length) { bodyEl.innerHTML = '<p class="empty">No runs yet.</p>'; return; }
+  subEl.textContent = `${d.runs.length} run${d.runs.length > 1 ? 's' : ''} · updated ${d.updated}`;
+  d.runs.forEach((run, i) => {
+    const b = document.createElement('button');
+    b.textContent = `${run.date} · ${run.cadence}`;
+    b.setAttribute('aria-pressed', i === 0);
+    b.onclick = () => {
+      [...runsEl.children].forEach(c => c.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', 'true');
+      render(run);
+    };
+    runsEl.appendChild(b);
+  });
+  render(d.runs[0]);
+}).catch(() => { bodyEl.innerHTML = '<p class="empty">Could not load data/index.json.</p>'; });
+
+function esc(s) { return (s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])); }
+
+function render(run) {
+  if (!run.picks || !run.picks.length) { bodyEl.innerHTML = '<p class="empty">Nothing surfaced.</p>'; return; }
+  const byLane = {};
+  run.picks.forEach(p => (byLane[p.lanes[0].id] ||= []).push(p));
+
+  bodyEl.innerHTML = Object.keys(byLane).sort((a, b) => a - b).map(id => {
+    const lane = run.picks.find(p => p.lanes[0].id == id).lanes[0];
+    const cards = byLane[id].map(p => {
+      const chips = [];
+      if (p.lanes.length > 1) chips.push(`<span class="chip">also ${p.lanes.slice(1).map(l => 'lane ' + l.id).join(', ')}</span>`);
+      if (p.crossover > 1) chips.push('<span class="chip cross">crossover</span>');
+      if (p.followed_org) chips.push('<span class="chip org">followed org</span>');
+      if (p.weak_lanes) chips.push('<span class="chip">weak match</span>');
+      if (p.stars_gained) chips.push(`<span class="chip">+${p.stars_gained} stars since seen</span>`);
+      (p.topics || []).slice(0, 4).forEach(t => chips.push(`<span class="chip">${esc(t)}</span>`));
+      return `<div class="card">
+        <span class="score">${p.score}</span>
+        <h3><a href="${p.url}" target="_blank" rel="noopener">${esc(p.full_name)}</a></h3>
+        <p class="desc">${esc(p.description) || '<em>No description.</em>'}</p>
+        <div class="meta">${p.stars.toLocaleString()} stars · created ${p.created} ·
+          pushed ${p.pushed} (${p.days_since_push}d) · ${esc(p.language) || 'n/a'} · ${esc(p.license)}</div>
+        <div class="chips">${chips.join('')}</div>
+      </div>`;
+    }).join('');
+    return `<div class="lane">Lane ${id} · ${esc(lane.name)}</div>${cards}`;
+  }).join('');
+}
+</script>

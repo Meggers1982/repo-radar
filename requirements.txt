@@ -1,0 +1,2 @@
+# No third-party dependencies. radar.py uses the standard library only,
+# so the Actions run needs no install step and cannot break on a bad release.
