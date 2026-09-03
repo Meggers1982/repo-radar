@@ -47,6 +47,56 @@ ghorg propublica    # sweep one org
 ghfriction "merge place records without duplicates"   # search READMEs by problem
 ```
 
+## Dashboard
+
+`docs/index.html` is the reading surface: a static page, no build step, served from
+`/docs` by both GitHub Pages and Vercel.
+
+A **run log** down the left side keeps every run the data file still holds — date,
+cadence, how many surfaced, how many were new, and how many of that run's repos have
+since been saved or dismissed. Clicking one loads it. Runs stay in the log until they
+fall out of the 52-run window `radar.py` keeps.
+
+Every card carries **Save** and **Dismiss**:
+
+- **Save** keeps a repo in the Saved collection, which is the shortlist that survives
+  the run scrolling away. A save stores a copy of the card, not a pointer to it, so a
+  kept repo stays readable after its run drops out of the window.
+- **Dismiss** hides a repo from every run view and files it under Dismissed, where it
+  can be restored. Dismissals are undoable for twelve seconds after the click.
+
+Saving and dismissing are opposites: doing one clears the other.
+
+This state lives in the browser's `localStorage`, under `repo-radar:v1`. There is
+nowhere else for it to go — the page is a static file with no backend on either host —
+so it is per-browser and does not sync, and a cleared site data or a private window
+starts empty. The ledger in `ledger/seen.json` is the durable record; Saved and
+Dismissed are a reading aid on top of it.
+
+## English only
+
+A repo whose description is mostly non-Latin script is dropped, **unless the repo ships
+an English README in its root** (`README.en.md`, `README_EN.md` and friends) — at which
+point the translation already exists and the repo is kept, flagged `translated:` in the
+report and with an `english readme` chip on the dashboard.
+
+The test is a script test, not a language test, and it runs on the description, because
+the description is what the report prints and what Gate 1 is skimmed from. Consequences
+worth knowing:
+
+- Bilingual descriptions — an English tagline beside a native one — pass, which is the
+  common and correct case.
+- Spanish, German and Indonesian repos pass. They are readable at a skim, and Gate 1 is
+  a skim, not a translation exercise.
+- A repo with an unreadable description but English topic tags does *not* coast through
+  on the tags. It gets checked for a translation like any other.
+
+Only repos that would otherwise have surfaced are checked, and `english_check_limit`
+caps how many root listings a single run will fetch, so the gate costs a handful of
+requests rather than one per search result. Turn the whole thing off with
+`"require_english": false`; `english_min_share` is the share of letters that must be
+Latin, default `0.6`.
+
 ## Layout
 
 ```
@@ -56,7 +106,8 @@ scripts/seed_ledger.py mark already-starred repos as seen
 scripts/lane-queries.sh shell functions for ad-hoc searches
 ledger/seen.json       every repo ever scored; a repo surfaces once, ever
 outputs/               one markdown report per run
-docs/                  static dashboard (GitHub Pages and Vercel both serve /docs)
+docs/index.html        static dashboard: run log, Saved and Dismissed
+docs/data/index.json   the last 52 runs, picks and all
 vercel.json            static deploy config: no build, output directory is docs/
 ```
 

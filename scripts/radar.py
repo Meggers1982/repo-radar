@@ -28,6 +28,7 @@ OUTPUTS_DIR = REPO_ROOT / "outputs"
 DASHBOARD_DIR = REPO_ROOT / "docs" / "data"
 
 API = "https://api.github.com/search/repositories"
+CONTENTS_API = "https://api.github.com/repos/{}/contents"
 DATE_MACRO = re.compile(r"\{d-(\d+)\}")
 NOW = datetime.now(timezone.utc)
 
@@ -84,6 +85,114 @@ def search(query: str, per_page: int, token: str, sort: str = "stars"):
             print(f"    query error: {err}", file=sys.stderr)
             return []
     return []
+
+
+def api_get(url: str, token: str):
+    """One plain REST GET. Returns None on any failure; callers treat that as
+    "no information", never as a reason to keep or drop a repo by accident."""
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "repo-radar",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    try:
+        with urlopen(Request(url, headers=headers), timeout=20) as resp:
+            return json.loads(resp.read())
+    except Exception:
+        return None
+
+
+# ------------------------------------------------------------ language gate
+
+# A script test, not a language test. It answers the only question the radar
+# needs answered — can this listing be screened at Gate 1 as written — without
+# an LLM and without a language-detection dependency. Spanish, German and
+# Indonesian repos pass, which is correct: they are readable, and Gate 1 is a
+# skim, not a translation exercise.
+LATIN_LETTER = re.compile(r"[A-Za-z]")
+NON_LATIN = re.compile(
+    "[\u0400-\u052f"              # Cyrillic
+    "\u0590-\u05ff\u0600-\u06ff\u0700-\u074f"   # Hebrew, Arabic, Syriac
+    "\u0900-\u0dff\u0e00-\u0e7f"                  # Indic scripts, Thai
+    "\u1100-\u11ff\u3040-\u30ff\u3130-\u318f"   # Jamo, kana
+    "\u3400-\u4dbf\u4e00-\u9fff"                  # CJK ideographs
+    "\ua960-\ua97f\uac00-\ud7af"                  # Hangul
+    "\uf900-\ufaff\uff00-\uff9f]"                 # CJK compat, fullwidth
+)
+# A repo that ships one of these has already done the translation itself.
+README_EN = re.compile(
+    r"^readme[._-]?(en|eng|english|en[_-](us|gb))\.(md|rst|txt|adoc)$", re.I
+)
+
+
+def english_share(text: str) -> float:
+    """Share of the letters in text written in the Latin alphabet."""
+    latin = len(LATIN_LETTER.findall(text))
+    other = len(NON_LATIN.findall(text))
+    if latin + other == 0:
+        return 1.0  # digits, punctuation or emoji only: nothing to judge
+    return latin / (latin + other)
+
+
+def reads_as_english(repo: dict, threshold: float) -> bool:
+    """Whether the repo's own description reads as English.
+
+    The description is what the report prints and what Gate 1 is skimmed from,
+    so it is what gets judged. Name and topics only stand in when there is no
+    description at all — judging on them too let a repo with a wholly CJK
+    description through on the strength of English topic tags, which is exactly
+    the case the gate exists to catch. Bilingual descriptions, the common
+    "English tagline, native README" shape, still clear the threshold.
+    """
+    text = (repo.get("description") or "").strip()
+    if not text:
+        text = " ".join([repo.get("name") or "", " ".join(repo.get("topics") or [])])
+    return english_share(text) >= threshold
+
+
+def english_readme(full_name: str, token: str) -> str:
+    """Name of an English README variant in the repo root, or "".
+
+    Only the root is listed. A translation parked in docs/ or .github/ costs a
+    second request per repo and is rare enough not to pay for.
+    """
+    entries = api_get(CONTENTS_API.format(full_name), token)
+    if not isinstance(entries, list):
+        return ""
+    for entry in entries:
+        name = entry.get("name", "")
+        if entry.get("type") == "file" and README_EN.match(name):
+            return name
+    return ""
+
+
+def filter_english(candidates: list, token: str, settings: dict):
+    """Split candidates into readable ones and ones dropped for language.
+
+    Non-English candidates are only checked for a translation while there is
+    budget for it: the contents API is cheap (5,000/hour) but not free, and a
+    run that surfaces two dozen repos should not spend a hundred requests
+    checking the tail it will never print.
+    """
+    limit = settings.get("english_check_limit", 25)
+    kept, dropped, checks = [], [], 0
+    for repo in candidates:
+        if repo.get("english", True):
+            kept.append(repo)
+            continue
+        if checks >= limit:
+            dropped.append(repo["full_name"])
+            continue
+        checks += 1
+        found = english_readme(repo["full_name"], token)
+        if found:
+            repo["english_readme"] = found
+            kept.append(repo)
+        else:
+            dropped.append(repo["full_name"])
+    return kept, dropped
 
 
 # -------------------------------------------------------------- lane fitting
@@ -175,6 +284,8 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
         "weak_lanes": all(l.get("_evidence") != "strong" for l in lanes_hit),
         "crossover": round(crossover, 2),
         "followed_org": followed,
+        "english": True,          # set by the language gate in main()
+        "english_readme": None,   # the translation that let a non-English repo through
         "score": round(score, 3),
     }
 
@@ -189,13 +300,23 @@ def lane_is_due(lane: dict, cadence: str) -> bool:
     return True  # monthly runs everything
 
 
-def build_report(picks: list, cadence: str, lane_names: dict) -> str:
+def build_report(picks: list, cadence: str, lane_names: dict, dropped_lang=()) -> str:
     stamp = NOW.strftime("%Y-%m-%d")
     lines = [
         f"# repo-radar — {stamp}",
         "",
         f"**Run:** {cadence} | **Candidates:** {len(picks)}",
         "",
+    ]
+    if dropped_lang:
+        lines += [
+            f"**Dropped for language:** {len(dropped_lang)} "
+            f"({', '.join(sorted(dropped_lang)[:6])}"
+            f"{', …' if len(dropped_lang) > 6 else ''}) — not in English and no "
+            "English README in the repo root.",
+            "",
+        ]
+    lines += [
         "Screen these at Gate 1: does it sit in one lane or two, last commit inside 90 days "
         "(lane 9 exempt), a license, a README that shows output, a named maintainer, issues that "
         "get answered, no paywall before evaluation. Two failures and close the tab. Star everything "
@@ -223,6 +344,8 @@ def build_report(picks: list, cadence: str, lane_names: dict) -> str:
                 flags.append("followed org")
             if pick["stars_gained"]:
                 flags.append(f"+{pick['stars_gained']} stars since first seen")
+            if pick.get("english_readme"):
+                flags.append(f"translated: {pick['english_readme']}")
             suffix = f" — _{'; '.join(flags)}_" if flags else ""
 
             lines.append(f"### [{pick['full_name']}]({pick['url']}) · {pick['score']}{suffix}")
@@ -316,13 +439,24 @@ def main():
             l.get("_evidence") == "strong",
             l.get("weight", 1.0),
         ), reverse=True)
-        scored.append(score_repo(repo, hits, config, seen))
+        entry = score_repo(repo, hits, config, seen)
+        entry["english"] = reads_as_english(repo, settings.get("english_min_share", 0.6))
+        scored.append(entry)
 
     scored.sort(key=lambda r: r["score"], reverse=True)
 
     # Drop anything already surfaced. A repo appears once, ever.
     fresh = [r for r in scored if not seen.get(r["full_name"], {}).get("surfaced")]
     fresh = [r for r in fresh if r["score"] >= settings["min_score"]]
+
+    # Language gate. A repo the report cannot be skimmed in is not a candidate,
+    # unless the repo itself ships the translation. Runs last so it only spends
+    # requests on repos that would otherwise have surfaced.
+    dropped_lang = []
+    if settings.get("require_english", True):
+        fresh, dropped_lang = filter_english(fresh, token, settings)
+        if dropped_lang:
+            print(f"  language gate: dropped {len(dropped_lang)}", file=sys.stderr)
 
     picks, per_lane = [], {}
     guaranteed = settings.get("guaranteed_per_lane", 2)
@@ -353,12 +487,13 @@ def main():
     picks = picks[:settings["max_candidates_total"]]
 
     lane_names = {l["id"]: l["name"] for l in lanes}
-    report = build_report(picks, args.cadence, lane_names)
+    report = build_report(picks, args.cadence, lane_names, dropped_lang)
 
     if args.dry_run:
         print(report)
         print(f"\n[dry run] {len(found)} found · {len(scored)} in-lane · "
-              f"{len(fresh)} new · {len(picks)} surfaced", file=sys.stderr)
+              f"{len(fresh)} new · {len(dropped_lang)} not in English · "
+              f"{len(picks)} surfaced", file=sys.stderr)
         return
 
     # Ledger: remember everything scored, mark only what surfaced.
@@ -387,6 +522,12 @@ def main():
         "date": stamp,
         "cadence": args.cadence,
         "count": len(picks),
+        "stats": {
+            "found": len(found),
+            "in_lane": len(scored),
+            "new": len(fresh),
+            "dropped_non_english": len(dropped_lang),
+        },
         "picks": picks,
     })
     runs["runs"] = runs["runs"][:52]
@@ -395,7 +536,8 @@ def main():
     (DASHBOARD_DIR / "index.json").write_text(json.dumps(runs, indent=2) + "\n")
 
     print(f"\n{len(found)} found · {len(scored)} in-lane · {len(fresh)} new · "
-          f"{len(picks)} surfaced · ledger holds {len(seen)}", file=sys.stderr)
+          f"{len(dropped_lang)} not in English · {len(picks)} surfaced · "
+          f"ledger holds {len(seen)}", file=sys.stderr)
     print(report)
 
 

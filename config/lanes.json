@@ -9,7 +9,11 @@
     "velocity_cap": 4.0,
     "_guard_note": "min_age_days keeps day-old repos out until they have a little history; velocity_cap stops one implausible star spike from owning every run.",
     "guaranteed_per_lane": 2,
-    "_min_score_note": "Raised from 0.25 after the first live run let a cloud-certification study repo into lane 4 purely to satisfy the per-lane coverage guarantee. A guaranteed slot should stay empty rather than be filled with noise."
+    "_min_score_note": "Raised from 0.25 after the first live run let a cloud-certification study repo into lane 4 purely to satisfy the per-lane coverage guarantee. A guaranteed slot should stay empty rather than be filled with noise.",
+    "require_english": true,
+    "english_min_share": 0.6,
+    "english_check_limit": 25,
+    "_english_note": "A repo whose description is mostly non-Latin script is dropped unless it ships an English README in its root (README.en.md and friends), which means the translation already exists. english_min_share is the share of letters that must be Latin; english_check_limit caps how many root listings one run will fetch looking for a translation."
   },
   "velocity_query": {
     "_comment": "Lane-agnostic. Young and already popular: catches repos that will reach a lane next month.",

@@ -22,15 +22,41 @@
   header { padding:28px 24px 18px; border-bottom:1px solid var(--line); }
   h1 { margin:0; font-size:20px; letter-spacing:-.01em; }
   .sub { color:var(--muted); font-size:13px; margin-top:5px; }
-  main { max-width:920px; margin:0 auto; padding:22px 24px 70px; }
-  .runs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
-  .runs button { font:inherit; font-size:13px; padding:6px 12px; border-radius:999px;
-    border:1px solid var(--line); background:var(--panel); color:var(--ink); cursor:pointer; }
-  .runs button[aria-pressed=true] { background:var(--accent); border-color:var(--accent); color:var(--bg); }
-  .lane { margin:26px 0 10px; font-size:12px; letter-spacing:.09em; text-transform:uppercase;
+
+  .shell { display:grid; grid-template-columns:236px minmax(0,1fr);
+    gap:30px; max-width:1200px; margin:0 auto; padding:22px 24px 70px; align-items:start; }
+  main { min-width:0; }
+
+  /* Sidebar: the running log */
+  .side { position:sticky; top:18px; }
+  .side-head { font-size:11px; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 8px 2px; }
+  .side-group + .side-group { margin-top:22px; }
+  .side-list { display:flex; flex-direction:column; gap:4px;
+    max-height:min(58vh,620px); overflow:auto; }
+  .side button { font:inherit; text-align:left; width:100%; cursor:pointer;
+    background:none; border:1px solid transparent; border-radius:8px;
+    padding:7px 9px; color:var(--ink); display:block; }
+  .side button:hover { background:var(--chip); }
+  .side button[aria-pressed=true] { background:var(--panel); border-color:var(--line); }
+  .side button[aria-pressed=true] .row1 { color:var(--accent); }
+  .row1 { display:flex; justify-content:space-between; gap:8px; align-items:baseline;
+    font-size:13.5px; font-variant-numeric:tabular-nums; }
+  .row1 b { font-weight:600; }
+  .cad { font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+  .row2 { font-size:11.5px; color:var(--muted); margin-top:2px; font-variant-numeric:tabular-nums; }
+  .tally { color:var(--good); }
+
+  /* Cards */
+  .viewhead { display:flex; justify-content:space-between; align-items:baseline;
+    gap:12px; flex-wrap:wrap; margin:0 0 4px; }
+  .viewhead h2 { margin:0; font-size:16px; letter-spacing:-.01em; }
+  .viewhead .note { color:var(--muted); font-size:12.5px; }
+  .lane { margin:24px 0 10px; font-size:12px; letter-spacing:.09em; text-transform:uppercase;
     color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:7px; }
   .card { background:var(--panel); border:1px solid var(--line); border-radius:10px;
     padding:15px 17px; margin-bottom:11px; }
+  .card.is-saved { border-color:var(--good); }
   .card h3 { margin:0 0 5px; font-size:15px; }
   .card h3 a { color:var(--ink); text-decoration:none; }
   .card h3 a:hover { color:var(--accent); text-decoration:underline; }
@@ -41,9 +67,41 @@
   .chip.cross { background:var(--accent); color:var(--bg); font-weight:600; }
   .chip.org { color:var(--good); }
   .score { float:right; font-variant-numeric:tabular-nums; color:var(--muted); font-size:12.5px; }
+  .acts { margin-top:11px; padding-top:10px; border-top:1px solid var(--line);
+    display:flex; gap:8px; align-items:center; }
+  .acts button { font:inherit; font-size:12.5px; padding:4px 11px; border-radius:999px;
+    border:1px solid var(--line); background:var(--bg); color:var(--muted); cursor:pointer; }
+  .acts button:hover { color:var(--ink); border-color:var(--muted); }
+  .acts button.on { background:var(--good); border-color:var(--good); color:var(--bg); }
+  .acts .from { margin-left:auto; font-size:11.5px; color:var(--muted); }
+
+  /* Dismissed list */
+  .gone { display:flex; align-items:center; gap:10px; padding:8px 12px;
+    border:1px solid var(--line); border-radius:8px; margin-bottom:7px;
+    background:var(--panel); font-size:13.5px; }
+  .gone a { color:var(--ink); }
+  .gone .when { margin-left:auto; color:var(--muted); font-size:11.5px; }
+  .gone button { font:inherit; font-size:12px; padding:3px 10px; border-radius:999px;
+    border:1px solid var(--line); background:var(--bg); color:var(--muted); cursor:pointer; }
+  .gone button:hover { color:var(--ink); }
+
+  .undo { display:none; align-items:center; gap:10px; margin:0 0 14px;
+    padding:9px 13px; border-radius:8px; background:var(--chip);
+    color:var(--muted); font-size:13px; }
+  .undo.show { display:flex; }
+  .undo button { font:inherit; font-size:12.5px; padding:3px 10px; border-radius:999px;
+    border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer; }
+
   .empty { color:var(--muted); padding:40px 0; }
   footer { color:var(--muted); font-size:12.5px; border-top:1px solid var(--line);
-    padding:16px 24px; max-width:920px; margin:0 auto; }
+    padding:16px 24px; max-width:1200px; margin:0 auto; }
+
+  @media (max-width:820px) {
+    .shell { grid-template-columns:1fr; gap:18px; }
+    .side { position:static; }
+    .side-list { max-height:none; flex-direction:row; overflow-x:auto; padding-bottom:4px; }
+    .side-list button { min-width:172px; }
+  }
 </style>
 
 <header>
@@ -51,68 +109,255 @@
   <div class="sub" id="sub">Loading…</div>
 </header>
 
-<main>
-  <div class="runs" id="runs"></div>
-  <div id="body"><p class="empty">Loading…</p></div>
-</main>
+<div class="shell">
+  <aside class="side">
+    <div class="side-group">
+      <div class="side-head">Kept</div>
+      <div class="side-list" id="collections"></div>
+    </div>
+    <div class="side-group">
+      <div class="side-head">Run log</div>
+      <div class="side-list" id="runs"></div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="undo" id="undo"></div>
+    <div class="viewhead" id="viewhead"></div>
+    <div id="body"><p class="empty">Loading…</p></div>
+  </main>
+</div>
 
 <footer>
   Gate 1: one lane or two · commit inside 90 days (lane 9 exempt) · a license ·
   a README that shows output · a named maintainer · answered issues · no paywall
   before evaluation. Two failures, close the tab. Star everything you screen.
+  Saves and dismissals live in this browser only.
 </footer>
 
 <script>
-const runsEl = document.getElementById('runs');
-const bodyEl = document.getElementById('body');
-const subEl  = document.getElementById('sub');
-let data = null;
+const runsEl  = document.getElementById('runs');
+const collEl  = document.getElementById('collections');
+const bodyEl  = document.getElementById('body');
+const headEl  = document.getElementById('viewhead');
+const subEl   = document.getElementById('sub');
+const undoEl  = document.getElementById('undo');
+
+// Saved and dismissed repos are per-browser: the dashboard is a static file on
+// Pages and Vercel, with nowhere to write state back to. Saves carry a snapshot
+// of the card so a kept repo survives its run falling out of the 52-run window.
+const KEY = 'repo-radar:v1';
+let store = { saved:{}, dismissed:{} };
+let data = null, view = null, lastUndo = null;
+
+function readStore() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) { const p = JSON.parse(raw); store = { saved:p.saved||{}, dismissed:p.dismissed||{} }; }
+  } catch (e) { /* private window, blocked storage: run without memory */ }
+}
+function writeStore() {
+  try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {}
+}
+function esc(s) { return (s || '').replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); }
+function today() { return new Date().toISOString().slice(0, 10); }
+
+readStore();
 
 fetch('data/index.json').then(r => r.json()).then(d => {
   data = d;
-  if (!d.runs || !d.runs.length) { bodyEl.innerHTML = '<p class="empty">No runs yet.</p>'; return; }
+  if (!d.runs || !d.runs.length) {
+    subEl.textContent = 'No runs yet.';
+    bodyEl.innerHTML = '<p class="empty">No runs yet.</p>';
+    return;
+  }
   subEl.textContent = `${d.runs.length} run${d.runs.length > 1 ? 's' : ''} · updated ${d.updated}`;
-  d.runs.forEach((run, i) => {
-    const b = document.createElement('button');
-    b.textContent = `${run.date} · ${run.cadence}`;
-    b.setAttribute('aria-pressed', i === 0);
-    b.onclick = () => {
-      [...runsEl.children].forEach(c => c.setAttribute('aria-pressed', 'false'));
-      b.setAttribute('aria-pressed', 'true');
-      render(run);
-    };
-    runsEl.appendChild(b);
-  });
-  render(d.runs[0]);
+  view = { kind:'run', id:d.runs[0].id };
+  draw();
 }).catch(() => { bodyEl.innerHTML = '<p class="empty">Could not load data/index.json.</p>'; });
 
-function esc(s) { return (s || '').replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])); }
+/* ---- sidebar ---------------------------------------------------------- */
 
-function render(run) {
-  if (!run.picks || !run.picks.length) { bodyEl.innerHTML = '<p class="empty">Nothing surfaced.</p>'; return; }
+function sideButton(pressed, line1, right, line2) {
+  const b = document.createElement('button');
+  b.setAttribute('aria-pressed', pressed);
+  b.innerHTML = `<span class="row1"><b>${line1}</b><span class="cad">${right}</span></span>` +
+                (line2 ? `<span class="row2">${line2}</span>` : '');
+  return b;
+}
+
+function drawSidebar() {
+  const savedList = Object.values(store.saved);
+  const goneCount = Object.keys(store.dismissed).length;
+
+  collEl.innerHTML = '';
+  const sb = sideButton(view.kind === 'saved', 'Saved', String(savedList.length),
+    savedList.length ? 'Repos worth a second look' : 'Nothing saved yet');
+  sb.onclick = () => { view = { kind:'saved' }; draw(); };
+  collEl.appendChild(sb);
+
+  const db = sideButton(view.kind === 'dismissed', 'Dismissed', String(goneCount),
+    goneCount ? 'Hidden from every run' : 'Nothing dismissed yet');
+  db.onclick = () => { view = { kind:'dismissed' }; draw(); };
+  collEl.appendChild(db);
+
+  runsEl.innerHTML = '';
+  data.runs.forEach(run => {
+    const picks = run.picks || [];
+    const kept = picks.filter(p => store.saved[p.full_name]).length;
+    const hid  = picks.filter(p => store.dismissed[p.full_name]).length;
+    const bits = [`${run.count} surfaced`];
+    if (run.stats && run.stats.new != null) bits.push(`${run.stats.new} new`);
+    if (kept) bits.push(`<span class="tally">${kept} saved</span>`);
+    if (hid)  bits.push(`${hid} hidden`);
+    const b = sideButton(view.kind === 'run' && view.id === run.id,
+      run.date, run.cadence, bits.join(' · '));
+    b.onclick = () => { view = { kind:'run', id:run.id }; draw(); };
+    runsEl.appendChild(b);
+  });
+}
+
+/* ---- cards ------------------------------------------------------------ */
+
+function card(p, opts) {
+  const saved = !!store.saved[p.full_name];
+  const chips = [];
+  if (opts.showLane && p.lanes && p.lanes[0])
+    chips.push(`<span class="chip">lane ${p.lanes[0].id} · ${esc(p.lanes[0].name)}</span>`);
+  if (p.lanes && p.lanes.length > 1)
+    chips.push(`<span class="chip">also ${p.lanes.slice(1).map(l => 'lane ' + l.id).join(', ')}</span>`);
+  if (p.crossover > 1) chips.push('<span class="chip cross">crossover</span>');
+  if (p.followed_org) chips.push('<span class="chip org">followed org</span>');
+  if (p.weak_lanes) chips.push('<span class="chip">weak match</span>');
+  if (p.english_readme) chips.push(`<span class="chip org">english readme · ${esc(p.english_readme)}</span>`);
+  if (p.stars_gained) chips.push(`<span class="chip">+${p.stars_gained} stars since seen</span>`);
+  (p.topics || []).slice(0, 4).forEach(t => chips.push(`<span class="chip">${esc(t)}</span>`));
+
+  const name = esc(p.full_name);
+  const from = opts.from ? `<span class="from">saved from ${esc(opts.from)}</span>` : '';
+  return `<div class="card${saved ? ' is-saved' : ''}">
+    <span class="score">${p.score}</span>
+    <h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${name}</a></h3>
+    <p class="desc">${esc(p.description) || '<em>No description.</em>'}</p>
+    <div class="meta">${(p.stars || 0).toLocaleString()} stars · created ${esc(p.created)} ·
+      pushed ${esc(p.pushed)} (${p.days_since_push}d) · ${esc(p.language) || 'n/a'} · ${esc(p.license)}</div>
+    <div class="chips">${chips.join('')}</div>
+    <div class="acts">
+      <button data-act="save" data-name="${name}" class="${saved ? 'on' : ''}">${saved ? '✓ Saved' : 'Save'}</button>
+      <button data-act="dismiss" data-name="${name}">Dismiss</button>
+      ${from}
+    </div>
+  </div>`;
+}
+
+function runView(run) {
+  const live = (run.picks || []).filter(p => !store.dismissed[p.full_name]);
+  const hidden = (run.picks || []).length - live.length;
+  const note = [`${run.count} surfaced`];
+  if (run.stats) {
+    if (run.stats.new != null) note.push(`${run.stats.new} new of ${run.stats.in_lane} in lane`);
+    if (run.stats.dropped_non_english) note.push(`${run.stats.dropped_non_english} dropped for language`);
+  }
+  if (hidden) note.push(`${hidden} dismissed`);
+  headEl.innerHTML = `<h2>${run.date} · ${esc(run.cadence)}</h2>
+    <span class="note">${note.join(' · ')}</span>`;
+
+  if (!live.length) {
+    bodyEl.innerHTML = `<p class="empty">${(run.picks || []).length
+      ? 'Every repo in this run has been dismissed.' : 'Nothing surfaced.'}</p>`;
+    return;
+  }
   const byLane = {};
-  run.picks.forEach(p => (byLane[p.lanes[0].id] ||= []).push(p));
-
+  live.forEach(p => (byLane[p.lanes[0].id] ||= []).push(p));
   bodyEl.innerHTML = Object.keys(byLane).sort((a, b) => a - b).map(id => {
-    const lane = run.picks.find(p => p.lanes[0].id == id).lanes[0];
-    const cards = byLane[id].map(p => {
-      const chips = [];
-      if (p.lanes.length > 1) chips.push(`<span class="chip">also ${p.lanes.slice(1).map(l => 'lane ' + l.id).join(', ')}</span>`);
-      if (p.crossover > 1) chips.push('<span class="chip cross">crossover</span>');
-      if (p.followed_org) chips.push('<span class="chip org">followed org</span>');
-      if (p.weak_lanes) chips.push('<span class="chip">weak match</span>');
-      if (p.stars_gained) chips.push(`<span class="chip">+${p.stars_gained} stars since seen</span>`);
-      (p.topics || []).slice(0, 4).forEach(t => chips.push(`<span class="chip">${esc(t)}</span>`));
-      return `<div class="card">
-        <span class="score">${p.score}</span>
-        <h3><a href="${p.url}" target="_blank" rel="noopener">${esc(p.full_name)}</a></h3>
-        <p class="desc">${esc(p.description) || '<em>No description.</em>'}</p>
-        <div class="meta">${p.stars.toLocaleString()} stars · created ${p.created} ·
-          pushed ${p.pushed} (${p.days_since_push}d) · ${esc(p.language) || 'n/a'} · ${esc(p.license)}</div>
-        <div class="chips">${chips.join('')}</div>
-      </div>`;
-    }).join('');
+    const lane = byLane[id][0].lanes[0];
+    const cards = byLane[id].map(p => card(p, { showLane:false })).join('');
     return `<div class="lane">Lane ${id} · ${esc(lane.name)}</div>${cards}`;
   }).join('');
 }
+
+function savedView() {
+  const rows = Object.values(store.saved).sort((a, b) => (b._saved_at || '').localeCompare(a._saved_at || ''));
+  headEl.innerHTML = `<h2>Saved</h2><span class="note">${rows.length} repo${rows.length === 1 ? '' : 's'} · newest first</span>`;
+  bodyEl.innerHTML = rows.length
+    ? rows.map(p => card(p, { showLane:true, from:p._run || 'an earlier run' })).join('')
+    : '<p class="empty">Nothing saved yet. Hit <b>Save</b> on a card to keep it here.</p>';
+}
+
+function dismissedView() {
+  const rows = Object.entries(store.dismissed)
+    .sort((a, b) => (b[1].at || '').localeCompare(a[1].at || ''));
+  headEl.innerHTML = `<h2>Dismissed</h2><span class="note">${rows.length} hidden from every run</span>`;
+  bodyEl.innerHTML = rows.length
+    ? rows.map(([name, meta]) => `<div class="gone">
+        <a href="https://github.com/${esc(name)}" target="_blank" rel="noopener">${esc(name)}</a>
+        <span class="when">${esc(meta.at || '')}</span>
+        <button data-act="restore" data-name="${esc(name)}">Restore</button>
+      </div>`).join('')
+    : '<p class="empty">Nothing dismissed. <b>Dismiss</b> drops a repo out of every run view.</p>';
+}
+
+function draw() {
+  drawSidebar();
+  if (view.kind === 'saved') return savedView();
+  if (view.kind === 'dismissed') return dismissedView();
+  const run = data.runs.find(r => r.id === view.id) || data.runs[0];
+  runView(run);
+}
+
+/* ---- actions ---------------------------------------------------------- */
+
+function findPick(name) {
+  for (const run of data.runs || []) {
+    const hit = (run.picks || []).find(p => p.full_name === name);
+    if (hit) return { pick:hit, run:run.id };
+  }
+  return store.saved[name] ? { pick:store.saved[name], run:store.saved[name]._run } : null;
+}
+
+function showUndo(text, revert) {
+  undoEl.innerHTML = `<span>${esc(text)}</span>`;
+  const b = document.createElement('button');
+  b.textContent = 'Undo';
+  b.onclick = () => { revert(); writeStore(); undoEl.classList.remove('show'); draw(); };
+  undoEl.appendChild(b);
+  undoEl.classList.add('show');
+  clearTimeout(lastUndo);
+  lastUndo = setTimeout(() => undoEl.classList.remove('show'), 12000);
+}
+
+document.addEventListener('click', ev => {
+  const btn = ev.target.closest('button[data-act]');
+  if (!btn) return;
+  const name = btn.dataset.name;
+
+  if (btn.dataset.act === 'save') {
+    if (store.saved[name]) {
+      delete store.saved[name];
+    } else {
+      const found = findPick(name);
+      if (!found) return;
+      // Snapshot the card, not a pointer to it: saves outlive the run window.
+      store.saved[name] = Object.assign({}, found.pick, { _run:found.run, _saved_at:today() });
+      delete store.dismissed[name];   // saving and dismissing are opposites
+    }
+    writeStore(); draw();
+  }
+
+  if (btn.dataset.act === 'dismiss') {
+    const wasSaved = store.saved[name];
+    store.dismissed[name] = { at:today() };
+    delete store.saved[name];
+    writeStore(); draw();
+    showUndo(`Dismissed ${name}.`, () => {
+      delete store.dismissed[name];
+      if (wasSaved) store.saved[name] = wasSaved;
+    });
+  }
+
+  if (btn.dataset.act === 'restore') {
+    delete store.dismissed[name];
+    writeStore(); draw();
+  }
+});
 </script>
