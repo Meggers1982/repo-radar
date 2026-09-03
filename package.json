@@ -1,0 +1,9 @@
+{
+  "name": "repo-radar",
+  "private": true,
+  "type": "module",
+  "description": "Serverless API for the repo-radar dashboard. The radar itself is Python and has no dependencies; this is only the persistence layer.",
+  "dependencies": {
+    "@neondatabase/serverless": "1.0.2"
+  }
+}

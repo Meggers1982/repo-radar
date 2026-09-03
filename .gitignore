@@ -1,3 +1,11 @@
 __pycache__/
 *.pyc
 .DS_Store
+.vercel
+.env*
+node_modules/
+
+# Installed by `vercel integration add neon`, regenerable, not part of the project
+.agents/
+.claude/skills/
+skills-lock.json

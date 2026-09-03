@@ -67,11 +67,53 @@ Every card carries **Save** and **Dismiss**:
 
 Saving and dismissing are opposites: doing one clears the other.
 
-This state lives in the browser's `localStorage`, under `repo-radar:v1`. There is
-nowhere else for it to go — the page is a static file with no backend on either host —
-so it is per-browser and does not sync, and a cleared site data or a private window
-starts empty. The ledger in `ledger/seen.json` is the durable record; Saved and
-Dismissed are a reading aid on top of it.
+### Where that state lives
+
+Saves and dismissals persist in **Neon Postgres**, through a serverless function at
+`/api/state`. They follow the account, not the browser: save something on the laptop,
+it is there on the phone.
+
+```
+repo_state
+  full_name   text primary key     owner/repo
+  status      text                 'saved' | 'dismissed'
+  run_id      text                 the run it was saved from
+  snapshot    jsonb                the card, so a save outlives its run
+  updated_at  timestamptz
+```
+
+One row per repo, not two tables, because saved and dismissed are opposite states of
+the same repo rather than independent flags — which makes "saving clears the dismissal"
+a plain upsert.
+
+The header says which mode the page is in:
+
+- **saved to the database** — the Vercel deployment, where `/api/state` exists.
+- **this browser only** — the GitHub Pages copy, which has no backend and falls back to
+  `localStorage` under `repo-radar:v1`. Anything saved there is pushed up to the
+  database once, on the next load of the Vercel copy; rows already in the database win.
+
+Writes are optimistic: the card updates immediately, and if the write is rejected the
+screen rolls back and says so rather than showing a save that did not happen.
+
+`ledger/seen.json` is still the durable record of what has ever been *scored*. Saved and
+Dismissed are a reading layer on top of it.
+
+### Access
+
+**`/api/state` has no auth of its own.** What keeps it private is Vercel Deployment
+Protection, which is on. Turning it off would put read *and write* on a public URL, so
+add auth to the function first if the dashboard ever needs to be public. (The GitHub
+Pages copy is public, but it is read-only by construction — no API, no database.)
+
+Setting up a fresh database:
+
+```bash
+vercel integration add neon --name repo-radar-db --plan free_v3 -m region=iad1 -m auth=false
+vercel env pull .env.local
+npm install
+node --env-file=.env.local scripts/db-init.mjs   # creates repo_state, safe to re-run
+```
 
 ## English only
 
@@ -108,12 +150,16 @@ ledger/seen.json       every repo ever scored; a repo surfaces once, ever
 outputs/               one markdown report per run
 docs/index.html        static dashboard: run log, Saved and Dismissed
 docs/data/index.json   the last 52 runs, picks and all
+api/state.js           reads and writes Saved/Dismissed in Neon
+scripts/db-init.mjs    creates the one table the dashboard needs
 vercel.json            static deploy config: no build, output directory is docs/
 ```
 
 `radar.py` uses the standard library only, so there is no `requirements.txt`. Keeping an
 empty one made Vercel detect the repo as a Python app and fail the build looking for an
-entrypoint; `vercel.json` pins it to a plain static deploy of `docs/`.
+entrypoint; `vercel.json` pins the deploy to `docs/` with no build step. The one npm
+dependency is the Neon driver, used by `api/state.js` and nothing else — the radar
+pipeline itself still installs nothing and calls no LLM.
 
 ## How scoring works
 

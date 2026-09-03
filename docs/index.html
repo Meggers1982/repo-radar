@@ -92,6 +92,9 @@
   .undo button { font:inherit; font-size:12.5px; padding:3px 10px; border-radius:999px;
     border:1px solid var(--line); background:var(--bg); color:var(--ink); cursor:pointer; }
 
+  .mode { font-size:11px; padding:2px 8px; border-radius:999px;
+    background:var(--chip); color:var(--muted); }
+  .mode.on { color:var(--good); }
   .empty { color:var(--muted); padding:40px 0; }
   footer { color:var(--muted); font-size:12.5px; border-top:1px solid var(--line);
     padding:16px 24px; max-width:1200px; margin:0 auto; }
@@ -132,7 +135,6 @@
   Gate 1: one lane or two · commit inside 90 days (lane 9 exempt) · a license ·
   a README that shows output · a named maintainer · answered issues · no paywall
   before evaluation. Two failures, close the tab. Star everything you screen.
-  Saves and dismissals live in this browser only.
 </footer>
 
 <script>
@@ -143,12 +145,17 @@ const headEl  = document.getElementById('viewhead');
 const subEl   = document.getElementById('sub');
 const undoEl  = document.getElementById('undo');
 
-// Saved and dismissed repos are per-browser: the dashboard is a static file on
-// Pages and Vercel, with nowhere to write state back to. Saves carry a snapshot
-// of the card so a kept repo survives its run falling out of the 52-run window.
+// Saves and dismissals live in Neon, behind /api/state, so they follow the
+// account rather than the browser. That endpoint only exists on the Vercel
+// deployment: the GitHub Pages copy of this same page has no backend, so it
+// falls back to localStorage and says so. Saves carry a snapshot of the card
+// either way, so a kept repo survives its run falling out of the 52-run window.
+const API = 'api/state';
 const KEY = 'repo-radar:v1';
+const MIGRATED = 'repo-radar:migrated';
 let store = { saved:{}, dismissed:{} };
 let data = null, view = null, lastUndo = null;
+let mode = 'local';   // 'remote' once /api/state answers
 
 function readStore() {
   try {
@@ -157,24 +164,87 @@ function readStore() {
   } catch (e) { /* private window, blocked storage: run without memory */ }
 }
 function writeStore() {
+  if (mode === 'remote') return;   // the database is the record; don't shadow it
   try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {}
+}
+function localStore() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    const p = raw ? JSON.parse(raw) : {};
+    return { saved:p.saved || {}, dismissed:p.dismissed || {} };
+  } catch (e) { return { saved:{}, dismissed:{} }; }
+}
+function clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+async function post(payload) {
+  const r = await fetch(API, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!r.ok) throw new Error('api ' + r.status);
+  return r.json();
+}
+
+// Try the database. Anything short of a clean JSON answer means this copy of
+// the page has no backend, which is a normal state, not an error.
+async function loadState() {
+  try {
+    const r = await fetch(API, { headers: { accept: 'application/json' } });
+    if (!r.ok) throw new Error('api ' + r.status);
+    store = await r.json();
+    mode = 'remote';
+  } catch (e) {
+    readStore();
+    return;
+  }
+  // One-time hand-off of anything saved in this browser before the database
+  // existed. Rows already in the database win; this only adds what is missing.
+  try {
+    if (localStorage.getItem(MIGRATED)) return;
+    const local = localStore();
+    const n = Object.keys(local.saved).length + Object.keys(local.dismissed).length;
+    if (n) store = await post({ action:'merge', saved:local.saved, dismissed:local.dismissed });
+    localStorage.setItem(MIGRATED, '1');
+  } catch (e) { /* the merge is a convenience; a failure is not fatal */ }
+}
+
+// Apply the change locally, draw at once, then persist. A rejected write puts
+// the old state back rather than leaving the screen lying about what is stored.
+function commit(payload, before) {
+  draw();
+  if (mode !== 'remote') { writeStore(); return; }
+  post(payload)
+    .then(state => { store = state; draw(); })
+    .catch(() => {
+      store = before;
+      draw();
+      flash('Could not reach the database. That change was not saved.');
+    });
 }
 function esc(s) { return (s || '').replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c])); }
 function today() { return new Date().toISOString().slice(0, 10); }
 
-readStore();
+(async function boot() {
+  await loadState();
 
-fetch('data/index.json').then(r => r.json()).then(d => {
+  let d;
+  try { d = await fetch('data/index.json').then(r => r.json()); }
+  catch (e) { bodyEl.innerHTML = '<p class="empty">Could not load data/index.json.</p>'; return; }
+
   data = d;
+  const where = mode === 'remote'
+    ? '<span class="mode on">saved to the database</span>'
+    : '<span class="mode">this browser only</span>';
   if (!d.runs || !d.runs.length) {
-    subEl.textContent = 'No runs yet.';
+    subEl.innerHTML = 'No runs yet. · ' + where;
     bodyEl.innerHTML = '<p class="empty">No runs yet.</p>';
     return;
   }
-  subEl.textContent = `${d.runs.length} run${d.runs.length > 1 ? 's' : ''} · updated ${d.updated}`;
+  subEl.innerHTML = `${d.runs.length} run${d.runs.length > 1 ? 's' : ''} · updated ${esc(d.updated)} · ${where}`;
   view = { kind:'run', id:d.runs[0].id };
   draw();
-}).catch(() => { bodyEl.innerHTML = '<p class="empty">Could not load data/index.json.</p>'; });
+})();
 
 /* ---- sidebar ---------------------------------------------------------- */
 
@@ -315,49 +385,60 @@ function findPick(name) {
   return store.saved[name] ? { pick:store.saved[name], run:store.saved[name]._run } : null;
 }
 
-function showUndo(text, revert) {
+function banner(text, buttonLabel, onClick, ms) {
   undoEl.innerHTML = `<span>${esc(text)}</span>`;
-  const b = document.createElement('button');
-  b.textContent = 'Undo';
-  b.onclick = () => { revert(); writeStore(); undoEl.classList.remove('show'); draw(); };
-  undoEl.appendChild(b);
+  if (buttonLabel) {
+    const b = document.createElement('button');
+    b.textContent = buttonLabel;
+    b.onclick = () => { undoEl.classList.remove('show'); onClick(); };
+    undoEl.appendChild(b);
+  }
   undoEl.classList.add('show');
   clearTimeout(lastUndo);
-  lastUndo = setTimeout(() => undoEl.classList.remove('show'), 12000);
+  lastUndo = setTimeout(() => undoEl.classList.remove('show'), ms);
 }
+function showUndo(text, revert) { banner(text, 'Undo', revert, 12000); }
+function flash(text) { banner(text, null, null, 8000); }
 
 document.addEventListener('click', ev => {
   const btn = ev.target.closest('button[data-act]');
   if (!btn) return;
   const name = btn.dataset.name;
+  const act = btn.dataset.act;
+  const before = clone(store);
 
-  if (btn.dataset.act === 'save') {
+  if (act === 'save') {
     if (store.saved[name]) {
       delete store.saved[name];
+      commit({ action:'unsave', full_name:name }, before);
     } else {
       const found = findPick(name);
       if (!found) return;
       // Snapshot the card, not a pointer to it: saves outlive the run window.
       store.saved[name] = Object.assign({}, found.pick, { _run:found.run, _saved_at:today() });
       delete store.dismissed[name];   // saving and dismissing are opposites
+      commit({ action:'save', full_name:name, run_id:found.run, snapshot:found.pick }, before);
     }
-    writeStore(); draw();
   }
 
-  if (btn.dataset.act === 'dismiss') {
+  if (act === 'dismiss') {
     const wasSaved = store.saved[name];
     store.dismissed[name] = { at:today() };
     delete store.saved[name];
-    writeStore(); draw();
+    commit({ action:'dismiss', full_name:name }, before);
     showUndo(`Dismissed ${name}.`, () => {
+      const back = clone(store);
       delete store.dismissed[name];
       if (wasSaved) store.saved[name] = wasSaved;
+      commit(wasSaved
+        ? { action:'save', full_name:name, run_id:wasSaved._run, snapshot:wasSaved }
+        : { action:'restore', full_name:name }, back);
     });
   }
 
-  if (btn.dataset.act === 'restore') {
+  if (act === 'restore') {
     delete store.dismissed[name];
-    writeStore(); draw();
+    commit({ action:'restore', full_name:name }, before);
   }
 });
 </script>
