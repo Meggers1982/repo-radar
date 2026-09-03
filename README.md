@@ -56,8 +56,13 @@ scripts/seed_ledger.py mark already-starred repos as seen
 scripts/lane-queries.sh shell functions for ad-hoc searches
 ledger/seen.json       every repo ever scored; a repo surfaces once, ever
 outputs/               one markdown report per run
-docs/                  static dashboard (GitHub Pages, served from /docs)
+docs/                  static dashboard (GitHub Pages and Vercel both serve /docs)
+vercel.json            static deploy config: no build, output directory is docs/
 ```
+
+`radar.py` uses the standard library only, so there is no `requirements.txt`. Keeping an
+empty one made Vercel detect the repo as a Python app and fail the build looking for an
+entrypoint; `vercel.json` pins it to a plain static deploy of `docs/`.
 
 ## How scoring works
 
