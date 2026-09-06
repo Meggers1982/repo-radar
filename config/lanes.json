@@ -366,7 +366,8 @@
         "wireservice",
         "jsvine",
         "observablehq",
-        "infoculture"
+        "infoculture",
+        "OpenRefine"
       ],
       "_org_query_note": "simonw, alephdata, opensanctions, wireservice and jsvine were in this lane's orgs list from the start, but orgs only feed the 1.25x score bonus - they are never searched. So the five accounts that hold datasette, sqlite-utils, aleph, followthemoney, csvkit, agate and pdfplumber could only surface if they happened to match a topic query, and none of them did on the first live all-lane run. GitHub search accepts org: for user accounts too, so simonw and jsvine work with the same qualifier."
     },
@@ -412,7 +413,8 @@
         "remotion-dev",
         "browser-use",
         "openai",
-        "m-bain"
+        "m-bain",
+        "Zulko"
       ],
       "excludes": {
         "_comment": "Hard exclude, per the doc: fail anything whose pitch is volume output rather than control over your own material.",

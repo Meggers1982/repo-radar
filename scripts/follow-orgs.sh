@@ -15,6 +15,6 @@ echo "Lanes 2,3 — content, research"; for u in firecrawl; do follow "$u"; done
 echo "Lane 4 — web";               for u in vercel sanity-io; do follow "$u"; done
 echo "Lane 8 — journalism";        for u in propublica themarshallproject MuckRock freedomofpress palewire; do follow "$u"; done
 echo "Lane 9 — data journalism";   for u in simonw datadesk alephdata opensanctions wireservice jsvine observablehq infoculture OpenRefine; do follow "$u"; done
-echo "Lane 10 — video";            for u in remotion-dev openai Zulko; do follow "$u"; done
+echo "Lane 10 — video";            for u in remotion-dev openai Zulko m-bain; do follow "$u"; done
 
 echo; echo "following $(gh api user/following --jq 'length') accounts"
