@@ -29,9 +29,9 @@
   "crossovers": {
     "_comment": "Multiplier when a repo matches both lanes. 1+9 is the rarest skill overlap; 1+10 is the most immediately practical.",
     "1+9": 1.6,
-    "8+9": 1.3,
+    "8+9": 1.45,
     "1+2": 1.3,
-    "_inert_note": "A crossover is now the bonus for that pair, not a surcharge on top of the generic multi-lane bonus. Anything at or below the generic value for the same lane count (1.35 for two lanes at the current step) never fires: as of 2026-09-06 that is 1+2, 8+9 and 8+10. Raise them above 1.35 if those pairs are meant to be worth more than any other pair, or leave them as documentation of intent. scripts/lane-overlap.py prints which are inert.",
+    "_inert_note": "A crossover is the bonus for that pair, not a surcharge on top of the generic multi-lane bonus, so anything at or below the generic two-lane value (1.35 at multi_lane_step 0.35) never fires. 8+9 was raised 1.3 -> 1.45 on 2026-09-06 so that journalism x data journalism -- the most common real overlap in the config, 42 repos and 9% of the in-lane pool -- is worth more than an ordinary pair, while staying below 1+9 so the rarity ordering holds. 1+2 is still inert at 1.3 and was left that way deliberately. Note a THIRD strong lane already pays 1.70, so no crossover below that changes anything for a 3+ lane repo. scripts/lane-overlap.py prints which entries are inert.",
     "_retired_comment": "Retired with their lanes on 2026-09-06: 1+10 x1.4, 8+10 x1.25. 8+10 had matched zero repos in any run; 1+10 matched 18."
   },
   "global_excludes": {
