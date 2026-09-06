@@ -30,4 +30,23 @@ ghvideo()      { _gh_repo_search "topic:video-editing stars:>500 pushed:>$(_d 12
 ghorg() { _gh_repo_search "org:$1 pushed:>$(_d "${2:-365}")" updated; }
 
 # Search READMEs by the words you would use out loud. The friction-list channel.
-ghfriction() { _gh_repo_search "\"$1\" in:readme stars:>${2:-50} pushed:>$(_d 180) archived:false"; }
+#
+# Not an exact-phrase search. The original quoted "$1", which meant a README had
+# to contain the sentence verbatim -- "merge place records", "government dataset
+# cleaning" and "keep statistics in sync" all returned exactly zero repos, because
+# nobody writes their README in your words. Unquoted, the terms are ANDed.
+#
+# The star ceiling and the NOT list are what make the unquoted version usable.
+# Without them the results are just the biggest repos on GitHub that happen to
+# contain the words anywhere: public-apis, awesome-selfhosted, yt-dlp. Same
+# junk the scored pipeline hard-excludes in global_excludes; ghfriction had no
+# filtering at all.
+#
+# Phrase it as concrete technical nouns, not as the problem in the abstract:
+#   ghfriction "speaker diarization transcript"   -> WhisperLiveKit, FunClip
+#   ghfriction "government data cleaning csv"     -> PUDL, practical-sql-2
+# Second arg raises the star floor, third lowers the ceiling.
+GHFRICTION_NOT="NOT awesome NOT curated NOT roadmap NOT cheatsheet NOT interview"
+ghfriction() {
+  _gh_repo_search "$1 in:readme stars:${2:-50}..${3:-20000} pushed:>$(_d 180) archived:false $GHFRICTION_NOT"
+}

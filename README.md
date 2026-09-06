@@ -44,7 +44,18 @@ ghvelocity          # young and already popular
 ghagents ghmcp      # lane 1
 ghdatajourn         # lane 9
 ghorg propublica    # sweep one org
-ghfriction "merge place records without duplicates"   # search READMEs by problem
+ghfriction "speaker diarization transcript"           # search READMEs by problem
+```
+
+`ghfriction` is the friction-list channel and it is **not** an exact-phrase search.
+Quoting the whole sentence returns zero — no README is written in your words. Phrase it
+as concrete technical nouns and the terms are ANDed, under a star ceiling and a NOT list
+that keep awesome-lists and roadmaps out:
+
+```bash
+ghfriction "government data cleaning csv"       # -> PUDL, practical-sql-2
+ghfriction "speaker diarization transcript"     # -> WhisperLiveKit, FunClip
+ghfriction "<terms>" <min-stars> <max-stars>    # defaults 50 and 20000
 ```
 
 ## Dashboard
