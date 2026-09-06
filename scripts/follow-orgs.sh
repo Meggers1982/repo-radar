@@ -17,4 +17,6 @@ echo "Lane 8 — journalism";        for u in propublica themarshallproject Muck
 echo "Lane 9 — data journalism";   for u in simonw datadesk alephdata opensanctions wireservice jsvine observablehq infoculture OpenRefine; do follow "$u"; done
 echo "Lane 10 — video";            for u in remotion-dev openai Zulko m-bain; do follow "$u"; done
 
-echo; echo "following $(gh api user/following --jq 'length') accounts"
+# user/following is paginated at 30, so 'length' silently under-counts once the
+# list grows past a page. Ask the profile for the authoritative total instead.
+echo; echo "following $(gh api user/following --paginate --jq '.[].login' | wc -l | tr -d ' ') accounts"

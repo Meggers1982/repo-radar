@@ -2,10 +2,15 @@
 # repo-radar lane queries for interactive use.
 # Add to ~/.zshrc:   source ~/repo-radar/scripts/lane-queries.sh
 
+# Third arg is an extended-regex applied to "name<TAB>description" and dropped if
+# it matches. Client-side, because GitHub search caps a query at five AND/OR/NOT
+# operators -- GHFRICTION_NOT already spends all five, and a sixth returns
+# HTTP 422 Validation Failed. Junk filtering cannot grow inside the query.
 _gh_repo_search() {
-  local q="$1" sort="${2:-stars}"
+  local q="$1" sort="${2:-stars}" drop="${3:-}"
   gh api -X GET search/repositories -f q="$q" -f sort="$sort" -f order=desc -f per_page=25 \
     --jq '.items[] | "\(.stargazers_count)\t\(.pushed_at[:10])\t\(.full_name)\t\((.description // "")[:80])"' \
+    | { [ -n "$drop" ] && grep -Ev "$drop" || cat; } \
     | column -t -s $'\t'
 }
 
@@ -47,6 +52,16 @@ ghorg() { _gh_repo_search "org:$1 pushed:>$(_d "${2:-365}")" updated; }
 #   ghfriction "government data cleaning csv"     -> PUDL, practical-sql-2
 # Second arg raises the star floor, third lowers the ceiling.
 GHFRICTION_NOT="NOT awesome NOT curated NOT roadmap NOT cheatsheet NOT interview"
+
+# The catch-all repos. A TIL log, a second-brain vault, a boilerplate collection or
+# a language-basics course contains every word you can think of, so it matches any
+# ANDed term set and outranks the real answer on stars alone. Observed on the
+# 2026-09-06 friction-list run: jbranchaud/til came back first for three unrelated
+# queries. These cannot go in GHFRICTION_NOT -- the five-operator ceiling is full --
+# so they are dropped after the fact, the same way global_excludes works in radar.py.
+GHFRICTION_DROP='[Tt]oday [Ii] [Ll]earned|/til$|[Ss]econd [Bb]rain|[Bb]oilerplate|[Bb]asics \( ?v[0-9]|[Ll]earning-zone/|[Ee]xamples? of|[Ss]tudy [Gg]uide|[Cc]ollection of (examples|patterns|snippets)'
+
 ghfriction() {
-  _gh_repo_search "$1 in:readme stars:${2:-50}..${3:-20000} pushed:>$(_d 180) archived:false $GHFRICTION_NOT"
+  _gh_repo_search "$1 in:readme stars:${2:-50}..${3:-20000} pushed:>$(_d 180) archived:false $GHFRICTION_NOT" \
+    stars "$GHFRICTION_DROP"
 }
