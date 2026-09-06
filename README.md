@@ -230,3 +230,16 @@ turn on the schedule once the queries return things worth screening. Query dates
 A repo that surfaces is marked and never surfaces again. Seeding from starred repos means
 anything already looked at stays out — which is the reason Gate 1 says to star everything
 screened, rejects included.
+
+## Release radar
+
+`feeds/release-radar.opml` is section 4C: an OPML file of `releases.atom` feeds for the
+tools already in use, grouped by area. Import it into any reader. This answers a different
+question from discovery — not "what exists" but "did something I already trust just grow
+the feature I'd given up on".
+
+The repos were chosen from what this machine's projects actually depend on, not from a
+generic list, and every feed was checked for a 200 and a non-empty entry list before being
+added. Two are worth knowing about: `opensanctions/opensanctions` last tagged a release in
+2023 and `Zulko/moviepy` in 2025, so both ship from `main` rather than through GitHub
+Releases and the feed will stay quiet.

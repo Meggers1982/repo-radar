@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>repo-radar release radar</title>
+    <dateCreated>2026-09-05</dateCreated>
+  </head>
+  <body>
+    <outline text="Agent tooling" title="Agent tooling">
+      <outline type="rss" text="anthropics/anthropic-sdk-python" title="anthropics/anthropic-sdk-python" xmlUrl="https://github.com/anthropics/anthropic-sdk-python/releases.atom" htmlUrl="https://github.com/anthropics/anthropic-sdk-python/releases" />
+      <outline type="rss" text="anthropics/claude-code" title="anthropics/claude-code" xmlUrl="https://github.com/anthropics/claude-code/releases.atom" htmlUrl="https://github.com/anthropics/claude-code/releases" />
+      <outline type="rss" text="modelcontextprotocol/servers" title="modelcontextprotocol/servers" xmlUrl="https://github.com/modelcontextprotocol/servers/releases.atom" htmlUrl="https://github.com/modelcontextprotocol/servers/releases" />
+    </outline>
+    <outline text="Web stack" title="Web stack">
+      <outline type="rss" text="facebook/react" title="facebook/react" xmlUrl="https://github.com/facebook/react/releases.atom" htmlUrl="https://github.com/facebook/react/releases" />
+      <outline type="rss" text="sanity-io/sanity" title="sanity-io/sanity" xmlUrl="https://github.com/sanity-io/sanity/releases.atom" htmlUrl="https://github.com/sanity-io/sanity/releases" />
+      <outline type="rss" text="shadcn-ui/ui" title="shadcn-ui/ui" xmlUrl="https://github.com/shadcn-ui/ui/releases.atom" htmlUrl="https://github.com/shadcn-ui/ui/releases" />
+      <outline type="rss" text="tailwindlabs/tailwindcss" title="tailwindlabs/tailwindcss" xmlUrl="https://github.com/tailwindlabs/tailwindcss/releases.atom" htmlUrl="https://github.com/tailwindlabs/tailwindcss/releases" />
+      <outline type="rss" text="vercel/next.js" title="vercel/next.js" xmlUrl="https://github.com/vercel/next.js/releases.atom" htmlUrl="https://github.com/vercel/next.js/releases" />
+      <outline type="rss" text="vercel/vercel" title="vercel/vercel" xmlUrl="https://github.com/vercel/vercel/releases.atom" htmlUrl="https://github.com/vercel/vercel/releases" />
+    </outline>
+    <outline text="Data layer" title="Data layer">
+      <outline type="rss" text="drizzle-team/drizzle-orm" title="drizzle-team/drizzle-orm" xmlUrl="https://github.com/drizzle-team/drizzle-orm/releases.atom" htmlUrl="https://github.com/drizzle-team/drizzle-orm/releases" />
+      <outline type="rss" text="neondatabase/serverless" title="neondatabase/serverless" xmlUrl="https://github.com/neondatabase/serverless/releases.atom" htmlUrl="https://github.com/neondatabase/serverless/releases" />
+    </outline>
+    <outline text="Data journalism" title="Data journalism">
+      <outline type="rss" text="OpenRefine/OpenRefine" title="OpenRefine/OpenRefine" xmlUrl="https://github.com/OpenRefine/OpenRefine/releases.atom" htmlUrl="https://github.com/OpenRefine/OpenRefine/releases" />
+      <outline type="rss" text="alephdata/aleph" title="alephdata/aleph" xmlUrl="https://github.com/alephdata/aleph/releases.atom" htmlUrl="https://github.com/alephdata/aleph/releases" />
+      <outline type="rss" text="jsvine/pdfplumber" title="jsvine/pdfplumber" xmlUrl="https://github.com/jsvine/pdfplumber/releases.atom" htmlUrl="https://github.com/jsvine/pdfplumber/releases" />
+      <outline type="rss" text="keplergl/kepler.gl" title="keplergl/kepler.gl" xmlUrl="https://github.com/keplergl/kepler.gl/releases.atom" htmlUrl="https://github.com/keplergl/kepler.gl/releases" />
+      <outline type="rss" text="opengeos/leafmap" title="opengeos/leafmap" xmlUrl="https://github.com/opengeos/leafmap/releases.atom" htmlUrl="https://github.com/opengeos/leafmap/releases" />
+      <outline type="rss" text="opensanctions/opensanctions" title="opensanctions/opensanctions" xmlUrl="https://github.com/opensanctions/opensanctions/releases.atom" htmlUrl="https://github.com/opensanctions/opensanctions/releases" />
+      <outline type="rss" text="simonw/datasette" title="simonw/datasette" xmlUrl="https://github.com/simonw/datasette/releases.atom" htmlUrl="https://github.com/simonw/datasette/releases" />
+      <outline type="rss" text="simonw/llm" title="simonw/llm" xmlUrl="https://github.com/simonw/llm/releases.atom" htmlUrl="https://github.com/simonw/llm/releases" />
+      <outline type="rss" text="simonw/sqlite-utils" title="simonw/sqlite-utils" xmlUrl="https://github.com/simonw/sqlite-utils/releases.atom" htmlUrl="https://github.com/simonw/sqlite-utils/releases" />
+      <outline type="rss" text="wireservice/csvkit" title="wireservice/csvkit" xmlUrl="https://github.com/wireservice/csvkit/releases.atom" htmlUrl="https://github.com/wireservice/csvkit/releases" />
+    </outline>
+    <outline text="Writing and publishing" title="Writing and publishing">
+      <outline type="rss" text="jgm/pandoc" title="jgm/pandoc" xmlUrl="https://github.com/jgm/pandoc/releases.atom" htmlUrl="https://github.com/jgm/pandoc/releases" />
+    </outline>
+    <outline text="Video and media" title="Video and media">
+      <outline type="rss" text="Zulko/moviepy" title="Zulko/moviepy" xmlUrl="https://github.com/Zulko/moviepy/releases.atom" htmlUrl="https://github.com/Zulko/moviepy/releases" />
+      <outline type="rss" text="m-bain/whisperX" title="m-bain/whisperX" xmlUrl="https://github.com/m-bain/whisperX/releases.atom" htmlUrl="https://github.com/m-bain/whisperX/releases" />
+      <outline type="rss" text="remotion-dev/remotion" title="remotion-dev/remotion" xmlUrl="https://github.com/remotion-dev/remotion/releases.atom" htmlUrl="https://github.com/remotion-dev/remotion/releases" />
+    </outline>
+    <outline text="Newsletters" title="Newsletters">
+      <outline type="rss" text="Data Is Plural" title="Data Is Plural" xmlUrl="https://www.data-is-plural.com/feed.xml" htmlUrl="https://www.data-is-plural.com/" />
+    </outline>
+  </body>
+</opml>
