@@ -6,14 +6,17 @@
     "max_candidates_total": 24,
     "min_score": 1.5,
     "min_age_days": 14,
-    "velocity_cap": 4.0,
+    "velocity_cap": 2.5,
     "_guard_note": "min_age_days keeps day-old repos out until they have a little history; velocity_cap stops one implausible star spike from owning every run.",
     "guaranteed_per_lane": 2,
     "_min_score_note": "Raised from 0.25 after the first live run let a cloud-certification study repo into lane 4 purely to satisfy the per-lane coverage guarantee. A guaranteed slot should stay empty rather than be filled with noise.",
+    "weak_min_score": 2.5,
+    "_weak_min_score_note": "Floor for repos matched only by a lane keyword in the name or description, with no topic tag and no followed org. Lanes share vocabulary deliberately ('transcription' is both journalism and video), so a keyword-only hit is a collision until proved otherwise. No pick in the 2026-09-06 all-lane run was weak-only, so this costs nothing there and cleans up the thin single-lane runs.",
     "require_english": true,
     "english_min_share": 0.6,
     "english_check_limit": 25,
-    "_english_note": "A repo whose description is mostly non-Latin script is dropped unless it ships an English README in its root (README.en.md and friends), which means the translation already exists. english_min_share is the share of letters that must be Latin; english_check_limit caps how many root listings one run will fetch looking for a translation."
+    "_english_note": "A repo whose description is mostly non-Latin script is dropped unless it ships an English README in its root (README.en.md and friends), which means the translation already exists. english_min_share is the share of letters that must be Latin; english_check_limit caps how many root listings one run will fetch looking for a translation.",
+    "_velocity_cap_note": "Lowered from 4.0 (10,000 stars/month) to 2.5 (~316/month) on 2026-09-06. At 4.0 every viral general-audience repo pinned the cap, so lane weights and crossovers never got to decide anything: the first live all-lane run gave lane 1 six repos with 28k-125k stars and none of them about agent design."
   },
   "velocity_query": {
     "_comment": "Lane-agnostic. Young and already popular: catches repos that will reach a lane next month.",
@@ -30,7 +33,8 @@
   },
   "global_excludes": {
     "_comment": "Hard excludes, not soft penalties. These are the repos that pollute topic searches: interview prep, roadmaps, course lists, cheat sheets. Learned from the single-region penalty in research-digest-dashboard, where a soft score never actually kept junk out.",
-    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|\u5b66\u4e60\u8def\u7ebf|\u9762\u8bd5|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b)"
+    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|学习路线|面试|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b|a[- ]shares?\\b|\\bstock (trading|market|picking)|quantitative[- ]trading|\\bbacktest|trading[- ]bot|\\bcrypto[- ]?(bot|trading)|portfolio[- ]optimi)",
+    "_finance_note": "Added 2026-09-06. Nothing in the ten lanes is about equities or trading, but investing workbenches tag themselves mcp/ai-agents/research-assistant/nextjs and so stack four strong lanes. On the first live all-lane run a China A-shares research terminal scored 10.3, the highest of any repo in any lane. Deliberately narrow: it names trading instruments and strategies, not 'finance', so that financial-accountability reporting tools in lanes 8 and 9 still come through."
   },
   "lanes": [
     {
@@ -39,12 +43,13 @@
       "name": "Agent harnesses and agent design",
       "cadence": "weekly",
       "weight": 1.3,
-      "star_weight": 1.0,
+      "star_weight": 0.6,
       "freshness_floor": 0.15,
       "queries": [
         "topic:claude-code stars:>100 pushed:>{d-60} archived:false",
         "topic:mcp stars:>200 pushed:>{d-30} archived:false",
-        "topic:ai-agents stars:>300 pushed:>{d-45} archived:false"
+        "topic:ai-agents stars:>300 pushed:>{d-45} archived:false",
+        "org:anthropics stars:>100 pushed:>{d-90} archived:false"
       ],
       "topics": [
         "ai-agents",
@@ -280,7 +285,8 @@
         "topic:osint stars:>200 pushed:>{d-120} archived:false",
         "org:themarshallproject pushed:>{d-365}",
         "org:MuckRock pushed:>{d-365}",
-        "org:freedomofpress pushed:>{d-180}"
+        "org:freedomofpress pushed:>{d-180}",
+        "org:palewire stars:>10 pushed:>{d-365} archived:false"
       ],
       "topics": [
         "journalism",
@@ -308,7 +314,8 @@
         "palewire",
         "propublica",
         "datadesk"
-      ]
+      ],
+      "_org_query_note": "palewire was in orgs for the score bonus but never searched, same gap as lane 9."
     },
     {
       "id": 9,
@@ -324,7 +331,12 @@
         "\"data journalism\" in:readme stars:>100 pushed:>{d-300} archived:false",
         "org:propublica pushed:>{d-240}",
         "org:datadesk pushed:>{d-365} archived:false",
-        "topic:open-data stars:>500 pushed:>{d-120} archived:false"
+        "topic:open-data stars:>500 pushed:>{d-120} archived:false",
+        "org:simonw stars:>200 pushed:>{d-365} archived:false",
+        "org:alephdata pushed:>{d-365} archived:false",
+        "org:opensanctions stars:>10 pushed:>{d-365} archived:false",
+        "org:wireservice pushed:>{d-730} archived:false",
+        "org:jsvine stars:>50 pushed:>{d-730} archived:false"
       ],
       "topics": [
         "data-journalism",
@@ -355,7 +367,8 @@
         "jsvine",
         "observablehq",
         "infoculture"
-      ]
+      ],
+      "_org_query_note": "simonw, alephdata, opensanctions, wireservice and jsvine were in this lane's orgs list from the start, but orgs only feed the 1.25x score bonus - they are never searched. So the five accounts that hold datasette, sqlite-utils, aleph, followthemoney, csvkit, agate and pdfplumber could only surface if they happened to match a topic query, and none of them did on the first live all-lane run. GitHub search accepts org: for user accounts too, so simonw and jsvine work with the same qualifier."
     },
     {
       "id": 10,
@@ -403,7 +416,7 @@
       ],
       "excludes": {
         "_comment": "Hard exclude, per the doc: fail anything whose pitch is volume output rather than control over your own material.",
-        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|\u77ed\u89c6\u9891|\u6279\u91cf|\u4e00\u952e\u751f\u6210|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
+        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|短视频|批量|一键生成|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
       }
     }
   ]

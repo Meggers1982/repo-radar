@@ -342,8 +342,11 @@ def build_report(picks: list, cadence: str, lane_names: dict, dropped_lang=()) -
                 flags.append("**crossover**")
             if pick["followed_org"]:
                 flags.append("followed org")
-            if pick["stars_gained"]:
-                flags.append(f"+{pick['stars_gained']} stars since first seen")
+            gained = pick["stars_gained"]
+            if gained:
+                # Signed explicitly: an f-string "+{gained}" printed "+-1" for a
+                # repo that had lost stars since the run that first saw it.
+                flags.append(f"{gained:+,} stars since first seen")
             if pick.get("english_readme"):
                 flags.append(f"translated: {pick['english_readme']}")
             suffix = f" — _{'; '.join(flags)}_" if flags else ""
@@ -447,7 +450,17 @@ def main():
 
     # Drop anything already surfaced. A repo appears once, ever.
     fresh = [r for r in scored if not seen.get(r["full_name"], {}).get("surfaced")]
-    fresh = [r for r in fresh if r["score"] >= settings["min_score"]]
+    # Weak-only matches clear a higher bar. Strong evidence is a topic tag the
+    # maintainer chose or a followed org; weak is a lane keyword landing in the
+    # name or description, and the lanes share vocabulary on purpose. At the
+    # plain min_score a solo lane 9 run spent both of its guaranteed slots on an
+    # OSINT reading guide and an OSINT community mirror, neither of which is a
+    # tool.
+    weak_min = settings.get("weak_min_score", settings["min_score"])
+    fresh = [
+        r for r in fresh
+        if r["score"] >= (weak_min if r.get("weak_lanes") else settings["min_score"])
+    ]
 
     # Language gate. A repo the report cannot be skimmed in is not a candidate,
     # unless the repo itself ships the translation. Runs last so it only spends
@@ -468,7 +481,16 @@ def main():
 
     # First pass: every lane that returned anything gets its top few, so a loud
     # lane cannot crowd out a quiet one.
+    #
+    # Weak-only matches are not eligible here. "Weak" means no topic tag and no
+    # followed org, just a lane keyword somewhere in the name or description,
+    # and lanes share vocabulary. A guaranteed slot is meant to stay empty
+    # rather than be filled with noise, which is the same reason min_score was
+    # raised from 0.25. Weak matches can still earn a slot in the second pass
+    # on score alone.
     for repo in fresh:
+        if repo.get("weak_lanes"):
+            continue
         if per_lane.get(repo["lanes"][0]["id"], 0) < guaranteed:
             take(repo)
 

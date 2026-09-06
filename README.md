@@ -167,10 +167,15 @@ pipeline itself still installs nothing and calls no LLM.
 score = velocity × star_weight × freshness × lane_weight × multi_lane × crossover × org_bonus + growth
 ```
 
-- **velocity** — `log10(1 + stars/day × 30)`, capped. Age-relative popularity, not raw
-  popularity: 500 stars in six weeks beats 40,000 stars from 2021.
+- **velocity** — `log10(1 + stars/day × 30)`, capped at `velocity_cap`. Age-relative
+  popularity, not raw popularity: 500 stars in six weeks beats 40,000 stars from 2021.
+  The cap is 2.5, about 316 stars a month. It was 4.0 — 10,000 a month — and at that
+  height every viral general-audience repo pinned it, so the lane weights and crossovers
+  below never got to decide anything.
 - **star_weight** — from the *lead* lane. Lane 10 sets 0.35 because star counts there are
-  inflated by an audience chasing volume output.
+  inflated by an audience chasing volume output. Lane 1 sets 0.6 for the same reason:
+  "AI agents" is the most crowded topic on GitHub, and its star counts measure the size
+  of the audience rather than the quality of the harness.
 - **freshness** — decays over a year, down to a per-lane floor. Lane 9's floor is 0.7,
   because data journalism tools are often finished rather than abandoned.
 - **multi_lane / crossover** — a repo matching two lanes outranks a stronger repo matching
@@ -185,10 +190,30 @@ earns a crossover multiplier. Several lanes legitimately share vocabulary — "t
 belongs to both journalism and video — and treating those as equal produced fake crossovers
 that pushed TTS repos into the journalism lane on the first tuning run.
 
+Weak-only matches are held to a higher bar in two places: they can never take one of a
+lane's `guaranteed_per_lane` slots, and they must clear `weak_min_score` (2.5) rather than
+`min_score` (1.5). A guaranteed slot is meant to stay empty rather than be filled with
+noise.
+
+### Orgs are searched, not just scored
+
+A lane's `orgs` list feeds the 1.25× score bonus. It does **not** feed discovery — only
+the strings in `queries` are ever sent to the search API. Lanes 8 and 9 originally listed
+`simonw`, `alephdata`, `opensanctions`, `wireservice`, `jsvine` and `palewire` for the
+bonus alone, which meant datasette, sqlite-utils, aleph, followthemoney, csvkit, agate and
+pdfplumber could only appear if they happened to match a topic query — and none of them
+did. Each followed account that matters now has its own `org:` query. GitHub search accepts
+`org:` for user accounts too, so `org:simonw` and `org:jsvine` work unchanged.
+
 ### Hard excludes, not soft penalties
 
 Interview-prep repos, roadmaps, cheat sheets, and awesome-lists are excluded outright
-rather than scored down, because a soft penalty never actually keeps them out. Lane 10
+rather than scored down, because a soft penalty never actually keeps them out. Trading and
+investing tools are excluded on the same grounds: nothing in the ten lanes is about
+equities, but an investing workbench tags itself `mcp`, `ai-agents`, `research-assistant`
+and `nextjs`, stacks four strong lanes, and lands at the top of the run. The pattern names
+instruments and strategies rather than "finance", so financial-accountability reporting
+tools in lanes 8 and 9 still come through. Lane 10
 carries its own exclude for the volume-output genre: faceless-channel tooling, shorts
 generators, "videos per day", auto-uploaders. The lane's test is whether a tool gives more
 control over material you already have, not whether it produces more output.
