@@ -1,4 +1,4 @@
-"""repo-radar: standing GitHub queries for the ten-lane interest map.
+"""repo-radar: standing GitHub queries for the five-lane interest map.
 
 Runs the queries in config/lanes.json, scores what comes back, drops anything
 already surfaced, and writes a ranked report grouped by lane.
@@ -235,18 +235,37 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
     stars = repo.get("stargazers_count", 0)
     age = max(days_since(repo.get("created_at", "")), 1.0)
     stale = days_since(repo.get("pushed_at", ""))
+    cap = settings.get("velocity_cap", 4.0)
 
-    # Monthly star velocity, log-damped. Age-relative popularity, not raw popularity.
-    velocity = math.log10(1 + (stars / age) * 30)
-    velocity = min(velocity, settings.get("velocity_cap", 4.0))
-
-    # Star deflation and the freshness floor come from the LEAD lane, not from
-    # max() across every matched lane. Using max() cancelled lane 10's deliberate
-    # star deflation for any repo that also touched lane 1, which is most of them.
+    # Star deflation, the freshness floor and the standing weight come from the
+    # LEAD lane, not from max() across every matched lane. Using max() cancelled
+    # a lane's deliberate star deflation for any repo that also touched lane 1,
+    # which was most of them.
     lead = lanes_hit[0]
     star_weight = lead.get("star_weight", 1.0)
     floor = lead.get("freshness_floor", 0.15)
     lane_weight = max(l.get("weight", 1.0) for l in lanes_hit)
+
+    # Monthly star velocity, log-damped. Age-relative popularity, not raw
+    # popularity: a repo three months old with 5,000 stars is news.
+    velocity = min(math.log10(1 + (stars / age) * 30), cap)
+
+    # Standing is the opposite reading of the same repo: not "is it moving" but
+    # "is it established". A lane sets standing_weight when its best work tends
+    # to be finished rather than growing -- lanes 8 and 9, where the canonical
+    # tools are years old with a few thousand stars and are maintained, not
+    # abandoned. On velocity alone alephdata/aleph ranked #124 and
+    # opensanctions #94 while the shortlist filled with three-month-old repos;
+    # those are two of the accounts the org list was built around. Lane 9's
+    # freshness_floor was written for this and could not reach it, because it
+    # corrects time-since-push, not the growth term.
+    #
+    # max(), not a sum: a repo qualifies by momentum OR by standing, and needs
+    # only one. Lane 1 leaves standing_weight at 0 on purpose -- there, star
+    # count measures the size of the audience, not the quality of the harness.
+    standing_weight = lead.get("standing_weight", 0.0)
+    standing = min(standing_weight * math.log10(1 + stars), cap) if standing_weight else 0.0
+    merit = max(velocity, standing)
 
     freshness = max(1.0 - (stale / 365.0), floor)
 
@@ -285,7 +304,7 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
     gained = stars - record.get("stars_at_first_seen", stars)
     growth = math.log10(1 + max(gained, 0)) * 0.4
 
-    score = velocity * star_weight * freshness * lane_weight * lane_bonus * org_bonus + growth
+    score = merit * star_weight * freshness * lane_weight * lane_bonus * org_bonus + growth
 
     return {
         "full_name": repo["full_name"],
@@ -303,6 +322,8 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
         "weak_lanes": all(l.get("_evidence") != "strong" for l in lanes_hit),
         "crossover": round(crossover, 2),
         "lane_bonus": round(lane_bonus, 2),
+        "merit": round(merit, 3),
+        "merit_from": "standing" if standing > velocity else "velocity",
         "followed_org": followed,
         "english": True,          # set by the language gate in main()
         "english_readme": None,   # the translation that let a non-English repo through

@@ -19,7 +19,8 @@
     "english_min_share": 0.6,
     "english_check_limit": 25,
     "_english_note": "A repo whose description is mostly non-Latin script is dropped unless it ships an English README in its root (README.en.md and friends), which means the translation already exists. english_min_share is the share of letters that must be Latin; english_check_limit caps how many root listings one run will fetch looking for a translation.",
-    "_velocity_cap_note": "Lowered from 4.0 (10,000 stars/month) to 2.5 (~316/month) on 2026-09-06. At 4.0 every viral general-audience repo pinned the cap, so lane weights and crossovers never got to decide anything: the first live all-lane run gave lane 1 six repos with 28k-125k stars and none of them about agent design."
+    "_velocity_cap_note": "Lowered from 4.0 (10,000 stars/month) to 2.5 (~316/month) on 2026-09-06. At 4.0 every viral general-audience repo pinned the cap, so lane weights and crossovers never got to decide anything: the first live all-lane run gave lane 1 six repos with 28k-125k stars and none of them about agent design.",
+    "_standing_note": "Per-lane standing_weight (in the lane object, default 0) turns log10(1+stars) into a second route to merit, and score_repo takes max(velocity, standing). Lanes 8 and 9 set 0.5 because their canonical tools are years old with a few thousand stars and are finished rather than abandoned: on velocity alone alephdata/aleph ranked #124 and opensanctions #94, and both are accounts the org list was built around. Tuned on the 2026-09-06 pool -- 0.4 barely moved anything, 0.6 gave lanes 8 and 9 seventeen of the twenty-four slots and collapsed lane 5 to one. Lane 1 stays at 0 deliberately: there star count measures audience size, not harness quality. Both terms share velocity_cap."
   },
   "velocity_query": {
     "_comment": "Lane-agnostic. Young and already popular: catches repos that will reach a lane next month.",
@@ -153,6 +154,7 @@
       "weight": 1.25,
       "star_weight": 1.0,
       "freshness_floor": 0.4,
+      "standing_weight": 0.5,
       "queries": [
         "topic:journalism stars:>100 pushed:>{d-300} archived:false",
         "topic:journalism topic:ai pushed:>{d-300} archived:false",
@@ -199,6 +201,7 @@
       "weight": 1.3,
       "star_weight": 1.0,
       "freshness_floor": 0.7,
+      "standing_weight": 0.5,
       "_freshness_note": "Floor is high on purpose. Data journalism tools are often finished rather than abandoned, so age is a weak negative signal here.",
       "queries": [
         "topic:data-journalism stars:>50 pushed:>{d-300} archived:false",

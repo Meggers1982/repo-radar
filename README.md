@@ -194,8 +194,9 @@ pipeline itself still installs nothing and calls no LLM.
 ## How scoring works
 
 ```
-score = velocity × star_weight × freshness × lane_weight × lane_bonus × org_bonus + growth
-        where lane_bonus = max(multi_lane, crossover)
+score = merit × star_weight × freshness × lane_weight × lane_bonus × org_bonus + growth
+        where merit      = max(velocity, standing)
+              lane_bonus = max(multi_lane, crossover)
 ```
 
 - **velocity** — `log10(1 + stars/day × 30)`, capped at `velocity_cap`. Age-relative
@@ -203,6 +204,20 @@ score = velocity × star_weight × freshness × lane_weight × lane_bonus × org
   The cap is 2.5, about 316 stars a month. It was 4.0 — 10,000 a month — and at that
   height every viral general-audience repo pinned it, so the lane weights and crossovers
   below never got to decide anything.
+- **merit** — `max(velocity, standing)`, two readings of the same repo. **velocity** is
+  log-damped monthly star rate: age-relative popularity, so a three-month-old repo with
+  5,000 stars is news. **standing** is `standing_weight × log10(1 + stars)`, and a lane
+  sets it when its best work is finished rather than growing. Lanes 8 and 9 use 0.5; lane 1
+  stays at 0 on purpose, because there a star count measures the size of the audience
+  rather than the quality of the harness. A repo qualifies on either, and needs only one.
+
+  Velocity alone buried exactly the tools those lanes were built for: `alephdata/aleph`
+  ranked #124 and `opensanctions` #94, and with them `pdfplumber`, `csvkit`,
+  `sqlite-utils`, `dangerzone` and `securedrop` — all from the followed org list, all old,
+  modestly-starred and maintained rather than abandoned. Lane 9's `freshness_floor` was
+  written for this case and could not reach it, because it corrects time-since-push and
+  not the growth term. Tuned on the 2026-09-06 pool: 0.4 barely moved anything, 0.6 gave
+  lanes 8 and 9 seventeen of the twenty-four slots.
 - **star_weight** — from the *lead* lane. Lane 1 sets 0.6 because "AI agents" is the most
   crowded topic on GitHub, and its star counts measure the size of the audience rather than
   the quality of the harness.
