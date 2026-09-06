@@ -1,6 +1,6 @@
 # repo-radar
 
-Standing GitHub queries for a ten-lane interest map, scored and deduplicated into a
+Standing GitHub queries for a five-lane interest map, scored and deduplicated into a
 weekly shortlist. Implements the discovery half of *GitHub Repo Discovery Strategy*.
 
 The problem it solves: repo discovery is otherwise passive, and general trending lists
@@ -16,10 +16,29 @@ no configured secrets, and cannot be blocked by an API balance.
 | Run | When | Lanes |
 |---|---|---|
 | Weekly | Mondays 13:00 UTC | 1 agents, 2 content/SEO, 5 automation, plus the velocity query |
-| Monthly | 1st, 13:00 UTC | All ten |
+| Monthly | 1st, 13:00 UTC | All five |
 
 GitHub cron is UTC and does not follow DST, so the local time shifts by an hour twice a
 year. Each lane's `"cadence"` field decides which run it belongs to.
+
+## Lanes
+
+Five live lanes: **1** agent harnesses and agent design, **2** content and SEO tooling,
+**5** personal and business automation, **8** journalism and reporting workflow,
+**9** data journalism.
+
+It was ten until 2026-09-06. Once the scoring fix above made lane yield mean something,
+simulating `guaranteed_per_lane: 0` so the lanes competed for all 24 slots showed that
+lanes 3 (research digests), 4 (web builds), 6 (writing workflow), 7 (place-based research)
+and 10 (AI video) earned **zero** — lane 10 had no qualifying candidate leading it at all.
+They had only ever appeared in a report because the per-lane floor handed them two slots
+each. They are kept in `retired_lanes` in `config/lanes.json`, so restoring one is a matter
+of moving its object back into `lanes`; `radar.py` reads `lanes` only.
+
+Cutting a lane removes the *standing query*, not the subject. `scripts/lane-queries.sh`
+still carries `ghdigest`, `ghsanity`, `ghwriting`, `ghgeo` and `ghvideo` as hand tools, and
+`ghfriction` covers the same ground on demand — it is where zingg (place records) and
+WhisperLiveKit (transcripts) actually came from, not from lanes 7 and 10.
 
 ## Use
 
@@ -153,7 +172,7 @@ Latin, default `0.6`.
 ## Layout
 
 ```
-config/lanes.json      the ten lanes: topics, queries, orgs, weights, excludes
+config/lanes.json      the five live lanes plus retired_lanes: topics, queries, orgs, weights, excludes
 scripts/radar.py       search, score, dedupe, report
 scripts/seed_ledger.py mark already-starred repos as seen
 scripts/lane-queries.sh shell functions for ad-hoc searches
@@ -175,7 +194,8 @@ pipeline itself still installs nothing and calls no LLM.
 ## How scoring works
 
 ```
-score = velocity × star_weight × freshness × lane_weight × multi_lane × crossover × org_bonus + growth
+score = velocity × star_weight × freshness × lane_weight × lane_bonus × org_bonus + growth
+        where lane_bonus = max(multi_lane, crossover)
 ```
 
 - **velocity** — `log10(1 + stars/day × 30)`, capped at `velocity_cap`. Age-relative
@@ -183,14 +203,19 @@ score = velocity × star_weight × freshness × lane_weight × multi_lane × cro
   The cap is 2.5, about 316 stars a month. It was 4.0 — 10,000 a month — and at that
   height every viral general-audience repo pinned it, so the lane weights and crossovers
   below never got to decide anything.
-- **star_weight** — from the *lead* lane. Lane 10 sets 0.35 because star counts there are
-  inflated by an audience chasing volume output. Lane 1 sets 0.6 for the same reason:
-  "AI agents" is the most crowded topic on GitHub, and its star counts measure the size
-  of the audience rather than the quality of the harness.
+- **star_weight** — from the *lead* lane. Lane 1 sets 0.6 because "AI agents" is the most
+  crowded topic on GitHub, and its star counts measure the size of the audience rather than
+  the quality of the harness.
 - **freshness** — decays over a year, down to a per-lane floor. Lane 9's floor is 0.7,
   because data journalism tools are often finished rather than abandoned.
-- **multi_lane / crossover** — a repo matching two lanes outranks a stronger repo matching
-  one. Configured pairs get an extra multiplier; 1+9 is the highest at 1.6.
+- **lane_bonus** — `max(multi_lane, crossover)`, never the product. A repo matching two
+  lanes outranks a stronger repo matching one, and a configured pair can be worth more
+  still. The two used to be multiplied, which billed the same observation twice: a 1+9
+  pair took 2.4× and a four-lane repo 4.0×, against a lane weight that only spans 1.0–1.3.
+  Every one of the top 24 was multi-lane and the best single-lane specialist ranked #31.
+  `multi_lane_step` is 0.35 capped at `multi_lane_cap` 2 extra lanes, so a repo cannot buy
+  rank by tagging itself into five subjects. Consequence: a crossover at or below the
+  generic two-lane value (1.35) never fires — `scripts/lane-overlap.py` reports which.
 - **growth** — stars gained since a previous run saw it but did not surface it.
 
 ### Strong vs. weak lane evidence
@@ -220,7 +245,7 @@ did. Each followed account that matters now has its own `org:` query. GitHub sea
 
 Interview-prep repos, roadmaps, cheat sheets, and awesome-lists are excluded outright
 rather than scored down, because a soft penalty never actually keeps them out. Trading and
-investing tools are excluded on the same grounds: nothing in the ten lanes is about
+investing tools are excluded on the same grounds: nothing in the lanes is about
 equities, but an investing workbench tags itself `mcp`, `ai-agents`, `research-assistant`
 and `nextjs`, stacks four strong lanes, and lands at the top of the run. The pattern names
 instruments and strategies rather than "finance", so financial-accountability reporting

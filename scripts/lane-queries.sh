@@ -19,17 +19,26 @@ _d() { date -u -v-"$1"d +%Y-%m-%d 2>/dev/null || date -u -d "$1 days ago" +%Y-%m
 # Lane-agnostic. Young and already popular: the highest-signal filter on GitHub.
 ghvelocity() { _gh_repo_search "stars:>${1:-500} created:>$(_d "${2:-60}") archived:false"; }
 
+# The five live lanes.
 ghagents()     { _gh_repo_search "topic:claude-code stars:>100 pushed:>$(_d 60) archived:false"; }   # lane 1
 ghmcp()        { _gh_repo_search "topic:mcp stars:>200 pushed:>$(_d 30) archived:false"; }           # lane 1
 ghseo()        { _gh_repo_search "topic:seo topic:ai stars:>50 pushed:>$(_d 90) archived:false"; }   # lane 2
-ghdigest()     { _gh_repo_search "\"research digest\" in:readme stars:>100 pushed:>$(_d 120) archived:false"; }  # lane 3
-ghsanity()     { _gh_repo_search "topic:sanity topic:nextjs stars:>50 pushed:>$(_d 120) archived:false"; }       # lane 4
 ghautomation() { _gh_repo_search "topic:automation topic:llm stars:>200 pushed:>$(_d 60) archived:false"; }      # lane 5
-ghwriting()    { _gh_repo_search "\"fact check\" in:readme topic:llm stars:>100 pushed:>$(_d 120) archived:false"; }  # lane 6
-ghgeo()        { _gh_repo_search "topic:geospatial stars:>300 pushed:>$(_d 90) archived:false"; }    # lane 7
 ghnews()       { _gh_repo_search "topic:journalism stars:>100 pushed:>$(_d 300) archived:false"; }   # lane 8
 ghdatajourn()  { _gh_repo_search "\"data journalism\" in:readme stars:>100 pushed:>$(_d 300) archived:false"; }  # lane 9
-ghvideo()      { _gh_repo_search "topic:video-editing stars:>500 pushed:>$(_d 120) archived:false"; }            # lane 10
+
+# Retired lanes 3, 4, 6, 7 and 10, cut 2026-09-06 because none of them earned a
+# slot when the lanes had to compete. Kept as hand tools: dropping a lane means
+# there is no longer a STANDING query for it, not that the subject stopped
+# mattering. Reach for these when a specific job needs them, and use ghfriction
+# for the same ground -- the friction list is the channel that covers a subject
+# without a lane, and it is where zingg (place records) and WhisperLiveKit
+# (transcripts) actually came from.
+ghdigest()     { _gh_repo_search "\"research digest\" in:readme stars:>100 pushed:>$(_d 120) archived:false"; }  # was lane 3
+ghsanity()     { _gh_repo_search "topic:sanity topic:nextjs stars:>50 pushed:>$(_d 120) archived:false"; }       # was lane 4
+ghwriting()    { _gh_repo_search "\"fact check\" in:readme topic:llm stars:>100 pushed:>$(_d 120) archived:false"; }  # was lane 6
+ghgeo()        { _gh_repo_search "topic:geospatial stars:>300 pushed:>$(_d 90) archived:false"; }    # was lane 7
+ghvideo()      { _gh_repo_search "topic:video-editing stars:>500 pushed:>$(_d 120) archived:false"; }            # was lane 10
 
 # Sweep one org. The good work in lanes 8 and 9 is concentrated, not diffuse.
 ghorg() { _gh_repo_search "org:$1 pushed:>$(_d "${2:-365}")" updated; }

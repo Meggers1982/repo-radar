@@ -45,6 +45,14 @@ Lines 1, 2, 3 and 10–12 are the six starters from the ticket. Lines 4–9 are 
 drawn from failures recorded across the routines, the digest estate, the Paper Trail
 port and the receipt-filing work.
 
+**Lane tags 3, 4, 6, 7 and 10 above refer to lanes retired on 2026-09-06.** They are
+left as written on purpose. Cutting a lane removed its standing query, not the subject —
+and the friction list is precisely the channel for a subject that no longer has a lane.
+It is worth noticing that two of the four hits, zingg (line 1, lane 7) and WhisperLiveKit
+(line 3, lanes 8+10), sit in retired lanes and were found here rather than by any standing
+query. The lanes those two subjects had were not earning their slots; the friction line
+was.
+
 ## What the run actually taught
 
 **Four of twelve lines produced a usable repo.** That is a real hit rate for this
