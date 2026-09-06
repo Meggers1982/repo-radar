@@ -9,6 +9,9 @@
     "velocity_cap": 2.5,
     "_guard_note": "min_age_days keeps day-old repos out until they have a little history; velocity_cap stops one implausible star spike from owning every run.",
     "guaranteed_per_lane": 2,
+    "multi_lane_step": 0.35,
+    "multi_lane_cap": 2,
+    "_multi_lane_note": "Bonus per extra STRONG lane, and the cap on how many extra lanes can pay. Was a hardcoded 0.5 with no cap, multiplied by the crossover multiplier on top. Both terms bill the same observation, so they compounded: a four-lane repo took 4.0x while lane weight only spans 1.0-1.3. On the 2026-09-06 pool all 24 top-scoring repos were multi-lane and the best single-lane specialist ranked #31. radar.py now takes max(multi_lane, crossover), and the step is 0.35 capped at 2 extra lanes so topic spam cannot buy rank.",
     "_min_score_note": "Raised from 0.25 after the first live run let a cloud-certification study repo into lane 4 purely to satisfy the per-lane coverage guarantee. A guaranteed slot should stay empty rather than be filled with noise.",
     "weak_min_score": 2.5,
     "_weak_min_score_note": "Floor for repos matched only by a lane keyword in the name or description, with no topic tag and no followed org. Lanes share vocabulary deliberately ('transcription' is both journalism and video), so a keyword-only hit is a collision until proved otherwise. No pick in the 2026-09-06 all-lane run was weak-only, so this costs nothing there and cleans up the thin single-lane runs.",
@@ -29,11 +32,12 @@
     "1+10": 1.4,
     "8+9": 1.3,
     "1+2": 1.3,
-    "8+10": 1.25
+    "8+10": 1.25,
+    "_inert_note": "A crossover is now the bonus for that pair, not a surcharge on top of the generic multi-lane bonus. Anything at or below the generic value for the same lane count (1.35 for two lanes at the current step) never fires: as of 2026-09-06 that is 1+2, 8+9 and 8+10. Raise them above 1.35 if those pairs are meant to be worth more than any other pair, or leave them as documentation of intent. scripts/lane-overlap.py prints which are inert."
   },
   "global_excludes": {
     "_comment": "Hard excludes, not soft penalties. These are the repos that pollute topic searches: interview prep, roadmaps, course lists, cheat sheets. Learned from the single-region penalty in research-digest-dashboard, where a soft score never actually kept junk out.",
-    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|学习路线|面试|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b|a[- ]shares?\\b|\\bstock (trading|market|picking)|quantitative[- ]trading|\\bbacktest|trading[- ]bot|\\bcrypto[- ]?(bot|trading)|portfolio[- ]optimi)",
+    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|\u5b66\u4e60\u8def\u7ebf|\u9762\u8bd5|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b|a[- ]shares?\\b|\\bstock (trading|market|picking)|quantitative[- ]trading|\\bbacktest|trading[- ]bot|\\bcrypto[- ]?(bot|trading)|portfolio[- ]optimi)",
     "_finance_note": "Added 2026-09-06. Nothing in the ten lanes is about equities or trading, but investing workbenches tag themselves mcp/ai-agents/research-assistant/nextjs and so stack four strong lanes. On the first live all-lane run a China A-shares research terminal scored 10.3, the highest of any repo in any lane. Deliberately narrow: it names trading instruments and strategies, not 'finance', so that financial-accountability reporting tools in lanes 8 and 9 still come through."
   },
   "lanes": [
@@ -418,7 +422,7 @@
       ],
       "excludes": {
         "_comment": "Hard exclude, per the doc: fail anything whose pitch is volume output rather than control over your own material.",
-        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|短视频|批量|一键生成|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
+        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|\u77ed\u89c6\u9891|\u6279\u91cf|\u4e00\u952e\u751f\u6210|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
       }
     }
   ]

@@ -231,13 +231,14 @@ def excluded(repo: dict, pattern: str) -> bool:
 # ------------------------------------------------------------------ scoring
 
 def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
+    settings = config["settings"]
     stars = repo.get("stargazers_count", 0)
     age = max(days_since(repo.get("created_at", "")), 1.0)
     stale = days_since(repo.get("pushed_at", ""))
 
     # Monthly star velocity, log-damped. Age-relative popularity, not raw popularity.
     velocity = math.log10(1 + (stars / age) * 30)
-    velocity = min(velocity, config["settings"].get("velocity_cap", 4.0))
+    velocity = min(velocity, settings.get("velocity_cap", 4.0))
 
     # Star deflation and the freshness floor come from the LEAD lane, not from
     # max() across every matched lane. Using max() cancelled lane 10's deliberate
@@ -248,14 +249,32 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
     lane_weight = max(l.get("weight", 1.0) for l in lanes_hit)
 
     freshness = max(1.0 - (stale / 365.0), floor)
+
+    # Multi-lane bonus. Capped, because the increment was uncapped and a repo
+    # that tags itself into five lanes collected 3.0x for doing nothing but
+    # spamming topics.
     strong = [l for l in lanes_hit if l.get("_evidence") == "strong"]
-    multi_lane = 1.0 + 0.5 * max(len(strong) - 1, 0)
+    extra = min(max(len(strong) - 1, 0), settings.get("multi_lane_cap", 2))
+    multi_lane = 1.0 + settings.get("multi_lane_step", 0.35) * extra
 
     crossover = 1.0
     ids = sorted(l["id"] for l in lanes_hit if l.get("_evidence") == "strong")
     for a in range(len(ids)):
         for b in range(a + 1, len(ids)):
             crossover = max(crossover, config["crossovers"].get(f"{ids[a]}+{ids[b]}", 1.0))
+
+    # Take the better of the two, never the product. Both terms are paid for the
+    # SAME observation -- that the repo sits in more than one lane -- so
+    # multiplying them counted it twice and compounded: a 1+9 pair earned
+    # 1.5 x 1.6 = 2.4x, and a four-lane repo 4.0x. Nothing else in the formula
+    # moves that far (lane weight spans 1.0-1.3, star_weight 0.6-1.0), so the
+    # bonus decided the ranking on its own. Measured on the 2026-09-06 pool:
+    # all 24 top-scoring repos were multi-lane and the best single-lane
+    # specialist -- simonw/llm, from a followed org -- ranked #31.
+    # A crossover is now the bonus for that specific pair rather than a
+    # surcharge on top of the generic one, so an entry at or below the generic
+    # two-lane value never fires. scripts/lane-overlap.py reports which.
+    lane_bonus = max(multi_lane, crossover)
 
     owner = (repo.get("owner") or {}).get("login", "").lower()
     followed = any(owner in {o.lower() for o in l.get("orgs", [])} for l in lanes_hit)
@@ -266,7 +285,7 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
     gained = stars - record.get("stars_at_first_seen", stars)
     growth = math.log10(1 + max(gained, 0)) * 0.4
 
-    score = velocity * star_weight * freshness * lane_weight * multi_lane * crossover * org_bonus + growth
+    score = velocity * star_weight * freshness * lane_weight * lane_bonus * org_bonus + growth
 
     return {
         "full_name": repo["full_name"],
@@ -283,6 +302,7 @@ def score_repo(repo: dict, lanes_hit: list, config: dict, seen: dict) -> dict:
         "lanes": [{"id": l["id"], "name": l["name"]} for l in lanes_hit],
         "weak_lanes": all(l.get("_evidence") != "strong" for l in lanes_hit),
         "crossover": round(crossover, 2),
+        "lane_bonus": round(lane_bonus, 2),
         "followed_org": followed,
         "english": True,          # set by the language gate in main()
         "english_readme": None,   # the translation that let a non-English repo through

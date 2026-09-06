@@ -97,3 +97,101 @@ Lane 2 returned six near-identical "skills pack" repos on 2026-09-06 (opc-skills
 claude-skills, affiliate-skills, digital-marketing-pro, GEOFlow). That is a single
 genre flooding a lane rather than a lane-definition problem, and it may resolve on
 its own; noting it so the next review can check whether it recurred.
+
+---
+
+# Addendum, same day: the lane-1 diagnosis above was wrong
+
+Acting on it turned up better evidence. Recorded here rather than edited away,
+because the wrong version was already in MEA-64 and MEA-239.
+
+## What the measurement actually says
+
+`scripts/lane-overlap.py` (new) fits every repo returned by every lane query
+against the lane definitions and reports pairwise overlap. On 844 repos fetched
+2026-09-06, of which 737 fit at least one lane:
+
+```
+lane   claims  strong   share
+1         219     209    28%
+8         179     156    21%
+9         157     154    21%
+5         106     106    14%
+```
+
+**No lane pair exceeds 50% overlap. The lanes are separable.** Lane 1 claims the
+largest share at 28%, which is a big lane, not a universal matcher. The crossover
+multipliers fire on 1–6% of the pool, not on almost everything.
+
+The "100% of lanes 5/6/9/10's picks were also lane 1" figure in the section above
+is real but was measured on the 24 *picks*, not on the pool they were drawn from.
+That is a selection effect, and mistaking it for a property of lane 1 was the error.
+
+## The actual defect: the multi-lane bonus was billed twice
+
+```
+multi_lane = 1.0 + 0.5 * (strong_lanes - 1)      # uncapped
+crossover  = up to 1.6
+score      = ... * multi_lane * crossover * ...   # both, multiplied
+```
+
+Both terms are paid for the same observation — that the repo sits in more than one
+lane — so they compounded. A 1+9 pair earned 1.5 × 1.6 = 2.4×; a four-lane repo
+earned 4.0×. Nothing else in the formula moves that far: lane weight spans 1.0–1.3
+and `star_weight` 0.6–1.0. The bonus was deciding the ranking by itself.
+
+Measured on the pool: **all 24 top-scoring repos were multi-lane. The best
+single-lane specialist — `simonw/llm`, from a followed org — ranked #31.**
+`simonw/datasette` ranked #63. Only 213 of 698 scored repos were multi-lane at all,
+so 31% of the pool was taking 100% of the top.
+
+Lane 1 was the most common ingredient in a winning stack simply because it is the
+biggest lane. That is why the symptom looked like a lane-1 problem.
+
+## Fix
+
+`score_repo` now takes `max(multi_lane, crossover)` rather than the product, and the
+increment is `multi_lane_step: 0.35` capped at `multi_lane_cap: 2` extra lanes, both
+in `settings`. Measured effect on the same pool: best single-lane specialist moves
+**#31 → #13**.
+
+Consequence worth knowing: a crossover is now the bonus *for that pair* rather than a
+surcharge on top of the generic one, so any entry at or below the generic two-lane
+value (1.35) never fires. As of today that is `1+2`, `8+9` and `8+10`.
+`lane-overlap.py` flags them.
+
+## Tested and rejected: narrowing lane 1's topics
+
+Restricting lane 1 to `claude-code`, `agent-framework`, `agentic-workflow`,
+`multi-agent` and dropping the bare `ai-agents` / `mcp` / `llm-agent` removed lane 1
+from the top 24 **entirely** (0/24) and pushed the best specialist back from #13 to
+#20. It does not improve precision, it just deletes the highest-weighted lane.
+Not applied. Recommendation withdrawn.
+
+## What this means for pruning (MEA-64)
+
+With the scorer fixed, simulating `guaranteed_per_lane: 0` so lanes compete for all
+24 slots:
+
+| Lane | Slots earned | Candidates in pool | Best score |
+| -- | -- | -- | -- |
+| 1 Agents | 9 | 166 | 4.14 |
+| 5 Automation | 5 | 33 | 5.10 |
+| 2 Content/SEO | 4 | 18 | 4.94 |
+| 9 Data journalism | 4 | 42 | 4.11 |
+| 8 Journalism | 2 | 12 | 4.22 |
+| 3 Digests | 0 | 3 | 3.23 |
+| 4 Web builds | 0 | 17 | 3.11 |
+| 6 Writing | 0 | 15 | 3.25 |
+| 7 Place-based | 0 | 19 | 2.50 |
+| 10 AI video | 0 | **0** | — |
+
+Lanes 3, 4, 6, 7 and 10 earn nothing when they have to compete — they appear in the
+report only because `guaranteed_per_lane: 2` hands them slots. Lane 10 has **zero**
+qualifying candidates leading it at all, which is worth noting against the original
+assumption that lanes 8/9/10 were promising-but-untested; 8 and 9 hold their own, 10
+does not.
+
+This is one snapshot and still not six months of evidence, so it is not yet grounds
+to cut. It does say the ticket's original guess — "lanes 3, 4, 6, 7 are the likeliest
+cuts" — is pointing the right way, and that lane 10 belongs on that list.
