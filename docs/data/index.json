@@ -1,6 +1,695 @@
 {
   "runs": [
     {
+      "id": "2026-09-07-weekly",
+      "date": "2026-09-07",
+      "cadence": "weekly",
+      "count": 18,
+      "stats": {
+        "found": 252,
+        "in_lane": 210,
+        "new": 138,
+        "dropped_non_english": 1
+      },
+      "picks": [
+        {
+          "full_name": "skalesapp/skales",
+          "url": "https://github.com/skalesapp/skales",
+          "description": "Personal AI desktop agent for Windows, macOS, Linux, Android & iOS. Set a goal, it works on its own. Teams (pair two desktops, agents + humans), Agent2Agent, Workflows, Codework, multi-agent orgs, desktop + browser automation. 15+ AI providers, BYOK. No Docker, no terminal. Agent Skills (SKILL.md). Migration importer. Recurring autonomous tasks.",
+          "stars": 1816,
+          "stars_gained": 73,
+          "language": "TypeScript",
+          "topics": [
+            "agentic-ai",
+            "ai-agent",
+            "ai-assistant",
+            "android",
+            "automation",
+            "autonomous-agent",
+            "desktop-app",
+            "electron"
+          ],
+          "created": "2026-03-08",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.474,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 5.09
+        },
+        {
+          "full_name": "0xPlaygrounds/rig",
+          "url": "https://github.com/0xPlaygrounds/rig",
+          "description": "\u2699\ufe0f\ud83e\udd80 Build modular and scalable LLM Applications in Rust",
+          "stars": 8549,
+          "stars_gained": 49,
+          "language": "Rust",
+          "topics": [
+            "agent",
+            "ai",
+            "artificial-intelligence",
+            "automation",
+            "generative-ai",
+            "large-language-model",
+            "llm",
+            "llmops"
+          ],
+          "created": "2024-06-05",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.494,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 5.053
+        },
+        {
+          "full_name": "foryourhealth111-pixel/Vibe-Skills",
+          "url": "https://github.com/foryourhealth111-pixel/Vibe-Skills",
+          "description": "Intelligent Skill routing and workflow orchestration for AI agents \u2014 +21.12 pp reward, \u221229.6% tokens on SkillsBench with DeepSeekV4Flash-VE.",
+          "stars": 3197,
+          "stars_gained": 67,
+          "language": "Python",
+          "topics": [
+            "agent-framework",
+            "agent-skills",
+            "agentic-coding",
+            "ai-agents",
+            "ai-scientist",
+            "ai-skills",
+            "ai-workflow",
+            "automation"
+          ],
+          "created": "2026-02-22",
+          "pushed": "2026-08-31",
+          "days_since_push": 7,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 5.034
+        },
+        {
+          "full_name": "cft0808/edict",
+          "url": "https://github.com/cft0808/edict",
+          "description": "\ud83c\udfdb\ufe0f \u4e09\u7701\u516d\u90e8\u5236 \u00b7 OpenClaw Multi-Agent Orchestration System \u2014 9 specialized AI agents with real-time dashboard, model config, and full audit trails",
+          "stars": 16848,
+          "stars_gained": 36,
+          "language": "Python",
+          "topics": [
+            "ai-agents",
+            "ai-orchestration",
+            "autonomous-agents",
+            "claude",
+            "dashboard",
+            "kanban",
+            "llm",
+            "multi-agent"
+          ],
+          "created": "2026-02-23",
+          "pushed": "2026-09-07",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 5.007
+        },
+        {
+          "full_name": "microsoft/UFO",
+          "url": "https://github.com/microsoft/UFO",
+          "description": "UFO\u00b3: Weaving the Digital Agent Galaxy",
+          "stars": 9665,
+          "stars_gained": 46,
+          "language": "Python",
+          "topics": [
+            "agent",
+            "automation",
+            "copilot",
+            "gui",
+            "llm",
+            "windows"
+          ],
+          "created": "2024-01-08",
+          "pushed": "2026-09-06",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.475,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 5.003
+        },
+        {
+          "full_name": "czlonkowski/n8n-skills",
+          "url": "https://github.com/czlonkowski/n8n-skills",
+          "description": "n8n skillset for Claude Code to build flawless n8n workflows",
+          "stars": 6199,
+          "stars_gained": 32,
+          "language": "Shell",
+          "topics": [
+            "ai-agents",
+            "n8n",
+            "workflow-automation"
+          ],
+          "created": "2025-10-20",
+          "pushed": "2026-09-03",
+          "days_since_push": 4,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.944
+        },
+        {
+          "full_name": "firecrawl/anydoc",
+          "url": "https://github.com/firecrawl/anydoc",
+          "description": "Convert Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV, and PDF to clean Markdown. Built in Rust, with Node.js and Python bindings.",
+          "stars": 20652,
+          "stars_gained": 617,
+          "language": "Rust",
+          "topics": [],
+          "created": "2026-08-03",
+          "pushed": "2026-08-28",
+          "days_since_push": 11,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 4.757
+        },
+        {
+          "full_name": "koala73/worldmonitor",
+          "url": "https://github.com/koala73/worldmonitor",
+          "description": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure tracking in a unified situational awareness interface",
+          "stars": 85771,
+          "stars_gained": 372,
+          "language": "TypeScript",
+          "topics": [
+            "agent",
+            "ai",
+            "dashboard",
+            "geopolitics",
+            "mcp",
+            "mcp-server",
+            "monitoring",
+            "news"
+          ],
+          "created": "2026-01-08",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.661
+        },
+        {
+          "full_name": "aaron-he-zhu/aaron-marketing-skills",
+          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills",
+          "description": "120 marketing skills as an AI marketing staff \u2014 plugin, portable skills, or an 8-bot team across 7 disciplines (narrative, SEO/GEO, social, email, paid, influencer, launch) on one contract, with 8 auditor gates: TALE \u00b7 CORE-EEAT \u00b7 CITE \u00b7 ECHO \u00b7 SEND \u00b7 ROAS \u00b7 STAR \u00b7 RAMP.",
+          "stars": 2740,
+          "stars_gained": 23,
+          "language": "Python",
+          "topics": [
+            "aaron-marketing",
+            "agent-skills",
+            "ai-staff",
+            "brand-messaging",
+            "brand-narrative",
+            "content-optimization",
+            "email-marketing",
+            "generative-engine-optimization"
+          ],
+          "created": "2025-12-18",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.495,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.546
+        },
+        {
+          "full_name": "HKUDS/nanobot",
+          "url": "https://github.com/HKUDS/nanobot",
+          "description": "Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi-agent workflows, automation, and chat apps",
+          "stars": 47846,
+          "stars_gained": 188,
+          "language": "Python",
+          "topics": [
+            "agent-framework",
+            "ai-agent",
+            "ai-agents",
+            "chatbot",
+            "chatops",
+            "discord-bot",
+            "llm-agents",
+            "llms"
+          ],
+          "created": "2026-02-01",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.541
+        },
+        {
+          "full_name": "DietrichGebert/ponytail",
+          "url": "https://github.com/DietrichGebert/ponytail",
+          "description": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+          "stars": 130726,
+          "stars_gained": 9432,
+          "language": "JavaScript",
+          "topics": [
+            "agent-skills",
+            "ai-agents",
+            "claude",
+            "claude-code",
+            "claude-code-plugin",
+            "cursor-rules",
+            "developer-tools",
+            "llm"
+          ],
+          "created": "2026-06-12",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.539
+        },
+        {
+          "full_name": "affaan-m/ECC",
+          "url": "https://github.com/affaan-m/ECC",
+          "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+          "stars": 252566,
+          "stars_gained": 6334,
+          "language": "JavaScript",
+          "topics": [
+            "ai-agents",
+            "anthropic",
+            "claude",
+            "claude-code",
+            "developer-tools",
+            "llm",
+            "mcp",
+            "productivity"
+          ],
+          "created": "2026-01-18",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.469
+        },
+        {
+          "full_name": "deepseek-ai/deepseek-harness",
+          "url": "https://github.com/deepseek-ai/deepseek-harness",
+          "description": "DeepSeek Harness: Everything is a Plugin.",
+          "stars": 215047,
+          "stars_gained": 5528,
+          "language": "TypeScript",
+          "topics": [
+            "ai-agents",
+            "cordis",
+            "dsh",
+            "dsh-plugin"
+          ],
+          "created": "2026-08-13",
+          "pushed": "2026-09-07",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.447
+        },
+        {
+          "full_name": "anthropics/skills",
+          "url": "https://github.com/anthropics/skills",
+          "description": "Public repository for Agent Skills",
+          "stars": 175006,
+          "stars_gained": 386,
+          "language": "Python",
+          "topics": [
+            "agent-skills"
+          ],
+          "created": "2025-09-22",
+          "pushed": "2026-09-03",
+          "days_since_push": 4,
+          "license": "none",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.445
+        },
+        {
+          "full_name": "avansaber/seo-monster",
+          "url": "https://github.com/avansaber/seo-monster",
+          "description": "SEOMonster: a local, user-credential-driven MCP server for SEO workflows over Google Search Console, GA4, PageSpeed Insights, and Cloudflare. Read-first, open source.",
+          "stars": 157,
+          "stars_gained": 8,
+          "language": "Python",
+          "topics": [
+            "ai",
+            "anthropic",
+            "claude",
+            "cloudflare",
+            "core-web-vitals",
+            "crux",
+            "ga4",
+            "indexnow"
+          ],
+          "created": "2026-05-28",
+          "pushed": "2026-09-01",
+          "days_since_push": 6,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 1.671,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.267
+        },
+        {
+          "full_name": "Blazity/next-enterprise",
+          "url": "https://github.com/Blazity/next-enterprise",
+          "description": "\ud83d\udcbc An enterprise-grade Next.js boilerplate for high-performance, maintainable apps. Packed with features like Tailwind CSS, TypeScript, ESLint, Prettier, testing tools, and more to accelerate your development.",
+          "stars": 7455,
+          "stars_gained": 6,
+          "language": "TypeScript",
+          "topics": [
+            "boilerplate",
+            "chatgpt",
+            "cva",
+            "eslint",
+            "jamstack",
+            "javascript-ai",
+            "next",
+            "next-js"
+          ],
+          "created": "2023-04-21",
+          "pushed": "2026-09-03",
+          "days_since_push": 4,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.26,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.021
+        },
+        {
+          "full_name": "Bhanunamikaze/Agentic-SEO-Skill",
+          "url": "https://github.com/Bhanunamikaze/Agentic-SEO-Skill",
+          "description": "An LLM-first SEO analysis skill for Antigravity, Codex, Claude with 16 specialized sub-skills, 10 specialist agents, and 88 optional utility scripts used as evidence collectors.",
+          "stars": 890,
+          "stars_gained": 4,
+          "language": "Python",
+          "topics": [
+            "ai-skill",
+            "ai-skills",
+            "antigravity-ai",
+            "antigravity-skills",
+            "antigravity-tools",
+            "claude-skill",
+            "claude-skills",
+            "codex-skill"
+          ],
+          "created": "2026-03-02",
+          "pushed": "2026-07-23",
+          "days_since_push": 46,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.153,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.726
+        },
+        {
+          "full_name": "AminForou/mcp-gsc",
+          "url": "https://github.com/AminForou/mcp-gsc",
+          "description": "Google Search Console Insights with Claude AI for SEOs",
+          "stars": 1496,
+          "stars_gained": 24,
+          "language": "Python",
+          "topics": [
+            "claude",
+            "google-search-console",
+            "mcp-server",
+            "seo"
+          ],
+          "created": "2025-03-14",
+          "pushed": "2026-07-29",
+          "days_since_push": 41,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.923,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.61
+        }
+      ]
+    },
+    {
       "id": "2026-09-06-weekly",
       "date": "2026-09-06",
       "cadence": "weekly",
@@ -1488,24 +2177,8 @@
       "name": "Content and SEO tooling"
     },
     {
-      "id": 3,
-      "name": "Research and digest pipelines"
-    },
-    {
-      "id": 4,
-      "name": "Web builds: Next.js, Sanity, Vercel"
-    },
-    {
       "id": 5,
       "name": "Personal and business automation"
-    },
-    {
-      "id": 6,
-      "name": "Writing, editing, and publishing workflow"
-    },
-    {
-      "id": 7,
-      "name": "Local and place-based research"
     },
     {
       "id": 8,
@@ -1514,11 +2187,7 @@
     {
       "id": 9,
       "name": "Data journalism: analysis, documents, visualization"
-    },
-    {
-      "id": 10,
-      "name": "AI video and media production"
     }
   ],
-  "updated": "2026-09-06"
+  "updated": "2026-09-07"
 }
