@@ -55,6 +55,47 @@ def load_json(path: Path, default):
     return default
 
 
+def shaped_like(template):
+    """An all-null value in the same shape as `template`."""
+    if isinstance(template, dict):
+        return {k: shaped_like(v) for k, v in template.items()}
+    return None
+
+
+def conform(record: dict, template: dict) -> dict:
+    """Fill keys the template has and `record` lacks with explicit nulls."""
+    for key, value in template.items():
+        if record.get(key) is None:
+            record[key] = shaped_like(value)
+        elif isinstance(value, dict) and isinstance(record[key], dict):
+            conform(record[key], value)
+    return record
+
+
+def normalize_runs(runs: list, template: dict) -> list:
+    """Bring every run in the window up to the newest run's shape.
+
+    index.json keeps a 52-run window, so any field added to a run or a pick
+    is otherwise a latent break in every consumer for a year -- and one that
+    never shows up while developing, because the run you look at is always
+    the newest and always has the new shape. It only appears when someone
+    opens an old run in the sidebar (MEA-159).
+
+    The template is the record just built, so this needs no maintenance as
+    fields are added. A backfilled null is indistinguishable from a real
+    one; that is the accepted cost of consumers seeing a single shape.
+    """
+    pick_template = {}
+    for pick in template.get("picks") or []:
+        pick_template.update({k: v for k, v in pick.items()
+                              if k not in pick_template})
+    for run in runs:
+        conform(run, template)
+        for pick in run.get("picks") or []:
+            conform(pick, pick_template)
+    return runs
+
+
 # ------------------------------------------------------------ github search
 
 def search(query: str, per_page: int, token: str, sort: str = "stars"):
@@ -580,7 +621,7 @@ def main():
     DASHBOARD_DIR.mkdir(parents=True, exist_ok=True)
     runs = load_json(DASHBOARD_DIR / "index.json", {"runs": []})
     runs["runs"] = [r for r in runs["runs"] if r["id"] != f"{stamp}-{args.cadence}"]
-    runs["runs"].insert(0, {
+    current = {
         "id": f"{stamp}-{args.cadence}",
         "date": stamp,
         "cadence": args.cadence,
@@ -592,8 +633,12 @@ def main():
             "dropped_non_english": len(dropped_lang),
         },
         "picks": picks,
-    })
+    }
+    runs["runs"].insert(0, current)
     runs["runs"] = runs["runs"][:52]
+    # Backfill the older runs to this run's shape before writing, so every
+    # consumer of index.json sees one shape rather than one per schema era.
+    normalize_runs(runs["runs"], current)
     runs["lanes"] = [{"id": l["id"], "name": l["name"]} for l in lanes]
     runs["updated"] = stamp
     (DASHBOARD_DIR / "index.json").write_text(json.dumps(runs, indent=2) + "\n")

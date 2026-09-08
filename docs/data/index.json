@@ -736,7 +736,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 6.44
+          "score": 6.44,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "jdevalk/specification.website",
@@ -774,7 +777,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 6.088
+          "score": 6.088,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "rampstackco/claude-skills",
@@ -812,7 +818,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 6.025
+          "score": 6.025,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "Osmantic/ODS",
@@ -850,7 +859,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.841
+          "score": 5.841,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "huangruiteng/loopx",
@@ -888,7 +900,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.782
+          "score": 5.782,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "kirodotdev/KiroCrew",
@@ -926,7 +941,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.682
+          "score": 5.682,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "activepieces/activepieces",
@@ -964,7 +982,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.648
+          "score": 5.648,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "microsoft/RD-Agent",
@@ -1002,7 +1023,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.644
+          "score": 5.644,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "Affitor/affiliate-skills",
@@ -1040,7 +1064,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.611
+          "score": 5.611,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "AlephAITech/WorkBuddyGuide",
@@ -1078,7 +1105,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.559
+          "score": 5.559,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "yaojingang/GEOFlow",
@@ -1116,7 +1146,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.324
+          "score": 5.324,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "indranilbanerjee/digital-marketing-pro",
@@ -1154,7 +1187,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 5.26
+          "score": 5.26,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "siyuan-note/siyuan",
@@ -1196,7 +1232,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 4.599
+          "score": 4.599,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "nextlevelbuilder/ui-ux-pro-max-skill",
@@ -1234,7 +1273,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 4.128
+          "score": 4.128,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "Panniantong/Agent-Reach",
@@ -1272,7 +1314,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 4.019
+          "score": 4.019,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "career-ops-hq/career-ops",
@@ -1310,7 +1355,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 3.935
+          "score": 3.935,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "n8n-io/n8n",
@@ -1348,7 +1396,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 3.931
+          "score": 3.931,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         },
         {
           "full_name": "open-webui/open-webui",
@@ -1386,7 +1437,10 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 3.931
+          "score": 3.931,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null
         }
       ]
     },
@@ -1429,7 +1483,12 @@
           "weak_lanes": false,
           "crossover": 1.4,
           "followed_org": true,
-          "score": 12.599
+          "score": 12.599,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "thedotmack/claude-mem",
@@ -1465,7 +1524,12 @@
           "weak_lanes": false,
           "crossover": 1.6,
           "followed_org": false,
-          "score": 12.106
+          "score": 12.106,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "D4Vinci/Scrapling",
@@ -1505,7 +1569,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 11.924
+          "score": 11.924,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "Vincentwei1021/video-shotcraft",
@@ -1541,7 +1610,12 @@
           "weak_lanes": false,
           "crossover": 1.4,
           "followed_org": false,
-          "score": 9.994
+          "score": 9.994,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "langgenius/dify",
@@ -1581,7 +1655,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 9.286
+          "score": 9.286,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "every-app/open-seo",
@@ -1616,7 +1695,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 8.648
+          "score": 8.648,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "KunAgent/Kun",
@@ -1656,7 +1740,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 8.46
+          "score": 8.46,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "netdata/netdata",
@@ -1692,7 +1781,12 @@
           "weak_lanes": false,
           "crossover": 1.6,
           "followed_org": false,
-          "score": 8.423
+          "score": 8.423,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "AgriciDaniel/claude-seo",
@@ -1731,7 +1825,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 8.366
+          "score": 8.366,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "Pinvou/pinvou-agent",
@@ -1771,7 +1870,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 7.976
+          "score": 7.976,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "netease-youdao/LobsterAI",
@@ -1811,7 +1915,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 7.654
+          "score": 7.654,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "tsingyuai/growth-lab",
@@ -1847,7 +1956,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 7.529
+          "score": 7.529,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "tinyhumansai/openhuman",
@@ -1883,7 +1997,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 7.37
+          "score": 7.37,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "docmd-io/docmd",
@@ -1923,7 +2042,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 7.263
+          "score": 7.263,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "nowork-studio/notfair-plugin",
@@ -1959,7 +2083,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 7.04
+          "score": 7.04,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "cobusgreyling/loop-engineering",
@@ -1995,7 +2124,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 6.969
+          "score": 6.969,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "triggerdotdev/trigger.dev",
@@ -2035,7 +2169,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 6.63
+          "score": 6.63,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "AgriciDaniel/claude-blog",
@@ -2075,7 +2214,12 @@
           "weak_lanes": false,
           "crossover": 1.3,
           "followed_org": false,
-          "score": 6.215
+          "score": 6.215,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "LiamGvchi/gc-minimal-zine-poster",
@@ -2098,7 +2242,12 @@
           "weak_lanes": true,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 3.734
+          "score": 3.734,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "openai/codex-security",
@@ -2130,7 +2279,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": true,
-          "score": 1.655
+          "score": 1.655,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         },
         {
           "full_name": "nastaso/cloudcertprep",
@@ -2162,9 +2316,20 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "followed_org": false,
-          "score": 1.091
+          "score": 1.091,
+          "lane_bonus": null,
+          "merit": null,
+          "merit_from": null,
+          "english": null,
+          "english_readme": null
         }
-      ]
+      ],
+      "stats": {
+        "found": null,
+        "in_lane": null,
+        "new": null,
+        "dropped_non_english": null
+      }
     }
   ],
   "lanes": [

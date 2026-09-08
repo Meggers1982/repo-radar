@@ -337,10 +337,17 @@ function runView(run) {
       ? 'Every repo in this run has been dismissed.' : 'Nothing surfaced.'}</p>`;
     return;
   }
+  // radar.py backfills older runs to the current shape on write, but read
+  // defensively anyway -- a hand-edited or half-written index.json must not
+  // be able to take the only reading surface down (MEA-159).
   const byLane = {};
-  live.forEach(p => (byLane[p.lanes[0].id] ||= []).push(p));
+  live.forEach(p => {
+    const lane = (p.lanes && p.lanes[0]) || { id: '?', name: 'Unlaned' };
+    (byLane[lane.id] ||= []).push(p);
+  });
   bodyEl.innerHTML = Object.keys(byLane).sort((a, b) => a - b).map(id => {
-    const lane = byLane[id][0].lanes[0];
+    const lane = (byLane[id][0].lanes && byLane[id][0].lanes[0])
+      || { id, name: 'Unlaned' };
     const cards = byLane[id].map(p => card(p, { showLane:false })).join('');
     return `<div class="lane">Lane ${id} · ${esc(lane.name)}</div>${cards}`;
   }).join('');
