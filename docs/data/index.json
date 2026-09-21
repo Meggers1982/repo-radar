@@ -1,6 +1,686 @@
 {
   "runs": [
     {
+      "id": "2026-09-21-weekly",
+      "date": "2026-09-21",
+      "cadence": "weekly",
+      "count": 18,
+      "stats": {
+        "found": 252,
+        "in_lane": 214,
+        "new": 118,
+        "dropped_non_english": 1
+      },
+      "picks": [
+        {
+          "full_name": "harry0703/MoneyPrinterTurbo",
+          "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+          "description": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
+          "stars": 124955,
+          "stars_gained": 3629,
+          "language": "Python",
+          "topics": [
+            "ai-video-generator",
+            "content-creation",
+            "ffmpeg",
+            "instagram-reels",
+            "llm",
+            "python",
+            "short-video",
+            "subtitles"
+          ],
+          "created": "2024-03-11",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.422
+        },
+        {
+          "full_name": "Agenta-AI/agenta",
+          "url": "https://github.com/Agenta-AI/agenta",
+          "description": "Agenta is a workspace where you and your team build agents and automations.",
+          "stars": 4770,
+          "stars_gained": 94,
+          "language": "TypeScript",
+          "topics": [
+            "agent-builder",
+            "agent-observability",
+            "agent-orchestration",
+            "agent-workspace",
+            "agentic-ai",
+            "ai-agent",
+            "ai-agents",
+            "ai-automation"
+          ],
+          "created": "2023-04-26",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.064,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.414
+        },
+        {
+          "full_name": "loopx-project/loopx",
+          "url": "https://github.com/loopx-project/loopx",
+          "description": "Long-horizon agent control plane for durable, governed work across Codex, Claude Code, and other harnesses.",
+          "stars": 5916,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "agent-control-plane",
+            "agent-harness",
+            "agent-ops",
+            "ai-agents",
+            "codex",
+            "dsh-plugin",
+            "long-horizon",
+            "long-horizon-agents"
+          ],
+          "created": "2026-05-31",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.387
+        },
+        {
+          "full_name": "grab/cursor-talk-to-figma-mcp",
+          "url": "https://github.com/grab/cursor-talk-to-figma-mcp",
+          "description": "TalkToFigma: MCP integration between AI Agent (Cursor, Claude Code, Codex) and Figma, allowing Agentic AI to communicate with Figma for reading designs and modifying them programmatically.",
+          "stars": 7031,
+          "stars_gained": 45,
+          "language": "JavaScript",
+          "topics": [
+            "agent",
+            "agentic",
+            "agentic-ai",
+            "ai",
+            "ai-agents",
+            "automation",
+            "claude-code",
+            "codex"
+          ],
+          "created": "2025-03-16",
+          "pushed": "2026-07-26",
+          "days_since_push": 57,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.362
+        },
+        {
+          "full_name": "deeplethe/utopia",
+          "url": "https://github.com/deeplethe/utopia",
+          "description": "World's first open-source enterprise world model.",
+          "stars": 9596,
+          "stars_gained": 2139,
+          "language": "Rust",
+          "topics": [
+            "agent-memory",
+            "bitemporal",
+            "graphrag",
+            "knowledge-base",
+            "knowledge-graph",
+            "llm",
+            "ontology",
+            "pgvector"
+          ],
+          "created": "2026-08-07",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.332
+        },
+        {
+          "full_name": "intuitem/ciso-assistant-community",
+          "url": "https://github.com/intuitem/ciso-assistant-community",
+          "description": "CISO Assistant is a one-stop-shop GRC platform for Risk Management, AppSec, Compliance & Audit, TPRM, BIA, Privacy, and Reporting. It supports 200+ global frameworks with automatic control mapping, including ISO 27001, NIST CSF, SOC 2, CIS, PCI DSS, NIS2, DORA, GDPR, HIPAA, CMMC, and more.",
+          "stars": 4438,
+          "stars_gained": 39,
+          "language": "Python",
+          "topics": [
+            "audit",
+            "automation",
+            "bsi",
+            "cis",
+            "compliance",
+            "cybersecurity",
+            "dora",
+            "ebios-rm"
+          ],
+          "created": "2023-09-20",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.088,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.305
+        },
+        {
+          "full_name": "Ryze-AI-Adgent/open-seo-mcp-skills",
+          "url": "https://github.com/Ryze-AI-Adgent/open-seo-mcp-skills",
+          "description": "Open-source SEO + GEO skills for Claude on your real GSC/GA4/ads data. Free MCP: claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp",
+          "stars": 1110,
+          "stars_gained": null,
+          "language": "Shell",
+          "topics": [
+            "ai-seo",
+            "backlinks",
+            "claude",
+            "claude-skills",
+            "dataforseo",
+            "generative-engine-optimization",
+            "geo",
+            "keyword-research"
+          ],
+          "created": "2026-08-29",
+          "pushed": "2026-09-09",
+          "days_since_push": 13,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.235
+        },
+        {
+          "full_name": "anthropics/knowledge-work-plugins",
+          "url": "https://github.com/anthropics/knowledge-work-plugins",
+          "description": "Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork",
+          "stars": 25335,
+          "stars_gained": 1433,
+          "language": "Python",
+          "topics": [],
+          "created": "2026-01-23",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.7
+        },
+        {
+          "full_name": "anthropics/financial-services",
+          "url": "https://github.com/anthropics/financial-services",
+          "description": "",
+          "stars": 35727,
+          "stars_gained": 906,
+          "language": "Python",
+          "topics": [],
+          "created": "2026-02-23",
+          "pushed": "2026-09-18",
+          "days_since_push": 3,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.602
+        },
+        {
+          "full_name": "anthropics/claude-cookbooks",
+          "url": "https://github.com/anthropics/claude-cookbooks",
+          "description": "A collection of notebooks/recipes showcasing some fun and effective ways of using Claude.",
+          "stars": 52867,
+          "stars_gained": 411,
+          "language": "Jupyter Notebook",
+          "topics": [],
+          "created": "2023-08-15",
+          "pushed": "2026-09-21",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.482
+        },
+        {
+          "full_name": "addyosmani/agent-skills",
+          "url": "https://github.com/addyosmani/agent-skills",
+          "description": "Production-grade engineering skills for AI coding agents.",
+          "stars": 98072,
+          "stars_gained": 6375,
+          "language": "JavaScript",
+          "topics": [
+            "agent-skills",
+            "antigravity",
+            "claude-code",
+            "codex",
+            "cursor",
+            "skills"
+          ],
+          "created": "2026-02-15",
+          "pushed": "2026-09-20",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.467
+        },
+        {
+          "full_name": "Graphify-Labs/graphify",
+          "url": "https://github.com/Graphify-Labs/graphify",
+          "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+          "stars": 120152,
+          "stars_gained": 6176,
+          "language": "Python",
+          "topics": [
+            "ai-agents",
+            "antigravity",
+            "ast",
+            "claude-code",
+            "code-analysis",
+            "code-search",
+            "codex",
+            "cursor"
+          ],
+          "created": "2026-04-03",
+          "pushed": "2026-09-20",
+          "days_since_push": 1,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.461
+        },
+        {
+          "full_name": "bojieli/ai-agent-book",
+          "url": "https://github.com/bojieli/ai-agent-book",
+          "description": "\u300a\u6df1\u5165\u7406\u89e3 AI Agent\uff1a\u8bbe\u8ba1\u539f\u7406\u4e0e\u5de5\u7a0b\u5b9e\u8df5\u300b\uff08\u674e\u535a\u6770 \u8457\uff09\u5f00\u6e90\u4e3b\u4ed3\u5e93\uff1a\u5168\u4e66\u6b63\u6587\u3001\u7f16\u8bd1\u7248 PDF \u4e0e\u6309\u7ae0\u914d\u5957\u4ee3\u7801",
+          "stars": 49682,
+          "stars_gained": 5340,
+          "language": "Python",
+          "topics": [
+            "agent",
+            "agent-memory",
+            "ai-agent",
+            "book",
+            "coding-agent",
+            "context-engineering",
+            "large-language-models",
+            "llm"
+          ],
+          "created": "2025-09-09",
+          "pushed": "2026-09-21",
+          "days_since_push": 1,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": false,
+          "english_readme": "README.en.md",
+          "score": 3.438
+        },
+        {
+          "full_name": "dataforseo/mcp-server-typescript",
+          "url": "https://github.com/dataforseo/mcp-server-typescript",
+          "description": "DataForSEO API modelcontextprotocol server",
+          "stars": 246,
+          "stars_gained": 4,
+          "language": "TypeScript",
+          "topics": [
+            "ai",
+            "aiworkflow",
+            "dataforseo",
+            "dataforseo-apis",
+            "mcp",
+            "modelcontextprotocol",
+            "seo",
+            "seo-optimization"
+          ],
+          "created": "2025-04-10",
+          "pushed": "2026-09-01",
+          "days_since_push": 20,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 1.174,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.226
+        },
+        {
+          "full_name": "garmeeh/next-seo",
+          "url": "https://github.com/garmeeh/next-seo",
+          "description": "Next SEO is a plug in that makes managing your SEO easier in Next.js projects.",
+          "stars": 8513,
+          "stars_gained": 3,
+          "language": "TypeScript",
+          "topics": [
+            "hacktoberfest",
+            "hacktoberfest-accepted",
+            "json-ld",
+            "nextjs",
+            "react",
+            "seo",
+            "typescript"
+          ],
+          "created": "2018-06-12",
+          "pushed": "2026-07-29",
+          "days_since_push": 54,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.932,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.216
+        },
+        {
+          "full_name": "aleclindz/seo-skill-bench",
+          "url": "https://github.com/aleclindz/seo-skill-bench",
+          "description": "Open benchmark for Claude Code SEO skills \u2014 real headless execution against fixture sites with planted-defect answer keys. Deterministic scoring, pre-registered rubric.",
+          "stars": 51,
+          "stars_gained": 0,
+          "language": "JavaScript",
+          "topics": [
+            "aeo",
+            "agent-skills",
+            "ai",
+            "ai-seo",
+            "benchmark",
+            "claude-code",
+            "claude-code-skill",
+            "evals"
+          ],
+          "created": "2026-07-02",
+          "pushed": "2026-08-21",
+          "days_since_push": 31,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 1.299,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.087
+        },
+        {
+          "full_name": "aimeos/aimeos",
+          "url": "https://github.com/aimeos/aimeos",
+          "description": "Integrated online shop based on Laravel and the Aimeos e-commerce framework for ultra-fast online shops, scalable marketplaces, complex B2B applications and #gigacommerce",
+          "stars": 5455,
+          "stars_gained": 6,
+          "language": "JavaScript",
+          "topics": [
+            "aimeos",
+            "b2b",
+            "cart",
+            "e-commerce",
+            "e-commerce-platform",
+            "ecommerce",
+            "ecommerce-platform",
+            "laravel"
+          ],
+          "created": "2017-09-10",
+          "pushed": "2026-07-29",
+          "days_since_push": 54,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.704,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.078
+        },
+        {
+          "full_name": "jonasmerlin/astro-seo",
+          "url": "https://github.com/jonasmerlin/astro-seo",
+          "description": "Makes it easy to add information that is relevant for SEO to your Astro app.",
+          "stars": 1406,
+          "stars_gained": 16,
+          "language": "Astro",
+          "topics": [
+            "astro",
+            "seo"
+          ],
+          "created": "2021-08-28",
+          "pushed": "2026-08-28",
+          "days_since_push": 24,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.376,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.034
+        }
+      ]
+    },
+    {
       "id": "2026-09-14-weekly",
       "date": "2026-09-14",
       "cadence": "weekly",
@@ -3071,5 +3751,5 @@
       "name": "Data journalism: analysis, documents, visualization"
     }
   ],
-  "updated": "2026-09-14"
+  "updated": "2026-09-21"
 }
