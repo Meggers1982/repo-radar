@@ -1,151 +1,124 @@
 # repo-radar — 2026-09-28
 
-**Run:** weekly | **Candidates:** 22
+**Run:** weekly | **Candidates:** 18
 
-**Dropped for language:** 1 (naxiaoduo/1000UserGuide) — not in English and no English README in the repo root.
+**Dropped for language:** 2 (eternity4719/HowToLiveBetter, naxiaoduo/1000UserGuide) — not in English and no English README in the repo root.
 
 Screen these at Gate 1: does it sit in one lane or two, last commit inside 90 days (lane 9 exempt), a license, a README that shows output, a named maintainer, issues that get answered, no paywall before evaluation. Two failures and close the tab. Star everything you screen either way.
 
 ## Lane 1: Agent harnesses and agent design
 
-### [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) · 4.03 — _also lanes 2; **crossover**; +3,171 stars since first seen_
+### [router-for-me/CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI) · 3.366 — _+3,474 stars since first seen_
 
-Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph you can explore, search, and ask questions about. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more.
+Wrap Antigravity, ChatGPT Codex, Claude Code, Grok Build, Muse Code, Davin as an OpenAI/Gemini/Claude/Codex compatible API service, allowing you to enjoy the free Gemini Series, GPT Series, Grok Series, Claude model through API
 
-`84,511` stars · created 2026-03-15 · pushed 2026-09-28 (0d ago) · TypeScript · MIT
+`53,419` stars · created 2025-07-01 · pushed 2026-09-28 (0d ago) · Go · MIT
 
-### [sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills) · 3.859 — _also lanes 2; **crossover**; +1,168 stars since first seen_
+### [ruvnet/ruflo](https://github.com/ruvnet/ruflo) · 3.352 — _+3,197 stars since first seen_
 
-AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validation, and planning, backed by 2,400+ agentic skills. Includes CLI, local MCP, catalog, plugins, and Workbench.
+🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conversational AI systems. Features adaptive memory, self-learning intelligence, federation, vector RAG integration, and native Claude Code / Codex / Hermes and many more Integrated
 
-`47,030` stars · created 2026-01-14 · pushed 2026-09-28 (0d ago) · Python · MIT
+`73,439` stars · created 2025-06-02 · pushed 2026-09-28 (0d ago) · TypeScript · MIT
 
-### [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent) · 3.834 — _also lanes 2; **crossover**; +1,006 stars since first seen_
+### [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) · 3.298 — _followed org; +141 stars since first seen_
 
-OmO: Just type "mass ulw" keyword with your prompt. Now you are the master of graph engineering.
+_No description._
 
-`69,623` stars · created 2025-12-03 · pushed 2026-09-28 (0d ago) · TypeScript · NOASSERTION
+`8,181` stars · created 2025-06-11 · pushed 2026-09-28 (0d ago) · Python · MIT
 
-### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) · 3.384 — _+4,263 stars since first seen_
+### [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) · 3.278 — _+2,097 stars since first seen_
 
-Academic Research Skills for Claude Code: research → write → review → revise → finalize
+Chrome DevTools for coding agents
 
-`49,777` stars · created 2026-02-26 · pushed 2026-09-25 (3d ago) · Python · NOASSERTION
+`52,700` stars · created 2025-09-11 · pushed 2026-09-28 (0d ago) · TypeScript · Apache-2.0
 
-### [anthropics/sandbox-runtime](https://github.com/anthropics/sandbox-runtime) · 3.382 — _followed org; +229 stars since first seen_
+### [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) · 3.274 — _+2,108 stars since first seen_
 
-A lightweight sandboxing tool for enforcing filesystem and network restrictions on arbitrary processes at the OS level, without requiring a container.
+AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary
 
-`5,374` stars · created 2025-10-20 · pushed 2026-09-28 (0d ago) · TypeScript · Apache-2.0
+`63,110` stars · created 2026-01-23 · pushed 2026-09-27 (1d ago) · Python · MIT
 
-### [rtk-ai/rtk](https://github.com/rtk-ai/rtk) · 3.372 — _+3,579 stars since first seen_
+### [anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) · 3.272 — _followed org; +141 stars since first seen_
 
-CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies
+A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API
 
-`81,914` stars · created 2026-01-22 · pushed 2026-09-28 (0d ago) · Rust · Apache-2.0
-
-
-## Lane 2: Content and SEO tooling
-
-### [minhnv0807/ai-business-skills](https://github.com/minhnv0807/ai-business-skills) · 3.987 — _also lanes 1; **crossover**; +27 stars since first seen_
-
-138 bilingual AI marketing skills (69 VN + 69 Global) for Claude Code, OpenCode, Codex, VS Code. Four role SOP packs — content, design, performance, leader ops — plus strategy, personal brand, AI avatar, dropshipping, design master, knowledge library. 4 regions (US/EU/SEA/LATAM) + Vietnam 2025-2026. Companion: opa-kit.
-
-`593` stars · created 2026-04-15 · pushed 2026-09-12 (16d ago) · PowerShell · MIT
-
-### [OneWave-AI/claude-skills](https://github.com/OneWave-AI/claude-skills) · 3.086 — _also lanes 1; **crossover**; +27 stars since first seen_
-
-200+ production-ready Claude Code skills for sales, marketing, design, engineering, and AI agent architecture. Built and maintained by OneWave AI.
-
-`310` stars · created 2025-10-22 · pushed 2026-09-23 (6d ago) · Python · MIT
-
-### [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap) · 1.576 — _+2 stars since first seen_
-
-Create and generate sitemaps with ease
-
-`2,621` stars · created 2016-08-12 · pushed 2026-08-07 (52d ago) · PHP · MIT
-
-### [aimeos/aimeos-typo3](https://github.com/aimeos/aimeos-typo3) · 1.559 — _+6 stars since first seen_
-
-TYPO3 e-commerce extension for ultra fast online shops, scalable marketplaces, complex B2B applications and #gigacommerce
-
-`1,574` stars · created 2014-09-27 · pushed 2026-09-10 (18d ago) · PHP · GPL-3.0
+`17,754` stars · created 2024-08-29 · pushed 2026-09-24 (4d ago) · TypeScript · MIT
 
 
 ## Lane 5: Personal and business automation
 
-### [temporalio/temporal](https://github.com/temporalio/temporal) · 4.026 — _+546 stars since first seen_
+### [keephq/keep](https://github.com/keephq/keep) · 3.715 — _+90 stars since first seen_
 
-Temporal service
+The open-source AIOps and alert management platform
 
-`23,337` stars · created 2019-10-16 · pushed 2026-09-28 (0d ago) · Go · MIT
+`12,361` stars · created 2023-02-04 · pushed 2026-09-28 (1d ago) · Python · NOASSERTION
 
-### [conductor-oss/conductor](https://github.com/conductor-oss/conductor) · 4.0 — _also lanes 1; +74 stars since first seen_
+### [hexabot-ai/Hexabot](https://github.com/hexabot-ai/Hexabot) · 3.663 — _also lanes 1; +56 stars since first seen_
 
-Conductor is an event driven agentic workflow engine providing durable and highly resilient execution engine for applications and AI Agents
+Hexabot v3 is an AI workflow automation platform, combining workflows, actions, agents, and conversational channels in one runtime.
 
-`32,241` stars · created 2023-12-08 · pushed 2026-09-28 (0d ago) · Java · Apache-2.0
+`1,263` stars · created 2024-09-09 · pushed 2026-09-23 (5d ago) · TypeScript · NOASSERTION
 
-### [ToolJet/ToolJet](https://github.com/ToolJet/ToolJet) · 3.908 — _+186 stars since first seen_
+### [yohey-w/multi-agent-shogun](https://github.com/yohey-w/multi-agent-shogun) · 3.637 — _also lanes 1; +4 stars since first seen_
 
-Open-source foundation of ToolJet AI - the enterprise app generation platform for internal tools, dashboards, business applications, workflows and AI agents. Build visually, from a prompt, or from Claude Code, Codex and Cursor over MCP 🚀
+Samurai-inspired multi-agent system for Claude Code. Orchestrate parallel AI tasks via tmux with shogun → karo → ashigaru hierarchy.
 
-`41,008` stars · created 2021-03-30 · pushed 2026-09-28 (0d ago) · JavaScript · AGPL-3.0
+`1,424` stars · created 2026-01-25 · pushed 2026-08-06 (53d ago) · Shell · MIT
 
-### [Skyvern-AI/skyvern](https://github.com/Skyvern-AI/skyvern) · 3.898 — _+176 stars since first seen_
+### [bytedance/flowgram.ai](https://github.com/bytedance/flowgram.ai) · 3.49 — _+61 stars since first seen_
 
-Automate browser based workflows with AI
+FlowGram is an extensible workflow development framework with built-in canvas, form, variable, and materials that helps developers build AI workflow platforms faster and simpler.
 
-`23,090` stars · created 2024-02-28 · pushed 2026-09-28 (0d ago) · Python · AGPL-3.0
+`8,473` stars · created 2025-02-17 · pushed 2026-09-01 (28d ago) · TypeScript · MIT
 
-### [nottelabs/notte](https://github.com/nottelabs/notte) · 3.753 — _also lanes 1; +5 stars since first seen_
+### [dagster-io/dagster](https://github.com/dagster-io/dagster) · 3.456 — _+122 stars since first seen_
 
-Cloud browser infrastructure and web automation platform for your AI and coding agents
+An orchestration platform for the development, production, and observation of data assets.
 
-`2,005` stars · created 2024-12-08 · pushed 2026-09-28 (1d ago) · Python · NOASSERTION
+`16,213` stars · created 2018-04-30 · pushed 2026-09-25 (3d ago) · Python · Apache-2.0
 
-### [Budibase/budibase](https://github.com/Budibase/budibase) · 3.75 — _+74 stars since first seen_
+### [yashab-cyber/opendroid](https://github.com/yashab-cyber/opendroid) · 3.444 — _+77 stars since first seen_
 
-AI agents, automations and apps that run your operations. Model agnostic.
+Your Open Autonomous Android Agent — A production-ready, self-planning AI assistant powered by local/remote LLMs and accessibility-driven screen automation.
 
-`28,326` stars · created 2019-06-07 · pushed 2026-09-28 (0d ago) · TypeScript · NOASSERTION
+`1,078` stars · created 2026-05-21 · pushed 2026-09-04 (24d ago) · Kotlin · NOASSERTION
 
 
 ## Lane 11: Indie viral utilities
 
-### [genspark-ai/genoffice](https://github.com/genspark-ai/genoffice) · 4.126 — _also lanes 1, 2; **crossover**; +2,584 stars since first seen_
+### [rakanki911/DLSS5-Swapper](https://github.com/rakanki911/DLSS5-Swapper) · 1.566 — _+2 stars since first seen_
 
-Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows & Linux.
+Install, tune and restore DLSS 5 in your games with one click. Native RenoDX, DLSS5-Feeder for games without DLSS, OptiScaler and multipass routes; DirectX 8/9/11/12, Vulkan, OpenGL, DirectDraw and emulators. In-game F8 overlay, automatic backups, and a community page showing what works on your games and your graphics card.
 
-`8,063` stars · created 2026-07-31 · pushed 2026-09-28 (0d ago) · TypeScript · Apache-2.0
+`7,069` stars · created 2026-08-29 · pushed 2026-09-13 (16d ago) · JavaScript · MIT
 
-### [dataelement/dsh-desktop](https://github.com/dataelement/dsh-desktop) · 3.632 — _also lanes 1; +3,983 stars since first seen_
+### [anywhere-labs/dsh-desktop](https://github.com/anywhere-labs/dsh-desktop) · 1.558 — _+1 stars since first seen; translated: README.en.md_
 
-DSHDesktop：DeepSeek Harness Desktop / DeepSeek Harness 桌面版
+为 DeepSeek Harness (DSH) 插件生态打造的现代化桌面端解决方案。万物皆「插件」，桌面本身也是「插件」。
 
-`10,298` stars · created 2026-08-13 · pushed 2026-09-28 (0d ago) · TypeScript · MIT
+`29,333` stars · created 2026-08-13 · pushed 2026-09-28 (0d ago) · TypeScript · MIT
 
-### [google/artemis](https://github.com/google/artemis) · 3.393 — _also lanes 1; +1,773 stars since first seen_
+### [zhu1090093659/dsh-web](https://github.com/zhu1090093659/dsh-web) · 1.555 — _+1 stars since first seen_
 
-ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.
+DeepSeek Harness (DSH) Web 插件聚合生态 · 万物皆插件，通过创意工坊分发｜｜DeepSeek Harness (DSH) Web Plugin Aggregation Ecosystem · Everything is a plugin, distributed via the Creative Workshop
 
-`10,566` stars · created 2026-08-13 · pushed 2026-09-12 (17d ago) · Python · Apache-2.0
+`8,115` stars · created 2026-08-12 · pushed 2026-09-28 (1d ago) · TypeScript · Apache-2.0
 
-### [Human-Agent-Society/reef](https://github.com/Human-Agent-Society/reef) · 2.384 — _also lanes 1; +2 stars since first seen_
+### [lnkiai/m3e-canvas](https://github.com/lnkiai/m3e-canvas) · 1.553 — _+1 stars since first seen_
 
-Infrastructure for continually self‑improving agents
+Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.
 
-`6,874` stars · created 2026-08-31 · pushed 2026-09-28 (0d ago) · Python · Apache-2.0
+`8,401` stars · created 2026-09-02 · pushed 2026-09-27 (1d ago) · TypeScript · MIT
 
-### [XiaoDuoYa/codex-with-chatgpt](https://github.com/XiaoDuoYa/codex-with-chatgpt) · 2.379 — _also lanes 1; +4 stars since first seen_
+### [guillaumemeyer/watermarks-remover](https://github.com/guillaumemeyer/watermarks-remover) · 1.547 — _+1 stars since first seen_
 
-ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.
+A privacy-first app that strips AI watermarks from content you own.
 
-`6,823` stars · created 2026-08-28 · pushed 2026-09-13 (16d ago) · TypeScript · MIT
+`23,010` stars · created 2026-08-11 · pushed 2026-09-26 (3d ago) · Python · MIT
 
-### [yjh051108/dsh-routing-suite](https://github.com/yjh051108/dsh-routing-suite) · 2.135 — _also lanes 1; -26 stars since first seen_
+### [FareedKhan-dev/kimi-k3-in-c](https://github.com/FareedKhan-dev/kimi-k3-in-c) · 1.533 — _+1 stars since first seen_
 
-dsh-routing-suite — injector + router-standard kit: install the runtime injector first, then the task-aware reasoning-mode router preset (measured P1-P23).
+A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.
 
-`7,003` stars · created 2026-08-14 · pushed 2026-09-18 (10d ago) · JavaScript · MIT
+`8,762` stars · created 2026-08-01 · pushed 2026-09-22 (6d ago) · C · Apache-2.0
 
