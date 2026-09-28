@@ -106,7 +106,8 @@
         "content-generation",
         "web-scraping",
         "scraper",
-        "cursor"
+        "cursor",
+        "claude-skills"
       ],
       "keywords": [
         "keyword",

@@ -22,3 +22,22 @@ Auto-applied by `scripts/learn-from-feedback.mjs`, run monthly. Deterministic pa
 
 _46 saved, 56 dismissed in repo_state at run time._
 
+## 2026-09-28
+
+**Applied:**
+
+- **lane 2 topic:** `claude-skills` added (5 saved repos, led under lane 2)
+
+**Suggested, review and fold in by hand:**
+
+- **lane 1 topic (suggested, not applied):** `ai` -- 14 saved repos led under lane 1, but topic:ai matches 182,761 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 2 topic (suggested, not applied):** `agent-skills` -- 11 saved repos led under lane 2, but topic:agent-skills matches 26,837 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 2 topic (suggested, not applied):** `claude` -- 11 saved repos led under lane 2, but topic:claude matches 53,889 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 1 topic (suggested, not applied):** `anthropic` -- 8 saved repos led under lane 1, but topic:anthropic matches 24,629 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 1 topic (suggested, not applied):** `codex` -- 6 saved repos led under lane 1, but topic:codex matches 34,730 repos on GitHub, too broad to trust as a lane signal without a human call
+- **exclude phrase (suggested, not applied):** `workspace` (6 dismissed repos across 5 owners, 0 saved: EKKOLearnAI/hermes-studio, EKKOLearnAI/ekko-studio, siyuan-note/siyuan, …)
+- **exclude phrase (suggested, not applied):** `local-first` (4 dismissed repos across 3 owners, 0 saved: EKKOLearnAI/hermes-studio, EKKOLearnAI/ekko-studio, KunAgent/Kun, …)
+- **exclude phrase (suggested, not applied):** `chat` (4 dismissed repos across 3 owners, 0 saved: EKKOLearnAI/hermes-studio, EKKOLearnAI/ekko-studio, Osmantic/ODS, …)
+
+_46 saved, 56 dismissed in repo_state at run time._
+
