@@ -475,6 +475,7 @@ def main():
 
     seen = load_json(LEDGER_PATH, {})
     global_exclude = config.get("global_excludes", {}).get("name_or_description", "")
+    owner_denylist = {o.lower() for o in config.get("global_excludes", {}).get("owner_denylist", [])}
 
     print(f"repo-radar · {args.cadence} run · lanes {[l['id'] for l in active]}", file=sys.stderr)
 
@@ -502,12 +503,21 @@ def main():
     for repo in found.values():
         if excluded(repo, global_exclude):
             continue
+        if (repo.get("owner") or {}).get("login", "").lower() in owner_denylist:
+            continue
         if days_since(repo.get("created_at", "")) < min_age:
             continue
 
+        source = provenance.get(repo["full_name"])
         hits = []
         for lane in lanes:
             evidence = lane_evidence(repo, lane)
+            # A velocity_gate lane (e.g. 11, indie-viral) has no topics/keywords/
+            # orgs to match on by design -- its whole premise is that this genre
+            # of repo often ships with none of those. A repo its own query found
+            # qualifies on velocity alone, same as strong evidence elsewhere.
+            if not evidence and lane.get("velocity_gate") and lane["id"] == source:
+                evidence = "strong"
             if evidence:
                 hits.append(dict(lane, _evidence=evidence))
         if not hits:
@@ -518,7 +528,6 @@ def main():
         # A repo leads under the lane whose query found it. Falling back to lane
         # weight put an AIGC video engine at the top of the automation lane on
         # the first run, because that lane happened to carry a higher weight.
-        source = provenance.get(repo["full_name"])
         hits.sort(key=lambda l: (
             l["id"] == source,
             l.get("_evidence") == "strong",

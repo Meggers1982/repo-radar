@@ -23,9 +23,9 @@
     "_standing_note": "Per-lane standing_weight (in the lane object, default 0) turns log10(1+stars) into a second route to merit, and score_repo takes max(velocity, standing). Lanes 8 and 9 set 0.5 because their canonical tools are years old with a few thousand stars and are finished rather than abandoned: on velocity alone alephdata/aleph ranked #124 and opensanctions #94, and both are accounts the org list was built around. Tuned on the 2026-09-06 pool -- 0.4 barely moved anything, 0.6 gave lanes 8 and 9 seventeen of the twenty-four slots and collapsed lane 5 to one. Lane 1 stays at 0 deliberately: there star count measures audience size, not harness quality. Both terms share velocity_cap."
   },
   "velocity_query": {
-    "_comment": "Lane-agnostic. Young and already popular: catches repos that will reach a lane next month.",
+    "_comment": "Retired 2026-09-06 logic superseded 2026-09-28: this candidate pool fed `found` but was never exempted from lane_evidence()'s topic/keyword/org requirement, so a repo found ONLY here and matching no lane's vocabulary was scored zero lanes and silently dropped -- exactly what happened to latent-spaces/brag and tandpfun/wardrobe. Lane 11 (indie-viral) now owns this same query directly, with velocity_gate:true exempting it from that requirement. Left here, disabled, instead of deleted so the history is legible.",
     "query": "stars:>500 created:>{d-60} archived:false",
-    "enabled": true
+    "enabled": false
   },
   "crossovers": {
     "_comment": "Multiplier when a repo matches both lanes. 1+9 is the rarest skill overlap; 1+10 is the most immediately practical.",
@@ -37,8 +37,12 @@
   },
   "global_excludes": {
     "_comment": "Hard excludes, not soft penalties. These are the repos that pollute topic searches: interview prep, roadmaps, course lists, cheat sheets. Learned from the single-region penalty in research-digest-dashboard, where a soft score never actually kept junk out.",
-    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|\u5b66\u4e60\u8def\u7ebf|\u9762\u8bd5|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b|a[- ]shares?\\b|\\bstock (trading|market|picking)|quantitative[- ]trading|\\bbacktest|trading[- ]bot|\\bcrypto[- ]?(bot|trading)|portfolio[- ]optimi)",
-    "_finance_note": "Added 2026-09-06. Nothing in the ten lanes is about equities or trading, but investing workbenches tag themselves mcp/ai-agents/research-assistant/nextjs and so stack four strong lanes. On the first live all-lane run a China A-shares research terminal scored 10.3, the highest of any repo in any lane. Deliberately narrow: it names trading instruments and strategies, not 'finance', so that financial-accountability reporting tools in lanes 8 and 9 still come through."
+    "name_or_description": "(?i)(interview[ -](questions|prep|guide)|cracking[ -]the|\\broadmap\\b|cheat[ -]?sheet|100[ -]days|free[ -]?(courses?|books?)|学习路线|面试|^awesome[ -]|\\bawesome[ -](list|collection)|curated (list|collection) of|\\d{2,}\\+? (tools|resources|projects)\\b|a[- ]shares?\\b|\\bstock (trading|market|picking)|quantitative[- ]trading|\\bbacktest|trading[- ]bot|\\bcrypto[- ]?(bot|trading)|portfolio[- ]optimi)",
+    "_finance_note": "Added 2026-09-06. Nothing in the ten lanes is about equities or trading, but investing workbenches tag themselves mcp/ai-agents/research-assistant/nextjs and so stack four strong lanes. On the first live all-lane run a China A-shares research terminal scored 10.3, the highest of any repo in any lane. Deliberately narrow: it names trading instruments and strategies, not 'finance', so that financial-accountability reporting tools in lanes 8 and 9 still come through.",
+    "owner_denylist": [
+      "ekkolearnai"
+    ],
+    "_owner_denylist_note": "Added 2026-09-28 for scripts/learn-from-feedback.mjs. Populated automatically: an owner whose repos have been dismissed on the dashboard 2+ times, with zero saves from that same owner, is added here. Exact match on repo.owner.login, case-insensitive. See docs/learned-adjustments.md for the evidence behind each entry."
   },
   "lanes": [
     {
@@ -101,7 +105,8 @@
         "serp",
         "content-generation",
         "web-scraping",
-        "scraper"
+        "scraper",
+        "cursor"
       ],
       "keywords": [
         "keyword",
@@ -247,6 +252,28 @@
         "OpenRefine"
       ],
       "_org_query_note": "simonw, alephdata, opensanctions, wireservice and jsvine were in this lane's orgs list from the start, but orgs only feed the 1.25x score bonus - they are never searched. So the five accounts that hold datasette, sqlite-utils, aleph, followthemoney, csvkit, agate and pdfplumber could only surface if they happened to match a topic query, and none of them did on the first live all-lane run. GitHub search accepts org: for user accounts too, so simonw and jsvine work with the same qualifier."
+    },
+    {
+      "id": 11,
+      "key": "indie-viral",
+      "name": "Indie viral utilities",
+      "cadence": "weekly",
+      "weight": 1.15,
+      "star_weight": 0.5,
+      "freshness_floor": 0.2,
+      "velocity_gate": true,
+      "_velocity_gate_note": "Added 2026-09-28 after latent-spaces/brag and tandpfun/wardrobe -- both zero-topic, single-purpose, high-craft tools that blew up fast -- turned out structurally invisible to every other lane. lane_evidence() requires a topic tag, a followed org, or a keyword hit in name/description; both of those repos have none. This lane skips that gate entirely: anything its own queries return is treated as a strong match on velocity alone, no topic/keyword needed. It absorbs and replaces the old top-level lane-agnostic velocity_query, which found the same kind of repo but they were then silently dropped downstream for failing lane_evidence in every other lane -- an orphaned signal that never actually reached a report.",
+      "queries": [
+        "stars:>500 created:>{d-60} archived:false",
+        "stars:>300 created:>{d-14} archived:false"
+      ],
+      "topics": [],
+      "keywords": [],
+      "orgs": [],
+      "excludes": {
+        "_comment": "This lane's whole qualification is 'grew fast,' which is exactly what farmed stars, giveaways and follow-for-follow schemes also produce. Hard-exclude the farming genre rather than trust velocity alone to sort it out.",
+        "name_or_description": "(?i)(follower[ -]?farm|auto.?follow|engagement[ -]?farm|fake[ -]?(stars|followers)|star[ -]?farm|giveaway[ -]?bot|airdrop|nft[ -]?mint|discord[ -]?nuk|pump[ -]?and[ -]?dump)"
+      }
     }
   ],
   "_retired_lanes_comment": "Cut 2026-09-06 by Meagan's decision, after the MEA-239 scorer fix made lane yield meaningful. Simulating guaranteed_per_lane 0 so lanes compete for all 24 slots, these five earned ZERO: lanes 1/5/2/9/8 took everything. Lane 10 had no qualifying candidate leading it at all. They were appearing in reports only because guaranteed_per_lane handed them two slots each. Kept here rather than deleted so a lane can be restored by moving its object back into 'lanes' -- the queries, topics and org lists took real tuning to build. radar.py reads 'lanes' only, so nothing here is queried or scored. Evidence: docs/lane-map-review-2026-09-06.md.",
@@ -427,7 +454,7 @@
       ],
       "excludes": {
         "_comment": "Hard exclude, per the doc: fail anything whose pitch is volume output rather than control over your own material.",
-        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|\u77ed\u89c6\u9891|\u6279\u91cf|\u4e00\u952e\u751f\u6210|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
+        "name_or_description": "(?i)(faceless|money.?print|mass.?produce|bulk[ -]generate|batch[ -](generate|produce|creat)|videos?[ -](per|a)[ -]day|auto.?post|one.?click.{0,30}(video|short)|tiktok[ -]bot|短视频|批量|一键生成|\\bviral\\b|shorts?[ -]generator|opus[ -]?clip|clip[ -]credits?|9:16|go[ -]viral|content[ -]farm|youtube[ -]?automation|auto.?(upload|publish)|automation[ -]agent)"
       }
     }
   ]

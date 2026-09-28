@@ -1,6 +1,6 @@
 # repo-radar
 
-Standing GitHub queries for a five-lane interest map, scored and deduplicated into a
+Standing GitHub queries for a six-lane interest map, scored and deduplicated into a
 weekly shortlist. Implements the discovery half of *GitHub Repo Discovery Strategy*.
 
 The problem it solves: repo discovery is otherwise passive, and general trending lists
@@ -8,24 +8,45 @@ are aimed at a general audience. This runs the queries for the lanes I actually 
 and hands back ten to twenty candidates a week to screen.
 
 **No LLM calls anywhere in the pipeline.** GitHub's search API plus deterministic scoring
-does the whole job, so it runs on the `GITHUB_TOKEN` that Actions provides for free, needs
-no configured secrets, and cannot be blocked by an API balance.
+does the whole job, so `scripts/radar.py` runs on the `GITHUB_TOKEN` that Actions provides
+for free, needs no configured secrets, and cannot be blocked by an API balance. The one
+exception is `scripts/learn-from-feedback.mjs` (see "Learning from Saved/Dismissed" below),
+which mines the dashboard's Saved/Dismissed history and needs a `DATABASE_URL` secret to
+read Neon — still no LLM, but not secret-free.
 
 ## Cadence
 
 | Run | When | Lanes |
 |---|---|---|
-| Weekly | Mondays 13:00 UTC | 1 agents, 2 content/SEO, 5 automation, plus the velocity query |
-| Monthly | 1st, 13:00 UTC | All five |
+| Weekly | Mondays 13:00 UTC | 1 agents, 2 content/SEO, 5 automation, 11 indie viral |
+| Monthly | 1st, 13:00 UTC | All six |
+| Monthly (learning) | 1st, 15:00 UTC | Not a lane run — mines Saved/Dismissed, see below |
 
 GitHub cron is UTC and does not follow DST, so the local time shifts by an hour twice a
 year. Each lane's `"cadence"` field decides which run it belongs to.
 
+GitHub's Actions scheduler is not perfectly reliable — the 2026-09-28 weekly fire was
+silently dropped with no error, despite the workflow being active and the cron correct.
+There is no config fix for that; it was caught by comparing `gh run list` against the
+expected cadence and re-triggered by hand with `gh workflow run`.
+
 ## Lanes
 
-Five live lanes: **1** agent harnesses and agent design, **2** content and SEO tooling,
+Six live lanes: **1** agent harnesses and agent design, **2** content and SEO tooling,
 **5** personal and business automation, **8** journalism and reporting workflow,
-**9** data journalism.
+**9** data journalism, **11** indie viral utilities.
+
+Lane 11 (added 2026-09-28) is structurally different from the other five: it has no
+topics, keywords or orgs, and skips `lane_evidence()`'s requirement of one entirely
+(`"velocity_gate": true`). It exists because `latent-spaces/brag` and `tandpfun/wardrobe`
+— both zero-topic, single-purpose tools that went viral fast — were invisible to every
+other lane by construction: no topic tag, no followed org, no keyword hit, so
+`lane_evidence()` returned nothing and the repo was dropped regardless of stars. Anything
+lane 11's own queries return counts as a strong match on velocity alone. It replaces the
+old top-level lane-agnostic `velocity_query`, which found the same repos but they were
+never exempted from the topic/keyword gate downstream — an orphaned signal that fed
+`found` and then silently vanished. `velocity_query` is left in the config, disabled,
+rather than deleted.
 
 It was ten until 2026-09-06. Once the scoring fix above made lane yield mean something,
 simulating `guaranteed_per_lane: 0` so the lanes competed for all 24 slots showed that
@@ -48,6 +69,7 @@ export GITHUB_TOKEN=$(gh auth token)
 python3 scripts/radar.py --cadence weekly      # fast lanes
 python3 scripts/radar.py --cadence monthly     # everything
 python3 scripts/radar.py --lane 9 --dry-run    # one lane, no writes
+python3 scripts/radar.py --lane 11 --dry-run   # indie viral, no writes
 python3 scripts/seed_ledger.py                 # mark starred repos as already seen
 ```
 
@@ -145,6 +167,46 @@ npm install
 node --env-file=.env.local scripts/db-init.mjs   # creates repo_state, safe to re-run
 ```
 
+### Learning from Saved/Dismissed
+
+`scripts/learn-from-feedback.mjs` runs monthly (`.github/workflows/learn.yml`, staggered
+two hours after the monthly lane run) and mines `repo_state` for patterns, deterministically
+— no LLM, same as the rest of the pipeline. Dismissed rows carry no snapshot (the dismiss
+handler in `api/state.js` stores none), so their metadata is recovered by joining
+`full_name` against `docs/data/index.json`'s 52-run window.
+
+Two edit types auto-apply, each capped per run:
+
+- **`global_excludes.owner_denylist`** — an owner dismissed 2+ times with zero saves.
+  Checked against the GitHub API first: an owner with more than 30 public repos is treated
+  as too large a sample to judge on a couple of dismissals (the first live run tried to
+  denylist `microsoft` off two dismissed repos out of 8,300+ — this guard exists because
+  of that).
+- **a lane's `topics`** — a topic on 2+ saved repos, not already in any active lane, added
+  to whichever lane those repos led under. Also checked for breadth first: if
+  `topic:<name>` matches more than 20,000 repos on GitHub, it's industry-wide vocabulary
+  (`ai`, `claude`, `agent-skills` all hit this on the first run) rather than a lane signal,
+  and it's logged as a suggestion instead of applied.
+
+A third signal — a single word common across dismissed repos' name and description — is
+**always** a suggestion, never applied automatically. A word frequent in dismissals is
+evidence those particular repos were unwanted, not evidence the word predicts junk; lanes
+deliberately share vocabulary (`multi-agent` is lane 1's own topic tag and was the first
+run's top phrase candidate), and a `global_excludes` regex hit is much harder to walk back
+cleanly than an owner or a topic entry.
+
+Every run, applied or not, is appended to `docs/learned-adjustments.md` with the evidence
+behind each line, so an unattended monthly commit stays auditable. Run it by hand with:
+
+```bash
+vercel env pull .env.local   # only needed once, or after the DB is recreated
+node --env-file=.env.local scripts/learn-from-feedback.mjs --dry-run
+```
+
+The GitHub Actions copy needs `DATABASE_URL` as a repo secret (same connection string
+`.env.local` gets from `vercel env pull`) — the workflow checks for it and skips cleanly,
+without failing, if it isn't set yet.
+
 ## English only
 
 A repo whose description is mostly non-Latin script is dropped, **unless the repo ships
@@ -172,7 +234,7 @@ Latin, default `0.6`.
 ## Layout
 
 ```
-config/lanes.json      the five live lanes plus retired_lanes: topics, queries, orgs, weights, excludes
+config/lanes.json      the six live lanes plus retired_lanes: topics, queries, orgs, weights, excludes
 scripts/radar.py       search, score, dedupe, report
 scripts/seed_ledger.py mark already-starred repos as seen
 scripts/lane-queries.sh shell functions for ad-hoc searches
@@ -180,8 +242,10 @@ ledger/seen.json       every repo ever scored; a repo surfaces once, ever
 outputs/               one markdown report per run
 docs/index.html        static dashboard: run log, Saved and Dismissed
 docs/data/index.json   the last 52 runs, picks and all
+docs/learned-adjustments.md   audit trail for scripts/learn-from-feedback.mjs
 api/state.js           reads and writes Saved/Dismissed in Neon
 scripts/db-init.mjs    creates the one table the dashboard needs
+scripts/learn-from-feedback.mjs   mines Saved/Dismissed for lane tuning, monthly
 vercel.json            static deploy config: no build, output directory is docs/
 ```
 
@@ -267,7 +331,12 @@ instruments and strategies rather than "finance", so financial-accountability re
 tools in lanes 8 and 9 still come through. Lane 10
 carries its own exclude for the volume-output genre: faceless-channel tooling, shorts
 generators, "videos per day", auto-uploaders. The lane's test is whether a tool gives more
-control over material you already have, not whether it produces more output.
+control over material you already have, not whether it produces more output. Lane 11's
+whole qualification is "grew fast", which farmed stars and follow-for-follow schemes also
+produce, so it carries its own exclude for that genre: follower farms, fake stars, airdrops,
+giveaway bots. `global_excludes.owner_denylist` is the same idea at the owner level, kept
+empty by hand and populated by `scripts/learn-from-feedback.mjs` (see "Learning from
+Saved/Dismissed" above).
 
 ## Tuning before automating
 
