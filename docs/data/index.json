@@ -4,34 +4,395 @@
       "id": "2026-09-28-weekly",
       "date": "2026-09-28",
       "cadence": "weekly",
-      "count": 18,
+      "count": 22,
       "stats": {
-        "found": 248,
-        "in_lane": 209,
-        "new": 103,
+        "found": 271,
+        "in_lane": 220,
+        "new": 86,
         "dropped_non_english": 1
       },
       "picks": [
         {
-          "full_name": "EKKOLearnAI/ekko-studio",
-          "url": "https://github.com/EKKOLearnAI/ekko-studio",
-          "description": "Ekko Studio is a local-first AI workspace for multi-agent chat, coding, and visual workflows, available on desktop and the web.",
-          "stars": 11227,
-          "stars_gained": null,
+          "full_name": "genspark-ai/genoffice",
+          "url": "https://github.com/genspark-ai/genoffice",
+          "description": "Free, open-source AI Office suite: Docs, Sheets, Slides, PDF, Markdown and HTML editors with a built-in AI agent, plus a `genoffice` CLI and agent skill so Claude Code, Codex and Cursor can create and edit real .docx/.xlsx/.pptx files locally. Bring your own key. macOS, Windows & Linux.",
+          "stars": 8063,
+          "stars_gained": 2584,
           "language": "TypeScript",
           "topics": [
-            "agent",
+            "ai",
             "ai-agent",
-            "chat-ui",
-            "coding-agents",
-            "dashboard",
-            "ekko-studio",
-            "hermes",
-            "hermes-agent"
+            "claude-code",
+            "cli",
+            "codex",
+            "cursor",
+            "docx",
+            "excel"
           ],
-          "created": "2026-04-11",
+          "created": "2026-07-31",
           "pushed": "2026-09-28",
           "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.7,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.126
+        },
+        {
+          "full_name": "Egonex-AI/Understand-Anything",
+          "url": "https://github.com/Egonex-AI/Understand-Anything",
+          "description": "Graphs that teach > graphs that impress. Turn any code into an interactive knowledge graph you can explore, search, and ask questions about. Works with Claude Code, Codex, Cursor, Copilot, Gemini CLI, and more.",
+          "stars": 84511,
+          "stars_gained": 3171,
+          "language": "TypeScript",
+          "topics": [
+            "antigravity-skills",
+            "business-knowledge",
+            "claude-code",
+            "claude-skills",
+            "codebase-analysis",
+            "codex",
+            "codex-skills",
+            "developer-tools-ai-agent"
+          ],
+          "created": "2026-03-15",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.03
+        },
+        {
+          "full_name": "temporalio/temporal",
+          "url": "https://github.com/temporalio/temporal",
+          "description": "Temporal service",
+          "stars": 23337,
+          "stars_gained": 546,
+          "language": "Go",
+          "topics": [
+            "cronjob-scheduler",
+            "distributed-cron",
+            "distributed-systems",
+            "durable-execution",
+            "golang",
+            "microservice-framework",
+            "microservice-orchestration",
+            "microservices-architecture"
+          ],
+          "created": "2019-10-16",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.442,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.026
+        },
+        {
+          "full_name": "conductor-oss/conductor",
+          "url": "https://github.com/conductor-oss/conductor",
+          "description": "Conductor is an event driven agentic workflow engine providing durable and highly resilient execution engine for applications and AI Agents",
+          "stars": 32241,
+          "stars_gained": 74,
+          "language": "Java",
+          "topics": [
+            "distributed-systems",
+            "durable-execution",
+            "grpc",
+            "java",
+            "javascript",
+            "microservice-orchestration",
+            "orchestration-engine",
+            "orchestrator"
+          ],
+          "created": "2023-12-08",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.0
+        },
+        {
+          "full_name": "minhnv0807/ai-business-skills",
+          "url": "https://github.com/minhnv0807/ai-business-skills",
+          "description": "138 bilingual AI marketing skills (69 VN + 69 Global) for Claude Code, OpenCode, Codex, VS Code. Four role SOP packs \u2014 content, design, performance, leader ops \u2014 plus strategy, personal brand, AI avatar, dropshipping, design master, knowledge library. 4 regions (US/EU/SEA/LATAM) + Vietnam 2025-2026. Companion: opa-kit.",
+          "stars": 593,
+          "stars_gained": 27,
+          "language": "PowerShell",
+          "topics": [
+            "agent-skills",
+            "ai-agents",
+            "ai-avatar",
+            "anthropic",
+            "chatgpt",
+            "claude-code",
+            "claude-plugin",
+            "content-marketing"
+          ],
+          "created": "2026-04-15",
+          "pushed": "2026-09-12",
+          "days_since_push": 16,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.033,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.987
+        },
+        {
+          "full_name": "ToolJet/ToolJet",
+          "url": "https://github.com/ToolJet/ToolJet",
+          "description": "Open-source foundation of ToolJet AI - the enterprise app generation platform for internal tools, dashboards, business applications, workflows and AI agents. Build visually, from a prompt, or from Claude Code, Codex and Cursor over MCP \ud83d\ude80",
+          "stars": 41008,
+          "stars_gained": 186,
+          "language": "JavaScript",
+          "topics": [
+            "ai-app-builder",
+            "docker",
+            "internal-applications",
+            "internal-project",
+            "internal-tool",
+            "internal-tools",
+            "javascript",
+            "kubernetes"
+          ],
+          "created": "2021-03-30",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.908
+        },
+        {
+          "full_name": "Skyvern-AI/skyvern",
+          "url": "https://github.com/Skyvern-AI/skyvern",
+          "description": "Automate browser based workflows with AI",
+          "stars": 23090,
+          "stars_gained": 176,
+          "language": "Python",
+          "topics": [
+            "ai",
+            "api",
+            "automation",
+            "browser",
+            "browser-automation",
+            "computer",
+            "gpt",
+            "llm"
+          ],
+          "created": "2024-02-28",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.898
+        },
+        {
+          "full_name": "sickn33/agentic-awesome-skills",
+          "url": "https://github.com/sickn33/agentic-awesome-skills",
+          "description": "AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validation, and planning, backed by 2,400+ agentic skills. Includes CLI, local MCP, catalog, plugins, and Workbench.",
+          "stars": 47030,
+          "stars_gained": 1168,
+          "language": "Python",
+          "topics": [
+            "agent-skills",
+            "agentic-skills",
+            "ai-agent-skills",
+            "ai-agents",
+            "ai-coding",
+            "ai-workflows",
+            "antigravity",
+            "antigravity-skills"
+          ],
+          "created": "2026-01-14",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.859
+        },
+        {
+          "full_name": "code-yeongyu/oh-my-openagent",
+          "url": "https://github.com/code-yeongyu/oh-my-openagent",
+          "description": "OmO: Just type \"mass ulw\" keyword with your prompt. Now you are the master of graph engineering.",
+          "stars": 69623,
+          "stars_gained": 1006,
+          "language": "TypeScript",
+          "topics": [
+            "ai",
+            "ai-agents",
+            "anthropic",
+            "chatgpt",
+            "claude",
+            "claude-skills",
+            "codex",
+            "cursor"
+          ],
+          "created": "2025-12-03",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.834
+        },
+        {
+          "full_name": "nottelabs/notte",
+          "url": "https://github.com/nottelabs/notte",
+          "description": "Cloud browser infrastructure and web automation platform for your AI and coding agents",
+          "stars": 2005,
+          "stars_gained": 5,
+          "language": "Python",
+          "topics": [
+            "agent",
+            "ai",
+            "anthropic",
+            "automation",
+            "browser",
+            "llm",
+            "openai",
+            "web"
+          ],
+          "created": "2024-12-08",
+          "pushed": "2026-09-28",
+          "days_since_push": 1,
           "license": "NOASSERTION",
           "lanes": [
             {
@@ -46,75 +407,34 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "lane_bonus": 1.35,
-          "merit": 2.5,
+          "merit": 1.965,
           "merit_from": "velocity",
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 4.385
+          "score": 3.753
         },
         {
-          "full_name": "MaxMiksa/Auto-Company",
-          "url": "https://github.com/MaxMiksa/Auto-Company",
-          "description": "An auto-company works for 24/7 on your own PC - Windows/Linux/macOS.",
-          "stars": 3111,
-          "stars_gained": null,
-          "language": "Python",
+          "full_name": "Budibase/budibase",
+          "url": "https://github.com/Budibase/budibase",
+          "description": "AI agents, automations and apps that run your operations. Model agnostic.",
+          "stars": 28326,
+          "stars_gained": 74,
+          "language": "TypeScript",
           "topics": [
-            "agentic-workflows",
-            "ai-agents",
-            "autonomous-agents",
-            "claude-code",
-            "codex",
-            "dashboard",
-            "llm",
-            "multi-agent"
+            "ai-app-builder",
+            "ai-applications",
+            "crud-app",
+            "crud-application",
+            "data-application",
+            "data-apps",
+            "internal-tools",
+            "it-workflows"
           ],
-          "created": "2026-02-12",
-          "pushed": "2026-09-27",
-          "days_since_push": 1,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 5,
-              "name": "Personal and business automation"
-            },
-            {
-              "id": 1,
-              "name": "Agent harnesses and agent design"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.35,
-          "merit": 2.5,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 4.374
-        },
-        {
-          "full_name": "superplanehq/superplane",
-          "url": "https://github.com/superplanehq/superplane",
-          "description": "Open source factory for one-shot engineering",
-          "stars": 7548,
-          "stars_gained": 1829,
-          "language": "Go",
-          "topics": [
-            "automation",
-            "control-plane",
-            "devops",
-            "event-driven",
-            "go",
-            "kubernetes",
-            "platform-engineering",
-            "react"
-          ],
-          "created": "2025-05-07",
+          "created": "2019-06-07",
           "pushed": "2026-09-28",
           "days_since_push": 0,
-          "license": "Apache-2.0",
+          "license": "NOASSERTION",
           "lanes": [
             {
               "id": 5,
@@ -129,226 +449,108 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 4.305
+          "score": 3.75
         },
         {
-          "full_name": "av/harbor",
-          "url": "https://github.com/av/harbor",
-          "description": "Stop configuring your AI stack. Start using it. One command brings a complete pre-wired LLM stack with hundreds of services to explore.",
-          "stars": 3230,
-          "stars_gained": 27,
-          "language": "Python",
-          "topics": [
-            "ai",
-            "automation",
-            "bash",
-            "cli",
-            "container",
-            "docker",
-            "docker-compose",
-            "homelab"
-          ],
-          "created": "2024-07-27",
-          "pushed": "2026-09-25",
-          "days_since_push": 3,
-          "license": "Apache-2.0",
-          "lanes": [
-            {
-              "id": 5,
-              "name": "Personal and business automation"
-            },
-            {
-              "id": 1,
-              "name": "Agent harnesses and agent design"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.35,
-          "merit": 2.091,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 4.219
-        },
-        {
-          "full_name": "SamurAIGPT/llm-wiki-agent",
-          "url": "https://github.com/SamurAIGPT/llm-wiki-agent",
-          "description": "A personal knowledge base that builds and maintains itself. Drop in sources \u2014 Claude (or Codex/Gemini) reads them, extracts knowledge, and maintains a persistent interlinked wiki. Works with Claude Code, Codex, OpenCode, Gemini CLI. No API key needed.",
-          "stars": 3584,
-          "stars_gained": 108,
-          "language": "Python",
-          "topics": [
-            "ai-agent",
-            "ai-tools",
-            "automation",
-            "claude-code",
-            "codex",
-            "gemini",
-            "generative-ai",
-            "knowledge-base"
-          ],
-          "created": "2023-04-21",
-          "pushed": "2026-09-28",
-          "days_since_push": 0,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 5,
-              "name": "Personal and business automation"
-            },
-            {
-              "id": 1,
-              "name": "Agent harnesses and agent design"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.35,
-          "merit": 1.937,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 4.212
-        },
-        {
-          "full_name": "haris-musa/excel-mcp-server",
-          "url": "https://github.com/haris-musa/excel-mcp-server",
-          "description": "A Model Context Protocol server for Excel file manipulation",
-          "stars": 4205,
-          "stars_gained": null,
-          "language": "Python",
-          "topics": [
-            "ai",
-            "automation",
-            "excel",
-            "llm",
-            "mcp",
-            "mcp-server",
-            "sse",
-            "stdio"
-          ],
-          "created": "2025-02-12",
-          "pushed": "2026-09-28",
-          "days_since_push": 0,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 5,
-              "name": "Personal and business automation"
-            },
-            {
-              "id": 1,
-              "name": "Agent harnesses and agent design"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.35,
-          "merit": 2.33,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 4.088
-        },
-        {
-          "full_name": "rohitg00/ai-engineering-from-scratch",
-          "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-          "description": "Learn it. Build it. Ship it for others.",
-          "stars": 60184,
-          "stars_gained": 8123,
-          "language": "Python",
-          "topics": [
-            "agents",
-            "ai",
-            "ai-agents",
-            "ai-engineering",
-            "computer-vision",
-            "course",
-            "deep-learning",
-            "from-scratch"
-          ],
-          "created": "2026-03-18",
-          "pushed": "2026-09-28",
-          "days_since_push": 0,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 1,
-              "name": "Agent harnesses and agent design"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 2.5,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 3.514
-        },
-        {
-          "full_name": "farion1231/cc-switch",
-          "url": "https://github.com/farion1231/cc-switch",
-          "description": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. Only official website: ccswitch.io",
-          "stars": 138088,
-          "stars_gained": 7356,
-          "language": "Rust",
-          "topics": [
-            "ai-tools",
-            "claude-code",
-            "codex",
-            "desktop-app",
-            "grok",
-            "grokbuild",
-            "hermes",
-            "hermes-agent"
-          ],
-          "created": "2025-08-04",
-          "pushed": "2026-09-28",
-          "days_since_push": 0,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 1,
-              "name": "Agent harnesses and agent design"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 2.5,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 3.495
-        },
-        {
-          "full_name": "Leonxlnx/taste-skill",
-          "url": "https://github.com/Leonxlnx/taste-skill",
-          "description": "Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop",
-          "stars": 90852,
-          "stars_gained": 7178,
-          "language": "JavaScript",
+          "full_name": "dataelement/dsh-desktop",
+          "url": "https://github.com/dataelement/dsh-desktop",
+          "description": "DSHDesktop\uff1aDeepSeek Harness Desktop / DeepSeek Harness \u684c\u9762\u7248",
+          "stars": 10298,
+          "stars_gained": 3983,
+          "language": "TypeScript",
           "topics": [
             "agent",
-            "ai",
+            "apps",
+            "deepseek",
+            "deepseek-harness",
+            "deepseek-harness-desktop",
+            "desktop",
+            "dsh-desktop",
+            "dsh-plugin"
+          ],
+          "created": "2026-08-13",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.632
+        },
+        {
+          "full_name": "google/artemis",
+          "url": "https://github.com/google/artemis",
+          "description": "ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.",
+          "stars": 10566,
+          "stars_gained": 1773,
+          "language": "Python",
+          "topics": [
+            "ai-agents",
+            "android",
+            "google",
+            "test-automation",
+            "testing"
+          ],
+          "created": "2026-08-13",
+          "pushed": "2026-09-12",
+          "days_since_push": 17,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.393
+        },
+        {
+          "full_name": "Imbad0202/academic-research-skills",
+          "url": "https://github.com/Imbad0202/academic-research-skills",
+          "description": "Academic Research Skills for Claude Code: research \u2192 write \u2192 review \u2192 revise \u2192 finalize",
+          "stars": 49777,
+          "stars_gained": 4263,
+          "language": "Python",
+          "topics": [
+            "academic-pipeline",
+            "academic-writing",
+            "ai-research",
             "claude",
             "claude-code",
-            "codex",
-            "coding",
-            "design",
-            "frontend"
+            "literature-review",
+            "peer-review",
+            "prompt-engineering"
           ],
-          "created": "2026-02-19",
-          "pushed": "2026-09-26",
-          "days_since_push": 2,
-          "license": "MIT",
+          "created": "2026-02-26",
+          "pushed": "2026-09-25",
+          "days_since_push": 3,
+          "license": "NOASSERTION",
           "lanes": [
             {
               "id": 1,
@@ -363,20 +565,20 @@
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 3.48
+          "score": 3.384
         },
         {
-          "full_name": "anthropics/claude-code-action",
-          "url": "https://github.com/anthropics/claude-code-action",
-          "description": "",
-          "stars": 9216,
-          "stars_gained": 416,
+          "full_name": "anthropics/sandbox-runtime",
+          "url": "https://github.com/anthropics/sandbox-runtime",
+          "description": "A lightweight sandboxing tool for enforcing filesystem and network restrictions on arbitrary processes at the OS level, without requiring a container.",
+          "stars": 5374,
+          "stars_gained": 229,
           "language": "TypeScript",
           "topics": [],
-          "created": "2025-05-19",
-          "pushed": "2026-09-25",
-          "days_since_push": 3,
-          "license": "MIT",
+          "created": "2025-10-20",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
           "lanes": [
             {
               "id": 1,
@@ -391,67 +593,112 @@
           "followed_org": true,
           "english": true,
           "english_readme": null,
-          "score": 3.467
+          "score": 3.382
         },
         {
-          "full_name": "blader/humanizer",
-          "url": "https://github.com/blader/humanizer",
-          "description": "Agent skill that removes signs of AI-generated writing from text",
-          "stars": 52590,
-          "stars_gained": 4531,
+          "full_name": "rtk-ai/rtk",
+          "url": "https://github.com/rtk-ai/rtk",
+          "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
+          "stars": 81914,
+          "stars_gained": 3579,
+          "language": "Rust",
+          "topics": [
+            "agentic-coding",
+            "ai-coding",
+            "anthropic",
+            "claude-code",
+            "cli",
+            "command-line-tool",
+            "cost-reduction",
+            "developer-tools"
+          ],
+          "created": "2026-01-22",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.372
+        },
+        {
+          "full_name": "OneWave-AI/claude-skills",
+          "url": "https://github.com/OneWave-AI/claude-skills",
+          "description": "200+ production-ready Claude Code skills for sales, marketing, design, engineering, and AI agent architecture. Built and maintained by OneWave AI.",
+          "stars": 310,
+          "stars_gained": 27,
           "language": "Python",
           "topics": [
             "agent-skills",
-            "ai-humanizer",
-            "ai-writing",
-            "chatgpt",
+            "ai-agents",
+            "anthropic",
             "claude",
             "claude-code",
-            "codex",
-            "cursor"
+            "claude-skills",
+            "developer-tools",
+            "llm"
           ],
-          "created": "2026-01-18",
-          "pushed": "2026-09-28",
-          "days_since_push": 0,
+          "created": "2025-10-22",
+          "pushed": "2026-09-23",
+          "days_since_push": 6,
           "license": "MIT",
           "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
             {
               "id": 1,
               "name": "Agent harnesses and agent design"
             }
           ],
           "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 2.5,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 1.451,
           "merit_from": "velocity",
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 3.41
+          "score": 3.086
         },
         {
-          "full_name": "asgeirtj/system_prompts_leaks",
-          "url": "https://github.com/asgeirtj/system_prompts_leaks",
-          "description": "Documented system prompts from Anthropic - Claude Fable 5.1, Opus 5.5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-6-Astra, Codex. Google - Gemini 3.8 Flash, 3.1 Pro, Antigravity. xAI - Grok, Grok Bot, Cursor, Kimi and more! Updated regularly.",
-          "stars": 68540,
-          "stars_gained": 4506,
-          "language": "JavaScript",
+          "full_name": "Human-Agent-Society/reef",
+          "url": "https://github.com/Human-Agent-Society/reef",
+          "description": "Infrastructure for continually self\u2011improving agents",
+          "stars": 6874,
+          "stars_gained": 2,
+          "language": "Python",
           "topics": [
-            "ai",
+            "agent-infrastructure",
             "ai-agents",
-            "ai-prompts",
-            "anthropic",
-            "chatbot",
-            "chatgpt",
-            "claude",
-            "claude-code"
+            "continual-learning",
+            "inference",
+            "llm",
+            "llm-training",
+            "reinforcement-learning",
+            "self-improving-agents"
           ],
-          "created": "2025-05-03",
-          "pushed": "2026-09-27",
-          "days_since_push": 1,
-          "license": "CC0-1.0",
+          "created": "2026-08-31",
+          "pushed": "2026-09-28",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
           "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
             {
               "id": 1,
               "name": "Agent harnesses and agent design"
@@ -459,181 +706,109 @@
           ],
           "weak_lanes": false,
           "crossover": 1.0,
-          "lane_bonus": 1.0,
+          "lane_bonus": 1.35,
           "merit": 2.5,
           "merit_from": "velocity",
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 3.406
+          "score": 2.384
         },
         {
-          "full_name": "kostja94/marketing-skills",
-          "url": "https://github.com/kostja94/marketing-skills",
-          "description": "Agent Skills for Marketing \u2014 SEO, Social, Influencer & More. 160+ open-source skills for SEO, content, 40+ page types, paid ads, channels, and strategies. Add project context; get tailored, production-ready output. Cursor, Claude Code, OpenClaw \u2014 no lock-in.",
-          "stars": 999,
-          "stars_gained": null,
-          "language": null,
-          "topics": [
-            "agent-skills",
-            "cursor",
-            "growth-marketing",
-            "marketing",
-            "seo",
-            "skills-sh",
-            "vibe-coding"
-          ],
-          "created": "2026-02-26",
-          "pushed": "2026-09-25",
-          "days_since_push": 3,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 2,
-              "name": "Content and SEO tooling"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 2.148,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 2.554
-        },
-        {
-          "full_name": "Blazity/enterprise-commerce",
-          "url": "https://github.com/Blazity/enterprise-commerce",
-          "description": "\u26a1 Next.js enterprise-grade storefront for high-performance e-commerce with Shopify backend and Algolia middle layer with excellent browsing journey",
-          "stars": 701,
-          "stars_gained": 5,
+          "full_name": "XiaoDuoYa/codex-with-chatgpt",
+          "url": "https://github.com/XiaoDuoYa/codex-with-chatgpt",
+          "description": "ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+          "stars": 6823,
+          "stars_gained": 4,
           "language": "TypeScript",
           "topics": [
-            "ai",
-            "algolia",
-            "ecommerce",
-            "meilisearch",
-            "next",
-            "next-js",
-            "nextjs",
-            "nextjs14"
+            "ai-agents",
+            "chatgpt",
+            "codex",
+            "mcp",
+            "model-context-protocol",
+            "oauth"
           ],
-          "created": "2023-12-12",
-          "pushed": "2026-09-15",
-          "days_since_push": 13,
+          "created": "2026-08-28",
+          "pushed": "2026-09-13",
+          "days_since_push": 16,
           "license": "MIT",
           "lanes": [
             {
-              "id": 2,
-              "name": "Content and SEO tooling"
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
             }
           ],
           "weak_lanes": false,
           "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 1.334,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
           "merit_from": "velocity",
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 1.855
+          "score": 2.379
         },
         {
-          "full_name": "JustinBeckwith/linkinator",
-          "url": "https://github.com/JustinBeckwith/linkinator",
-          "description": "Broken link checker that crawls websites and validates links. Find broken links, dead links, and invalid URLs in websites, documentation, and local files. Perfect for SEO audits and CI/CD.",
-          "stars": 1267,
-          "stars_gained": 12,
-          "language": "TypeScript",
-          "topics": [
-            "404",
-            "broken-link-checker",
-            "broken-links",
-            "ci-cd",
-            "dead-links",
-            "html",
-            "link-checker",
-            "link-validator"
-          ],
-          "created": "2019-02-12",
-          "pushed": "2026-09-26",
-          "days_since_push": 3,
-          "license": "MIT",
-          "lanes": [
-            {
-              "id": 2,
-              "name": "Content and SEO tooling"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 1.166,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 1.834
-        },
-        {
-          "full_name": "Yoast/wordpress-seo",
-          "url": "https://github.com/Yoast/wordpress-seo",
-          "description": "Yoast SEO for WordPress",
-          "stars": 2000,
-          "stars_gained": 13,
+          "full_name": "yjh051108/dsh-routing-suite",
+          "url": "https://github.com/yjh051108/dsh-routing-suite",
+          "description": "dsh-routing-suite \u2014 injector + router-standard kit: install the runtime injector first, then the task-aware reasoning-mode router preset (measured P1-P23).",
+          "stars": 7003,
+          "stars_gained": -26,
           "language": "JavaScript",
           "topics": [
-            "breadcrumbs",
-            "metadata",
-            "opengraph",
+            "ai-agents",
+            "cordis",
+            "deepseek-harness",
+            "dsh",
+            "dsh-plugin"
+          ],
+          "created": "2026-08-14",
+          "pushed": "2026-09-18",
+          "days_since_push": 10,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.135
+        },
+        {
+          "full_name": "spatie/laravel-sitemap",
+          "url": "https://github.com/spatie/laravel-sitemap",
+          "description": "Create and generate sitemaps with ease",
+          "stars": 2621,
+          "stars_gained": 2,
+          "language": "PHP",
+          "topics": [
+            "google",
+            "laravel",
             "php",
-            "plugin",
             "seo",
-            "wordpress",
-            "xml-sitemap"
+            "sitemap",
+            "xml"
           ],
-          "created": "2012-11-16",
-          "pushed": "2026-09-28",
-          "days_since_push": 0,
-          "license": "NOASSERTION",
-          "lanes": [
-            {
-              "id": 2,
-              "name": "Content and SEO tooling"
-            }
-          ],
-          "weak_lanes": false,
-          "crossover": 1.0,
-          "lane_bonus": 1.0,
-          "merit": 1.109,
-          "merit_from": "velocity",
-          "followed_org": false,
-          "english": true,
-          "english_readme": null,
-          "score": 1.789
-        },
-        {
-          "full_name": "vuesion/vuesion",
-          "url": "https://github.com/vuesion/vuesion",
-          "description": "Vuesion is a boilerplate that empowers product teams to build faster with modern best practices across engineering and design. It features a full-stack framework, comprehensive design system, robust testing, and seamless internationalization.",
-          "stars": 2872,
-          "stars_gained": 1,
-          "language": "Vue",
-          "topics": [
-            "authentication",
-            "best-practises",
-            "boilerplate",
-            "cypress",
-            "design-system",
-            "i18n",
-            "kitchen-sink",
-            "nuxtjs"
-          ],
-          "created": "2017-11-18",
-          "pushed": "2026-08-18",
-          "days_since_push": 41,
+          "created": "2016-08-12",
+          "pushed": "2026-08-07",
+          "days_since_push": 52,
           "license": "MIT",
           "lanes": [
             {
@@ -644,34 +819,34 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "lane_bonus": 1.0,
-          "merit": 1.441,
+          "merit": 1.347,
           "merit_from": "velocity",
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 1.655
+          "score": 1.576
         },
         {
-          "full_name": "stevenvachon/broken-link-checker",
-          "url": "https://github.com/stevenvachon/broken-link-checker",
-          "description": "Find broken links, missing images, etc within your HTML.",
-          "stars": 2081,
-          "stars_gained": 3,
-          "language": "JavaScript",
+          "full_name": "aimeos/aimeos-typo3",
+          "url": "https://github.com/aimeos/aimeos-typo3",
+          "description": "TYPO3 e-commerce extension for ultra fast online shops, scalable marketplaces, complex B2B applications and #gigacommerce",
+          "stars": 1574,
+          "stars_gained": 6,
+          "language": "PHP",
           "topics": [
-            "html5",
-            "http",
-            "link-checker",
-            "links",
-            "nodejs",
-            "seo",
-            "urls",
-            "whatwg"
+            "aimeos",
+            "b2b",
+            "e-commerce",
+            "ecommerce",
+            "ecommerce-platform",
+            "json-api",
+            "marketplace",
+            "performance"
           ],
-          "created": "2015-01-10",
-          "pushed": "2026-09-07",
-          "days_since_push": 21,
-          "license": "MIT",
+          "created": "2014-09-27",
+          "pushed": "2026-09-10",
+          "days_since_push": 18,
+          "license": "GPL-3.0",
           "lanes": [
             {
               "id": 2,
@@ -681,12 +856,12 @@
           "weak_lanes": false,
           "crossover": 1.0,
           "lane_bonus": 1.0,
-          "merit": 1.193,
+          "merit": 1.071,
           "merit_from": "velocity",
           "followed_org": false,
           "english": true,
           "english_readme": null,
-          "score": 1.589
+          "score": 1.559
         }
       ]
     },
@@ -4439,6 +4614,10 @@
     {
       "id": 9,
       "name": "Data journalism: analysis, documents, visualization"
+    },
+    {
+      "id": 11,
+      "name": "Indie viral utilities"
     }
   ],
   "updated": "2026-09-28"
