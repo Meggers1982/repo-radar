@@ -41,3 +41,19 @@ _46 saved, 56 dismissed in repo_state at run time._
 
 _46 saved, 56 dismissed in repo_state at run time._
 
+## 2026-10-01
+
+**Suggested, review and fold in by hand:**
+
+- **lane 1 topic (suggested, not applied):** `ai` -- 15 saved repos led under lane 1, but topic:ai matches 184,016 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 2 topic (suggested, not applied):** `agent-skills` -- 14 saved repos led under lane 2, but topic:agent-skills matches 27,994 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 2 topic (suggested, not applied):** `claude` -- 12 saved repos led under lane 2, but topic:claude matches 54,679 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 2 topic (suggested, not applied):** `anthropic` -- 11 saved repos led under lane 2, but topic:anthropic matches 24,922 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 1 topic (suggested, not applied):** `codex` -- 8 saved repos led under lane 1, but topic:codex matches 35,677 repos on GitHub, too broad to trust as a lane signal without a human call
+- **lane 1 topic (suggested, not applied):** `developer-tools` -- 5 saved repos led under lane 1, but topic:developer-tools matches 73,205 repos on GitHub, too broad to trust as a lane signal without a human call
+- **exclude phrase (suggested, not applied):** `workspace` (5 dismissed repos across 5 owners, 0 saved: EKKOLearnAI/hermes-studio, siyuan-note/siyuan, kirodotdev/KiroCrew, …)
+- **exclude phrase (suggested, not applied):** `humans` (3 dismissed repos across 3 owners, 0 saved: docmd-io/docmd, skalesapp/skales, siyuan-note/siyuan)
+- **exclude phrase (suggested, not applied):** `cloud` (3 dismissed repos across 3 owners, 0 saved: nastaso/cloudcertprep, n8n-io/n8n, langgenius/dify)
+
+_54 saved, 45 dismissed in repo_state at run time._
+
