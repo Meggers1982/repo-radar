@@ -1,6 +1,939 @@
 {
   "runs": [
     {
+      "id": "2026-10-01-monthly",
+      "date": "2026-10-01",
+      "cadence": "monthly",
+      "count": 24,
+      "stats": {
+        "found": 561,
+        "in_lane": 466,
+        "new": 152,
+        "dropped_non_english": 4
+      },
+      "picks": [
+        {
+          "full_name": "ScrapeCreators/social-media-research-skills",
+          "url": "https://github.com/ScrapeCreators/social-media-research-skills",
+          "description": "AI agent skills for social media research. Outlier posts, comment mining, competitor teardowns, ad libraries & trends across TikTok, Instagram, YouTube, Reddit, X, LinkedIn & more. Powered by ScrapeCreators. Works with Claude Code, Cursor, Codex, Gemini CLI.",
+          "stars": 3023,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "agent-skills",
+            "ai-agents",
+            "claude-code",
+            "claude-skills",
+            "competitor-analysis",
+            "content-marketing",
+            "cursor",
+            "influencer-marketing"
+          ],
+          "created": "2026-06-06",
+          "pushed": "2026-08-26",
+          "days_since_push": 36,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.7,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.979
+        },
+        {
+          "full_name": "OpenRefine/OpenRefine",
+          "url": "https://github.com/OpenRefine/OpenRefine",
+          "description": "OpenRefine is a free, open source power tool for working with messy data and improving it",
+          "stars": 12015,
+          "stars_gained": null,
+          "language": "Java",
+          "topics": [
+            "data-analysis",
+            "data-science",
+            "data-wrangling",
+            "datacleaning",
+            "datacleansing",
+            "datajournalism",
+            "datamining",
+            "java"
+          ],
+          "created": "2012-10-15",
+          "pushed": "2026-09-30",
+          "days_since_push": 1,
+          "license": "BSD-3-Clause",
+          "lanes": [
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            },
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.45,
+          "lane_bonus": 1.45,
+          "merit": 2.04,
+          "merit_from": "standing",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 4.796
+        },
+        {
+          "full_name": "browseros-ai/BrowserOS",
+          "url": "https://github.com/browseros-ai/BrowserOS",
+          "description": "\ud83c\udf10 The open-source Agentic browser; alternative to ChatGPT Atlas, Perplexity Comet, Dia.",
+          "stars": 13789,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "agent",
+            "ai-agents",
+            "automation",
+            "browser",
+            "browser-automation",
+            "browseros",
+            "chromium",
+            "claude"
+          ],
+          "created": "2025-05-18",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.387
+        },
+        {
+          "full_name": "datagouv/datagouv-mcp",
+          "url": "https://github.com/datagouv/datagouv-mcp",
+          "description": "Official data.gouv.fr Model Context Protocol (MCP) server that allows AI chatbots to search, explore, and analyze datasets from the French national Open Data platform, directly through conversation.",
+          "stars": 1598,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "mcp",
+            "mcp-server",
+            "open-data",
+            "opendata"
+          ],
+          "created": "2025-11-25",
+          "pushed": "2026-09-08",
+          "days_since_push": 23,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.6,
+          "lane_bonus": 1.6,
+          "merit": 2.192,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.267
+        },
+        {
+          "full_name": "opensanctions/opensanctions",
+          "url": "https://github.com/opensanctions/opensanctions",
+          "description": "An open database of international sanctions data, persons of interest and politically exposed persons",
+          "stars": 820,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "due-diligence",
+            "investigations",
+            "journalism",
+            "money-laundering",
+            "sanction-lists",
+            "sanctions",
+            "scraper"
+          ],
+          "created": "2015-12-05",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            },
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.45,
+          "lane_bonus": 1.7,
+          "merit": 1.457,
+          "merit_from": "standing",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 4.025
+        },
+        {
+          "full_name": "simonw/llm",
+          "url": "https://github.com/simonw/llm",
+          "description": "Access large language models from the command-line",
+          "stars": 12576,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "ai",
+            "llms",
+            "openai"
+          ],
+          "created": "2023-04-01",
+          "pushed": "2026-09-22",
+          "days_since_push": 9,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.471,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.917
+        },
+        {
+          "full_name": "jamditis/claude-skills-journalism",
+          "url": "https://github.com/jamditis/claude-skills-journalism",
+          "description": "Claude Code skills for journalism, media, and academia - verification, FOIA, data journalism, academic writing, and more",
+          "stars": 411,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "academic-writing",
+            "claude",
+            "claude-code",
+            "claude-skills",
+            "data-journalism",
+            "fact-checking",
+            "foia",
+            "journalism"
+          ],
+          "created": "2025-12-25",
+          "pushed": "2026-09-28",
+          "days_since_push": 3,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.6,
+          "lane_bonus": 1.7,
+          "merit": 1.654,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.623
+        },
+        {
+          "full_name": "unclecode/crawl4ai",
+          "url": "https://github.com/unclecode/crawl4ai",
+          "description": "Open-source web crawler and scraper for LLMs and AI agents: any website into clean, LLM-ready Markdown. Run it yourself, or use Crawl4AI Cloud with one key.",
+          "stars": 84607,
+          "stars_gained": 194,
+          "language": "Python",
+          "topics": [
+            "ai",
+            "ai-agents",
+            "crawler",
+            "data-extraction",
+            "llm",
+            "markdown",
+            "mcp",
+            "open-source"
+          ],
+          "created": "2024-05-09",
+          "pushed": "2026-09-25",
+          "days_since_push": 6,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.502
+        },
+        {
+          "full_name": "eracle/OpenOutreach",
+          "url": "https://github.com/eracle/OpenOutreach",
+          "description": "Open-source AI agent for B2B lead generation \u2014 describe your product, it finds the people who fit, explains why each one does, and emails them from your mailbox. Self-hosted CLI, one install.",
+          "stars": 3120,
+          "stars_gained": 235,
+          "language": "Python",
+          "topics": [
+            "agent",
+            "agentic",
+            "agentic-marketing",
+            "agentic-workflow",
+            "automation",
+            "b2b",
+            "email-automation",
+            "icp"
+          ],
+          "created": "2016-10-07",
+          "pushed": "2026-09-29",
+          "days_since_push": 2,
+          "license": "GPL-3.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 1.426,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.438
+        },
+        {
+          "full_name": "datopian/portaljs",
+          "url": "https://github.com/datopian/portaljs",
+          "description": "\ud83c\udf00 AI-native framework for building data portals. Scaffold a full portal from a brief and load datasets in minutes with agentic skills \u2014 any backend (CKAN, GitHub, Frictionless).",
+          "stars": 2355,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "agent-skills",
+            "ai",
+            "ai-agents",
+            "ckan",
+            "claude-code",
+            "data-mesh",
+            "data-portal",
+            "datahub"
+          ],
+          "created": "2011-10-14",
+          "pushed": "2026-09-07",
+          "days_since_push": 24,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.6,
+          "lane_bonus": 1.6,
+          "merit": 1.686,
+          "merit_from": "standing",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.275
+        },
+        {
+          "full_name": "bytedance/deer-flow",
+          "url": "https://github.com/bytedance/deer-flow",
+          "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+          "stars": 83309,
+          "stars_gained": 2035,
+          "language": "Python",
+          "topics": [
+            "agent",
+            "agentic",
+            "agentic-framework",
+            "agentic-workflow",
+            "ai",
+            "ai-agents",
+            "deep-research",
+            "harness"
+          ],
+          "created": "2025-05-07",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.272
+        },
+        {
+          "full_name": "langchain-ai/langchain",
+          "url": "https://github.com/langchain-ai/langchain",
+          "description": "The agent engineering platform.",
+          "stars": 147361,
+          "stars_gained": 1836,
+          "language": "Python",
+          "topics": [
+            "agents",
+            "ai",
+            "ai-agents",
+            "anthropic",
+            "chatgpt",
+            "deepagents",
+            "enterprise",
+            "framework"
+          ],
+          "created": "2022-10-17",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.256
+        },
+        {
+          "full_name": "therealaleph/MasterHttpRelayVPN-RUST",
+          "url": "https://github.com/therealaleph/MasterHttpRelayVPN-RUST",
+          "description": "Rust port of @masterking32's MasterHttpRelayVPN \u2014 all credit to @masterking32 for the original idea and Python implementation. Free DPI bypass via a Google Apps Script relay with TLS SNI concealment. CLI + cross-platform desktop UI, HTTP + SOCKS5 proxy, no runtime deps.",
+          "stars": 3592,
+          "stars_gained": 17,
+          "language": "Rust",
+          "topics": [
+            "anti-censorship",
+            "censorship-circumvention",
+            "cross-platform",
+            "desktop-app",
+            "domain-fronting",
+            "dpi-bypass",
+            "egui",
+            "google-apps-script"
+          ],
+          "created": "2026-04-21",
+          "pushed": "2026-09-01",
+          "days_since_push": 30,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.256
+        },
+        {
+          "full_name": "simonw/datasette",
+          "url": "https://github.com/simonw/datasette",
+          "description": "An open source multi-tool for exploring and publishing data",
+          "stars": 11499,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "asgi",
+            "automatic-api",
+            "csv",
+            "datasets",
+            "datasette",
+            "datasette-io",
+            "docker",
+            "json"
+          ],
+          "created": "2017-10-23",
+          "pushed": "2026-09-26",
+          "days_since_push": 5,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 9,
+              "name": "Data journalism: analysis, documents, visualization"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.03,
+          "merit_from": "standing",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.256
+        },
+        {
+          "full_name": "mem0ai/mem0",
+          "url": "https://github.com/mem0ai/mem0",
+          "description": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for production.",
+          "stars": 66428,
+          "stars_gained": 1839,
+          "language": "Python",
+          "topics": [
+            "agentic-memory",
+            "agentic-memory-system",
+            "agents",
+            "ai",
+            "ai-agents",
+            "chatgpt",
+            "genai",
+            "llm"
+          ],
+          "created": "2023-06-20",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.255
+        },
+        {
+          "full_name": "shareAI-lab/learn-claude-code",
+          "url": "https://github.com/shareAI-lab/learn-claude-code",
+          "description": "Bash is all you need -  A nano claude code\u2013like \u300cagent harness\u300d, built from 0 to 1",
+          "stars": 77879,
+          "stars_gained": 1966,
+          "language": "Python",
+          "topics": [
+            "agent",
+            "agent-development",
+            "ai-agent",
+            "claude",
+            "claude-code",
+            "educational",
+            "llm",
+            "python"
+          ],
+          "created": "2025-06-29",
+          "pushed": "2026-09-28",
+          "days_since_push": 3,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.25
+        },
+        {
+          "full_name": "microsoft/ai-agents-for-beginners",
+          "url": "https://github.com/microsoft/ai-agents-for-beginners",
+          "description": "18 Lessons to Get Started Building AI Agents",
+          "stars": 76298,
+          "stars_gained": 2538,
+          "language": "Jupyter Notebook",
+          "topics": [
+            "agentic-ai",
+            "agentic-framework",
+            "agentic-rag",
+            "ai-agents",
+            "ai-agents-framework",
+            "autogen",
+            "foundry",
+            "foundry-local"
+          ],
+          "created": "2024-11-28",
+          "pushed": "2026-09-19",
+          "days_since_push": 13,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.245
+        },
+        {
+          "full_name": "cs-lazy-tools/ChatGPT-On-CS",
+          "url": "https://github.com/cs-lazy-tools/ChatGPT-On-CS",
+          "description": "\u62fc\u591a\u591a\u3001\u5343\u725b\u3001\u6296\u5e97 AI \u5ba2\u670d\u673a\u5668\u4eba\uff1a\u81ea\u52a8\u56de\u590d\u5ba2\u6237\u54a8\u8be2\u3001\u5546\u54c1\u7b54\u7591\u3001\u552e\u540e\u7533\u8bc9\u5904\u7406\uff0c\u652f\u6301\u5fae\u4fe1\u3001\u5c0f\u7ea2\u4e66\u3001\u4eac\u4e1c\u3001\u6296\u97f3\u3001B\u7ad9\u3001\u5fae\u535a\u7b49\u591a\u5e73\u53f0\u7edf\u4e00\u63a5\u5f85\uff1b\u53ef\u63a5\u5165 DeepSeek / \u901a\u4e49\u5343\u95ee \u7b49\u5927\u6a21\u578b\uff0c\u652f\u6301\u81ea\u6709\u77e5\u8bc6\u5e93\u5b9a\u5236\u3002",
+          "stars": 4425,
+          "stars_gained": 97,
+          "language": "TypeScript",
+          "topics": [
+            "ai",
+            "autohotkey",
+            "automation",
+            "bilibili",
+            "bot",
+            "chatgpt",
+            "chatgpt4",
+            "customer"
+          ],
+          "created": "2024-03-07",
+          "pushed": "2026-08-27",
+          "days_since_push": 36,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.154,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": false,
+          "english_readme": "README_EN.md",
+          "score": 3.129
+        },
+        {
+          "full_name": "TryGhost/Ghost",
+          "url": "https://github.com/TryGhost/Ghost",
+          "description": "Independent technology for modern publishing, memberships, subscriptions and newsletters.",
+          "stars": 55475,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "blogging",
+            "cms",
+            "ghost",
+            "javascript",
+            "journalism",
+            "nodejs",
+            "publishing",
+            "web-application"
+          ],
+          "created": "2013-05-04",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.125
+        },
+        {
+          "full_name": "kaifcodec/user-scanner",
+          "url": "https://github.com/kaifcodec/user-scanner",
+          "description": "\ud83d\udd75\ufe0f\u200d\u2642\ufe0f (2-in-1) Email & Username OSINT suite featuring native MCP support for deep data extraction just from a single Email/Username. Analyzes 2720+ actively maintained scan vectors (210+ email / 2510+ username) for security research, investigations, and digital footprinting.",
+          "stars": 5082,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "cybersecurity",
+            "cybersecurity-tools",
+            "email-osint",
+            "ethical-hacking",
+            "ethical-hacking-tools",
+            "identification",
+            "infosec",
+            "osint"
+          ],
+          "created": "2025-10-19",
+          "pushed": "2026-09-30",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            }
+          ],
+          "weak_lanes": true,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.114
+        },
+        {
+          "full_name": "lissy93/web-check",
+          "url": "https://github.com/lissy93/web-check",
+          "description": "\ud83d\udd75\ufe0f\u200d\u2642\ufe0f All-in-one OSINT tool for analysing any website",
+          "stars": 34968,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "osint",
+            "privacy",
+            "security",
+            "security-tools",
+            "sysadmin"
+          ],
+          "created": "2023-06-25",
+          "pushed": "2026-09-30",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            }
+          ],
+          "weak_lanes": true,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.113
+        },
+        {
+          "full_name": "alicevision/Meshroom",
+          "url": "https://github.com/alicevision/Meshroom",
+          "description": "Node-based Visual Programming Toolbox",
+          "stars": 12990,
+          "stars_gained": 51,
+          "language": "Python",
+          "topics": [
+            "3d-reconstruction",
+            "alicevision",
+            "camera-tracking",
+            "computer-vision",
+            "hdr-imaging",
+            "image-stitching",
+            "meshroom",
+            "multi-view-stereo"
+          ],
+          "created": "2015-04-22",
+          "pushed": "2026-10-01",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.974,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.054
+        },
+        {
+          "full_name": "browser-use/jev-ultrafast",
+          "url": "https://github.com/browser-use/jev-ultrafast",
+          "description": "Fastest and cheapest web agent",
+          "stars": 21674,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [],
+          "created": "2026-09-16",
+          "pushed": "2026-09-30",
+          "days_since_push": 2,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 2.729
+        },
+        {
+          "full_name": "MengTo/threeui",
+          "url": "https://github.com/MengTo/threeui",
+          "description": "Open-source ThreeUI Community catalog with live interactive components and complete Community source.",
+          "stars": 6369,
+          "stars_gained": 93,
+          "language": "HTML",
+          "topics": [
+            "react",
+            "shaders",
+            "threejs",
+            "ui-components",
+            "webgl"
+          ],
+          "created": "2026-08-21",
+          "pushed": "2026-09-03",
+          "days_since_push": 29,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.114
+        }
+      ]
+    },
+    {
       "id": "2026-09-28-weekly",
       "date": "2026-09-28",
       "cadence": "weekly",
@@ -4414,5 +5347,5 @@
       "name": "Indie viral utilities"
     }
   ],
-  "updated": "2026-09-28"
+  "updated": "2026-10-01"
 }
