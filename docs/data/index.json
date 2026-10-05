@@ -1,6 +1,623 @@
 {
   "runs": [
     {
+      "id": "2026-10-05-weekly",
+      "date": "2026-10-05",
+      "cadence": "weekly",
+      "count": 17,
+      "stats": {
+        "found": 278,
+        "in_lane": 225,
+        "new": 46,
+        "dropped_non_english": 2
+      },
+      "picks": [
+        {
+          "full_name": "anthropics/commerce-agents",
+          "url": "https://github.com/anthropics/commerce-agents",
+          "description": "Reference blueprint for building shopping and merchant agents with Claude. Examples in retail, commerce, telecom, and entertainment included.",
+          "stars": 3165,
+          "stars_gained": 151,
+          "language": "Python",
+          "topics": [],
+          "created": "2026-09-01",
+          "pushed": "2026-10-02",
+          "days_since_push": 4,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.286
+        },
+        {
+          "full_name": "infiniflow/ragflow",
+          "url": "https://github.com/infiniflow/ragflow",
+          "description": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
+          "stars": 91701,
+          "stars_gained": 1783,
+          "language": "Go",
+          "topics": [
+            "agent-harness",
+            "agentic-ai",
+            "agentic-nagive",
+            "agentic-retrieval",
+            "agentic-search",
+            "ai",
+            "ai-agents",
+            "context-engine"
+          ],
+          "created": "2023-12-12",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.249
+        },
+        {
+          "full_name": "shanraisshan/claude-code-best-practice",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "description": "from vibe coding to agentic engineering - practice makes claude perfect",
+          "stars": 67131,
+          "stars_gained": 1576,
+          "language": "HTML",
+          "topics": [
+            "agentic-ai",
+            "agentic-coding",
+            "agentic-engineering",
+            "agentic-workflow",
+            "ai",
+            "ai-agents",
+            "anthropic",
+            "best-practices"
+          ],
+          "created": "2025-10-31",
+          "pushed": "2026-10-05",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.226
+        },
+        {
+          "full_name": "crewAIInc/crewAI",
+          "url": "https://github.com/crewAIInc/crewAI",
+          "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
+          "stars": 59374,
+          "stars_gained": 1364,
+          "language": "Python",
+          "topics": [
+            "agents",
+            "ai",
+            "ai-agents",
+            "aiagentframework",
+            "llms"
+          ],
+          "created": "2023-10-27",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.204
+        },
+        {
+          "full_name": "Mintplex-Labs/anything-llm",
+          "url": "https://github.com/Mintplex-Labs/anything-llm",
+          "description": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience",
+          "stars": 66726,
+          "stars_gained": 1203,
+          "language": "JavaScript",
+          "topics": [
+            "agent-computer",
+            "agent-harness",
+            "agent-orchestration",
+            "agentic-ai",
+            "agentic-workflow",
+            "ai-agents",
+            "computer-use",
+            "hermes-agent"
+          ],
+          "created": "2023-06-04",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.181
+        },
+        {
+          "full_name": "upstash/context7",
+          "url": "https://github.com/upstash/context7",
+          "description": "Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors",
+          "stars": 62716,
+          "stars_gained": 1187,
+          "language": "TypeScript",
+          "topics": [
+            "llm",
+            "mcp",
+            "mcp-server",
+            "vibe-coding"
+          ],
+          "created": "2025-03-26",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.178
+        },
+        {
+          "full_name": "cadence-workflow/cadence",
+          "url": "https://github.com/cadence-workflow/cadence",
+          "description": "Cadence is a distributed, scalable, durable, and highly available orchestration engine to execute asynchronous long-running business logic in a scalable and resilient way.",
+          "stars": 9470,
+          "stars_gained": 42,
+          "language": "Go",
+          "topics": [
+            "cadence",
+            "distributed-systems",
+            "golang",
+            "java",
+            "orchestration-engine",
+            "service-bus",
+            "service-fabric",
+            "services-platform"
+          ],
+          "created": "2017-02-21",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.913,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.948
+        },
+        {
+          "full_name": "lexmount/moli",
+          "url": "https://github.com/lexmount/moli",
+          "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
+          "stars": 9071,
+          "stars_gained": null,
+          "language": "Rust",
+          "topics": [
+            "ai-agents",
+            "ai-tools",
+            "browser",
+            "browser-automation",
+            "cloud-browser",
+            "kitesurf",
+            "playwright",
+            "puppeteer"
+          ],
+          "created": "2026-08-10",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.7,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.762
+        },
+        {
+          "full_name": "giuseppe99barchetta/SuggestArr",
+          "url": "https://github.com/giuseppe99barchetta/SuggestArr",
+          "description": "Effortlessly request recommended movies, TV shows and anime to Jellyseer/Overseer based on your recently watched content on Jellyfin, Plex or Emby\u2014let SuggestArr handle it all automatically, keeping your library fresh with new and exciting content!",
+          "stars": 1332,
+          "stars_gained": 29,
+          "language": "Python",
+          "topics": [
+            "automation",
+            "docker",
+            "emby",
+            "jellyfin",
+            "jellyseerr",
+            "llm",
+            "media-automation",
+            "ombi"
+          ],
+          "created": "2024-10-14",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.751,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.692
+        },
+        {
+          "full_name": "robbietilton/Compositor",
+          "url": "https://github.com/robbietilton/Compositor",
+          "description": "The Photoshop alternative for Mac",
+          "stars": 8268,
+          "stars_gained": 1501,
+          "language": "Swift",
+          "topics": [],
+          "created": "2026-09-16",
+          "pushed": "2026-09-29",
+          "days_since_push": 6,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.685
+        },
+        {
+          "full_name": "bytechefhq/bytechef",
+          "url": "https://github.com/bytechefhq/bytechef",
+          "description": "Open-source AI agents and workflow automation. Self-host or embed in your SaaS. Apache 2.0 alternative to n8n and Zapier.",
+          "stars": 1013,
+          "stars_gained": 12,
+          "language": "Java",
+          "topics": [
+            "ai",
+            "ai-agents",
+            "api",
+            "automation",
+            "embedded-ipaas",
+            "hacktoberfest",
+            "integrations",
+            "ipaas"
+          ],
+          "created": "2021-09-30",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 1.245,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.631
+        },
+        {
+          "full_name": "denuitt1/mhr-cfw",
+          "url": "https://github.com/denuitt1/mhr-cfw",
+          "description": "A Domain-Fronting Relay that routes traffic though GAS (Google Apps Script) and forwards it to Cloudflare Workers. Designed to bypass DPI.",
+          "stars": 4421,
+          "stars_gained": 17,
+          "language": "Python",
+          "topics": [
+            "cloudflare-workers",
+            "domain-fronting",
+            "dpi",
+            "dpi-bypass",
+            "google-apps-script",
+            "http",
+            "mitm",
+            "proxy"
+          ],
+          "created": "2026-04-27",
+          "pushed": "2026-05-10",
+          "days_since_push": 148,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.286
+        },
+        {
+          "full_name": "tamaratran/fast-jev-compaction",
+          "url": "https://github.com/tamaratran/fast-jev-compaction",
+          "description": "Claude Code plugin that replaces the compaction summary with Jev decisions: every tool call and result is scored in one fast request, stale ones are dropped or truncated, everything kept stays verbatim.",
+          "stars": 7417,
+          "stars_gained": 120,
+          "language": "TypeScript",
+          "topics": [],
+          "created": "2026-09-17",
+          "pushed": "2026-09-18",
+          "days_since_push": 18,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.201
+        },
+        {
+          "full_name": "CopilotKit/OpenBot",
+          "url": "https://github.com/CopilotKit/OpenBot",
+          "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
+          "stars": 6081,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "ag-ui",
+            "agent-governance",
+            "ai-agents",
+            "browser-automation",
+            "copilotkit",
+            "generative-ui",
+            "mcp"
+          ],
+          "created": "2026-08-17",
+          "pushed": "2026-10-05",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.193
+        },
+        {
+          "full_name": "rbbydotdev/someday",
+          "url": "https://github.com/rbbydotdev/someday",
+          "description": "Free to host calendar availability picker - open-source cal.com / calendly alternative built on Google-Apps-Script for Gmail users. Built with modern technologies like React, TypeScript, Shadcn/UI, and Vite.  https://someday-demo.vercel.app",
+          "stars": 1066,
+          "stars_gained": 3,
+          "language": "TypeScript",
+          "topics": [
+            "google-apps-script",
+            "react",
+            "scheduling",
+            "shadcn-ui",
+            "typescript",
+            "vite"
+          ],
+          "created": "2024-11-01",
+          "pushed": "2026-07-20",
+          "days_since_push": 77,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.667,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.818
+        },
+        {
+          "full_name": "googleworkspace/apps-script-samples",
+          "url": "https://github.com/googleworkspace/apps-script-samples",
+          "description": "Apps Script samples for Google Workspace products.",
+          "stars": 5239,
+          "stars_gained": 3,
+          "language": "JavaScript",
+          "topics": [
+            "adminsdk",
+            "apps-script",
+            "calendar",
+            "classroom",
+            "cloud",
+            "drive",
+            "google-apps-script",
+            "google-workspace"
+          ],
+          "created": "2013-06-13",
+          "pushed": "2026-07-30",
+          "days_since_push": 67,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.523,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.731
+        },
+        {
+          "full_name": "zai-org/ZCode",
+          "url": "https://github.com/zai-org/ZCode",
+          "description": "Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+          "stars": 7435,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [],
+          "created": "2026-09-20",
+          "pushed": "2026-09-29",
+          "days_since_push": 6,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.596
+        }
+      ]
+    },
+    {
       "id": "2026-10-01-monthly",
       "date": "2026-10-01",
       "cadence": "monthly",
@@ -5347,5 +5964,5 @@
       "name": "Indie viral utilities"
     }
   ],
-  "updated": "2026-10-01"
+  "updated": "2026-10-05"
 }
