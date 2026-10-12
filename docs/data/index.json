@@ -1,6 +1,606 @@
 {
   "runs": [
     {
+      "id": "2026-10-12-weekly",
+      "date": "2026-10-12",
+      "cadence": "weekly",
+      "count": 16,
+      "stats": {
+        "found": 271,
+        "in_lane": 217,
+        "new": 41,
+        "dropped_non_english": 3
+      },
+      "picks": [
+        {
+          "full_name": "onvoyage-ai/gtm-engineer-skills",
+          "url": "https://github.com/onvoyage-ai/gtm-engineer-skills",
+          "description": "Claude Code skill for improving website AEO (AI Engine Optimization) and GEO (Generative Engine Optimization) scores \u2014 16 foundational checks, 6 intelligence dimensions, framework-specific fixes",
+          "stars": 1321,
+          "stars_gained": 23,
+          "language": "HTML",
+          "topics": [
+            "aeo",
+            "ai-optimization",
+            "claude-code",
+            "geo",
+            "llms-txt",
+            "seo",
+            "structured-data"
+          ],
+          "created": "2026-02-26",
+          "pushed": "2026-10-11",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.241,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.473
+        },
+        {
+          "full_name": "tt-a1i/archify",
+          "url": "https://github.com/tt-a1i/archify",
+          "description": "Turn any idea, plan, or codebase into a beautiful interactive diagram. An agent skill for Claude Code, Codex, and more.",
+          "stars": 82523,
+          "stars_gained": 4462,
+          "language": "JavaScript",
+          "topics": [
+            "agent-skills",
+            "ai-agents",
+            "architecture-diagram",
+            "claude-code",
+            "claude-skills",
+            "codex",
+            "coding-agents",
+            "deepseek-harness"
+          ],
+          "created": "2026-04-15",
+          "pushed": "2026-10-12",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.09
+        },
+        {
+          "full_name": "anthropics/claude-plugins-community",
+          "url": "https://github.com/anthropics/claude-plugins-community",
+          "description": "Community plugin marketplace for Claude Cowork and Claude Code. Read-only mirror \u2014 submit plugins at clau.de/plugin-directory-submission.",
+          "stars": 4630,
+          "stars_gained": 187,
+          "language": "JavaScript",
+          "topics": [],
+          "created": "2026-03-20",
+          "pushed": "2026-10-12",
+          "days_since_push": 1,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.343
+        },
+        {
+          "full_name": "paperclipai/paperclip",
+          "url": "https://github.com/paperclipai/paperclip",
+          "description": "The open-source app everyone uses to manage agents at work",
+          "stars": 100909,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "acpx",
+            "agent-orchestration",
+            "agent-skills",
+            "agentic-ai",
+            "ai-agents",
+            "ai-engineering",
+            "ai-governance",
+            "ai-tools"
+          ],
+          "created": "2026-03-02",
+          "pushed": "2026-10-12",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.7,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.315
+        },
+        {
+          "full_name": "anthropics/jacobian-lens",
+          "url": "https://github.com/anthropics/jacobian-lens",
+          "description": "Companion code for the global workspace interpretability paper",
+          "stars": 2031,
+          "stars_gained": 158,
+          "language": "Python",
+          "topics": [],
+          "created": "2026-07-02",
+          "pushed": "2026-10-10",
+          "days_since_push": 3,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.301
+        },
+        {
+          "full_name": "aaif-goose/goose",
+          "url": "https://github.com/aaif-goose/goose",
+          "description": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+          "stars": 55206,
+          "stars_gained": 1355,
+          "language": "Rust",
+          "topics": [
+            "acp",
+            "ai",
+            "ai-agents",
+            "mcp"
+          ],
+          "created": "2024-08-23",
+          "pushed": "2026-10-12",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.203
+        },
+        {
+          "full_name": "CherryHQ/cherry-studio",
+          "url": "https://github.com/CherryHQ/cherry-studio",
+          "description": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+          "stars": 52575,
+          "stars_gained": 1202,
+          "language": "TypeScript",
+          "topics": [
+            "agent-skills",
+            "ai-agent",
+            "claude-code",
+            "codex",
+            "deepseek",
+            "hermes-agent",
+            "open-code-review",
+            "skills"
+          ],
+          "created": "2024-05-24",
+          "pushed": "2026-10-12",
+          "days_since_push": 0,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.182
+        },
+        {
+          "full_name": "NandhaKishorM/laya",
+          "url": "https://github.com/NandhaKishorM/laya",
+          "description": "Non-autoregressive System 1 decision engine. Typed choice, score and yes/no decisions over any text in a single forward pass, in 100+ languages, with a router that picks the right checkpoint per request.",
+          "stars": 32554,
+          "stars_gained": 1612,
+          "language": "Python",
+          "topics": [
+            "calibration",
+            "classification",
+            "decision-model",
+            "huggingface",
+            "jev",
+            "modernbert",
+            "multilingual",
+            "nlp"
+          ],
+          "created": "2026-09-18",
+          "pushed": "2026-10-12",
+          "days_since_push": 1,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.719
+        },
+        {
+          "full_name": "jaredpalmer/kev",
+          "url": "https://github.com/jaredpalmer/kev",
+          "description": "Jev-like family of decision models built on top of Qwen3.5/3.8 you can train and run on your own",
+          "stars": 9003,
+          "stars_gained": 502,
+          "language": "Python",
+          "topics": [
+            "decision-model",
+            "jev",
+            "qwen3"
+          ],
+          "created": "2026-09-17",
+          "pushed": "2026-10-12",
+          "days_since_push": 0,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.517
+        },
+        {
+          "full_name": "jev-chat/jev-chat-jarvis",
+          "url": "https://github.com/jev-chat/jev-chat-jarvis",
+          "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android \u00b7 Windows \u00b7 macOS \u00b7 iOS | \u804a\u5929\u8f85\u52a9\u51b3\u7b56\u5de5\u5177\uff1a\u5148\u770b\u61c2\u5bf9\u65b9\u518d\u56de\u590d\uff0c\u53d1\u4e0d\u53d1\u7531\u4f60\u3002",
+          "stars": 7672,
+          "stars_gained": 311,
+          "language": "Kotlin",
+          "topics": [
+            "accessibility-service",
+            "ai-assistant",
+            "android",
+            "chat-assistant",
+            "chat-copilot",
+            "llm",
+            "ocr",
+            "qq"
+          ],
+          "created": "2026-09-21",
+          "pushed": "2026-10-08",
+          "days_since_push": 5,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.417
+        },
+        {
+          "full_name": "mizorewww/laya-mlx",
+          "url": "https://github.com/mizorewww/laya-mlx",
+          "description": "Native MLX runtime for Laya typed decision models \u2014 7\u201314 ms short decisions on M3 Max. No text generation, PyTorch, or cloud API.",
+          "stars": 6890,
+          "stars_gained": 110,
+          "language": "Python",
+          "topics": [
+            "apple-silicon",
+            "decision-model",
+            "inference",
+            "laya",
+            "local-ai",
+            "machine-learning",
+            "mlx",
+            "modernbert"
+          ],
+          "created": "2026-09-19",
+          "pushed": "2026-10-10",
+          "days_since_push": 3,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.244
+        },
+        {
+          "full_name": "yetone/magpie",
+          "url": "https://github.com/yetone/magpie",
+          "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
+          "stars": 10333,
+          "stars_gained": null,
+          "language": "Go",
+          "topics": [
+            "claude-code",
+            "codex",
+            "deepseek",
+            "gemini-cli",
+            "llm",
+            "macos"
+          ],
+          "created": "2026-09-23",
+          "pushed": "2026-10-12",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.194
+        },
+        {
+          "full_name": "Ebony-Vinyl/dsh-our-free-model",
+          "url": "https://github.com/Ebony-Vinyl/dsh-our-free-model",
+          "description": "\u5728 dsh \u91cc\u88c5\u4e0a\u8fd9\u4e2a\u63d2\u4ef6\u5373\u53ef\uff0c\u65e0\u9700\u767b\u5f55\u3001\u6ce8\u518c\u6216\u586b API Key\uff0c\u5c31\u80fd\u4f7f\u7528\u5305\u62ec DeepSeek V4.1 Flash\u3001Kimi K3 \u5728\u5185\u7684\u524d\u6cbf\u6a21\u578b\u2014\u2014\u5b8c\u5168\u514d\u8d39\uff0c\u4e0d\u9650\u91cf\u3002 All you do is install this plugin in dsh: no login, no sign-up, no API key \u2014 the frontier models are just there, DeepSeek V4.1 Flash and Kimi K3 among them. Completely free, with no usage cap.",
+          "stars": 11824,
+          "stars_gained": null,
+          "language": "JavaScript",
+          "topics": [
+            "ai-agents",
+            "deepseek",
+            "deepseek-harness",
+            "developer-tools",
+            "dsh",
+            "dsh-plugin",
+            "free-model",
+            "llm"
+          ],
+          "created": "2026-09-24",
+          "pushed": "2026-10-12",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.19
+        },
+        {
+          "full_name": "torikushiii/hoyolab-auto",
+          "url": "https://github.com/torikushiii/hoyolab-auto",
+          "description": "Auto check-in and others for any Hoyoverse games",
+          "stars": 281,
+          "stars_gained": 14,
+          "language": "JavaScript",
+          "topics": [
+            "discord-webhook",
+            "genshin",
+            "genshin-impact",
+            "genshinimpact",
+            "google-apps-script",
+            "honkai-star-rail",
+            "honkai-starrail",
+            "hoyolab"
+          ],
+          "created": "2024-04-26",
+          "pushed": "2026-10-11",
+          "days_since_push": 1,
+          "license": "AGPL-3.0",
+          "lanes": [
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.016,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.686
+        },
+        {
+          "full_name": "sethblack/python-seo-analyzer",
+          "url": "https://github.com/sethblack/python-seo-analyzer",
+          "description": "An SEO tool that analyzes the structure of a site, crawls the site, count words in the body of the site and warns of any technical SEO issues.",
+          "stars": 1486,
+          "stars_gained": 11,
+          "language": "Python",
+          "topics": [
+            "analyzer",
+            "python",
+            "python-3",
+            "python-seo-analyzer",
+            "python3",
+            "search-engine",
+            "seo",
+            "seo-monitor"
+          ],
+          "created": "2012-12-28",
+          "pushed": "2026-10-08",
+          "days_since_push": 5,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 0.994,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.608
+        },
+        {
+          "full_name": "alxshelepenok/lumen",
+          "url": "https://github.com/alxshelepenok/lumen",
+          "description": "A constantly evolving and thoughtful architecture for creating static blogs.",
+          "stars": 2018,
+          "stars_gained": 2,
+          "language": "TypeScript",
+          "topics": [
+            "astro",
+            "blog",
+            "jamstack",
+            "json-ld",
+            "semantic-html",
+            "semantic-markup",
+            "semantic-releases",
+            "sentry"
+          ],
+          "created": "2016-03-11",
+          "pushed": "2026-09-23",
+          "days_since_push": 19,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.222,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.58
+        }
+      ]
+    },
+    {
       "id": "2026-10-05-weekly",
       "date": "2026-10-05",
       "cadence": "weekly",
@@ -5964,5 +6564,5 @@
       "name": "Indie viral utilities"
     }
   ],
-  "updated": "2026-10-05"
+  "updated": "2026-10-12"
 }
