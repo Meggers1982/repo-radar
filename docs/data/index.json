@@ -1,6 +1,550 @@
 {
   "runs": [
     {
+      "id": "2026-10-19-weekly",
+      "date": "2026-10-19",
+      "cadence": "weekly",
+      "count": 15,
+      "stats": {
+        "found": 279,
+        "in_lane": 222,
+        "new": 38,
+        "dropped_non_english": 3
+      },
+      "picks": [
+        {
+          "full_name": "coreyhaines31/marketingskills",
+          "url": "https://github.com/coreyhaines31/marketingskills",
+          "description": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+          "stars": 55525,
+          "stars_gained": 1160,
+          "language": "JavaScript",
+          "topics": [
+            "agent-skills",
+            "ai-agents",
+            "ai-seo",
+            "claude",
+            "claude-code",
+            "claude-code-plugin",
+            "claude-skills",
+            "codex"
+          ],
+          "created": "2026-01-15",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.3,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 5.612
+        },
+        {
+          "full_name": "morluto/rea",
+          "url": "https://github.com/morluto/rea",
+          "description": "Reverse engineer anything with agents, from app behavior down to native binaries.",
+          "stars": 334853,
+          "stars_gained": 182592,
+          "language": "TypeScript",
+          "topics": [
+            "agent-skills",
+            "ai-agents",
+            "binary-analysis",
+            "claude-code",
+            "cli",
+            "codex",
+            "cordis",
+            "decompiler"
+          ],
+          "created": "2026-04-14",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 4.055
+        },
+        {
+          "full_name": "MadsLorentzen/ai-job-search",
+          "url": "https://github.com/MadsLorentzen/ai-job-search",
+          "description": "The job search that runs on your machine. AI job application framework built on Claude Code: evaluate postings, tailor CVs, write cover letters, prep interviews. Fork it and own it.",
+          "stars": 56593,
+          "stars_gained": 13925,
+          "language": "Python",
+          "topics": [
+            "ai",
+            "ai-agents",
+            "career",
+            "claude-code",
+            "cover-letter",
+            "cv",
+            "interview-preparation",
+            "job-application"
+          ],
+          "created": "2026-03-18",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.607
+        },
+        {
+          "full_name": "anthropics/claude-for-legal",
+          "url": "https://github.com/anthropics/claude-for-legal",
+          "description": "A suite of plugins for legal workflows",
+          "stars": 9743,
+          "stars_gained": 199,
+          "language": "Python",
+          "topics": [],
+          "created": "2026-04-21",
+          "pushed": "2026-10-14",
+          "days_since_push": 5,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.322
+        },
+        {
+          "full_name": "anthropics/cwc-workshops",
+          "url": "https://github.com/anthropics/cwc-workshops",
+          "description": "",
+          "stars": 2197,
+          "stars_gained": 152,
+          "language": "TypeScript",
+          "topics": [],
+          "created": "2026-05-06",
+          "pushed": "2026-10-16",
+          "days_since_push": 3,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": true,
+          "english": true,
+          "english_readme": null,
+          "score": 3.292
+        },
+        {
+          "full_name": "lobehub/lobehub",
+          "url": "https://github.com/lobehub/lobehub",
+          "description": "\ud83e\udd2f LobeHub is your Chief Agent Operator, organizing your agents into 7\u00d724 operations by hiring, scheduling, and reporting on your entire AI team.",
+          "stars": 83333,
+          "stars_gained": 1163,
+          "language": "TypeScript",
+          "topics": [
+            "agent",
+            "agent-collaboration",
+            "agent-harness",
+            "ai",
+            "cao",
+            "chatgpt",
+            "chief-agent-operator",
+            "claude"
+          ],
+          "created": "2023-05-21",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "NOASSERTION",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 8,
+              "name": "Journalism and reporting workflow"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.176
+        },
+        {
+          "full_name": "mudler/LocalAI",
+          "url": "https://github.com/mudler/LocalAI",
+          "description": "LocalAI is the open-source AI engine. Run any model - LLMs, vision, voice, image, video - on any hardware. No GPU required.",
+          "stars": 49684,
+          "stars_gained": 856,
+          "language": "Go",
+          "topics": [
+            "agents",
+            "ai",
+            "api",
+            "audio-generation",
+            "decentralized",
+            "distributed",
+            "image-generation",
+            "libp2p"
+          ],
+          "created": "2023-03-18",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 3.123
+        },
+        {
+          "full_name": "Niko1221/Strata",
+          "url": "https://github.com/Niko1221/Strata",
+          "description": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
+          "stars": 28161,
+          "stars_gained": 5520,
+          "language": "C++",
+          "topics": [],
+          "created": "2026-09-24",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.934
+        },
+        {
+          "full_name": "retlehs/quien",
+          "url": "https://github.com/retlehs/quien",
+          "description": "A better whois and domain intelligence toolkit",
+          "stars": 1295,
+          "stars_gained": null,
+          "language": "Go",
+          "topics": [
+            "asn",
+            "bgp",
+            "bimi",
+            "cli",
+            "core-web-vitals",
+            "cwv",
+            "dkim",
+            "dmarc"
+          ],
+          "created": "2026-04-10",
+          "pushed": "2026-10-19",
+          "days_since_push": 1,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.307,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.764
+        },
+        {
+          "full_name": "KKKKhazix/AIHOT",
+          "url": "https://github.com/KKKKhazix/AIHOT",
+          "description": "\u4e00\u4e2a\u81ea\u5df1\u627e\u70ed\u70b9\u3001\u81ea\u5df1\u5199\u65e5\u62a5\u7684\u7f51\u7ad9\u6846\u67b6\u3002\u628a\u4fe1\u6e90\u548c\u7cbe\u9009\u6807\u51c6\u6362\u6210\u4f60\u7684\uff0c\u5b83\u5c31\u662f\u4f60\u7684\u884c\u4e1a\u70ed\u70b9\u7ad9\u3002",
+          "stars": 8085,
+          "stars_gained": null,
+          "language": "TypeScript",
+          "topics": [
+            "ai",
+            "chinese",
+            "content-curation",
+            "daily-digest",
+            "docker-compose",
+            "llm",
+            "mcp",
+            "news-aggregator"
+          ],
+          "created": "2026-09-28",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            },
+            {
+              "id": 5,
+              "name": "Personal and business automation"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.7,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": false,
+          "english_readme": "README.en.md",
+          "score": 2.761
+        },
+        {
+          "full_name": "shihabal3amri/DiPlay",
+          "url": "https://github.com/shihabal3amri/DiPlay",
+          "description": "Independent CarPlay receiver for compatible Android head units. Wired and wireless public preview.",
+          "stars": 11660,
+          "stars_gained": 1752,
+          "language": "Kotlin",
+          "topics": [],
+          "created": "2026-09-24",
+          "pushed": "2026-10-17",
+          "days_since_push": 2,
+          "license": "GPL-3.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.727
+        },
+        {
+          "full_name": "crmne/spotifast",
+          "url": "https://github.com/crmne/spotifast",
+          "description": "Spotify, native and fast. One lightweight Rust app for your whole library, local playback, and Spotify Connect on Linux, macOS, and Windows.",
+          "stars": 8499,
+          "stars_gained": 948,
+          "language": "Rust",
+          "topics": [
+            "audio",
+            "cross-platform",
+            "desktop-app",
+            "egui",
+            "gui",
+            "librespot",
+            "linux",
+            "macos"
+          ],
+          "created": "2026-08-27",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.627
+        },
+        {
+          "full_name": "Albert-Weasker/niubigeo",
+          "url": "https://github.com/Albert-Weasker/niubigeo",
+          "description": "Open-source AI brand visibility and competitor reports. Official website: https://niubigeo.ai/ | Paid services: AI testing by real people and GEO optimization. Pricing: https://niubigeo.ai/pricing",
+          "stars": 8363,
+          "stars_gained": 884,
+          "language": "TypeScript",
+          "topics": [],
+          "created": "2026-09-03",
+          "pushed": "2026-10-10",
+          "days_since_push": 10,
+          "license": "Apache-2.0",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.578
+        },
+        {
+          "full_name": "rehan-remade/universal-modder",
+          "url": "https://github.com/rehan-remade/universal-modder",
+          "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
+          "stars": 8438,
+          "stars_gained": null,
+          "language": "Python",
+          "topics": [
+            "age-of-empires",
+            "claude-code",
+            "claude-code-plugin",
+            "fal",
+            "game-assets",
+            "game-modding",
+            "mcp",
+            "modding"
+          ],
+          "created": "2026-09-30",
+          "pushed": "2026-10-19",
+          "days_since_push": 0,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 11,
+              "name": "Indie viral utilities"
+            },
+            {
+              "id": 1,
+              "name": "Agent harnesses and agent design"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.35,
+          "merit": 2.5,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 2.192
+        },
+        {
+          "full_name": "akii-technologies-ltd/akii-seo-ai-search-optimizer",
+          "url": "https://github.com/akii-technologies-ltd/akii-seo-ai-search-optimizer",
+          "description": "Free Claude Code plugin for SEO, AEO, and GEO. Audit sites, optimize content, generate schema, and track AI visibility across ChatGPT, Claude, Gemini, Perplexity, Copilot, and Google AI Overviews.",
+          "stars": 76,
+          "stars_gained": 1,
+          "language": "Markdown",
+          "topics": [
+            "aeo",
+            "ai-seo",
+            "ai-visibility",
+            "chatgpt-seo",
+            "claude-code-plugin",
+            "claude-plugin",
+            "claude-seo",
+            "gemini-seo"
+          ],
+          "created": "2026-05-20",
+          "pushed": "2026-10-15",
+          "days_since_push": 5,
+          "license": "MIT",
+          "lanes": [
+            {
+              "id": 2,
+              "name": "Content and SEO tooling"
+            }
+          ],
+          "weak_lanes": false,
+          "crossover": 1.0,
+          "lane_bonus": 1.0,
+          "merit": 1.203,
+          "merit_from": "velocity",
+          "followed_org": false,
+          "english": true,
+          "english_readme": null,
+          "score": 1.546
+        }
+      ]
+    },
+    {
       "id": "2026-10-12-weekly",
       "date": "2026-10-12",
       "cadence": "weekly",
@@ -6564,5 +7108,5 @@
       "name": "Indie viral utilities"
     }
   ],
-  "updated": "2026-10-12"
+  "updated": "2026-10-19"
 }
